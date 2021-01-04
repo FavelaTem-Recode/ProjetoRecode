@@ -7,7 +7,7 @@ require "./Models/PrestadorServicos.php";
 
 $prestador = new PrestadorServicos;
 $prestador->email = $_POST['email'];
-$prestador->senha = $_POST['senha'];
+$prestador->senha = md5($_POST['senha']);
 
 $validate = $prestador->deletePrestador();
 

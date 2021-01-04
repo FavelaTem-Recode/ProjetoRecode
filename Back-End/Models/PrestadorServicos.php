@@ -89,4 +89,36 @@ class PrestadorServicos
         $stmt = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,nome,sobrenome,cpf_cnpj,telefone,email,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,cadastrolojaprestador.imagem,descricao_loja,idportfolio,portfolio.imagem,descricao FROM cadastrolojaprestador LEFT OUTER JOIN favelatem.portfolio on cadastrolojaprestador.idcadastrolojaprestador = portfolio.fk_lojaprestador WHERE idcadastrolojaprestador = '$this->id';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function updatePrestador()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT idcadastrolojaprestador FROM cadastrolojaprestador WHERE email = '$this->email' AND senha = '$this->senha';");
+        $idUser = $stmt->fetch(PDO::FETCH_ASSOC)['idcadastrolojaprestador'];
+
+        $stmt = $conn->query("UPDATE cadastrolojaprestador
+        SET nome_fantasia = '$this->nome_fantasia',
+            nome = '$this->nome',
+            sobrenome = '$this->sobrenome',
+            telefone = '$this->telefone',
+            cep = '$this->cep',
+            data_nascimento = '$this->data_nascimento',
+            logradouro = '$this->logradouro',
+            numero = '$this->numero',
+            bairro = '$this->bairro',
+            estado = '$this->estado',
+            cidade = '$this->cidade',
+            imagem = '$this->imagem',
+            descricao_loja = '$this->descricao'
+        WHERE idcadastrolojaprestador = '$idUser';");
+        return $stmt->rowCount();
+    }
+
+    public function loginPrestador() {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT idcadastrolojaprestador, email FROM cadastrolojaprestador WHERE email = '$this->email' AND senha = '$this->senha';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
+
+//// UPDATEPRESTADOR + INSERT DELETE UPDATE PORTFOLIO
