@@ -2,7 +2,8 @@
 
 require 'Connection.php';
 
-class Cursos {
+class Cursos
+{
 
     public $idcursos;
     public $nome_curso;
@@ -15,7 +16,6 @@ class Cursos {
         $conn = Connection::getConnection();
         $stmt = $conn->query("SELECT * FROM cursos;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function selectCursos()
@@ -23,9 +23,5 @@ class Cursos {
         $conn = Connection::getConnection();
         $stmt = $conn->query("SELECT * FROM cursos left outer join perguntas on idcursos = fk_curso where idcursos = '$this->idcursos';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
-
 }
-
-
