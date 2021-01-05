@@ -19,29 +19,39 @@ $prestador->numero = $_POST['numero'];
 $prestador->bairro = $_POST['bairro'];
 $prestador->estado = $_POST['estado'];
 $prestador->cidade = $_POST['cidade'];
-$prestador->senha = $_POST['senha'];
+$prestador->senha = md5($_POST['senha']);
 $prestador->pontuacao = 0;
 $prestador->atividades = 0;
 $prestador->imagem = null;
 $prestador->descricao = "";
 
-$validate = $prestador->registerPrestador();
-
-if ($validate == true) {
-    print_r(
-        json_encode(
-            array(
-                'status' => 1,
-                'mensagem' => 'Dados inseridos com sucesso'
+if (strlen($prestador->nome_fantasia) >= 1 && strlen($prestador->nome) >= 1 && strlen($prestador->sobrenome) >= 1 && is_numeric($prestador->cpf_cnpj) && strlen($prestador->cpf_cnpj) >= 7 && strlen($prestador->telefone) >= 8 && strlen($prestador->email) >= 9) {
+    $validate = $prestador->registerPrestador();
+    if ($validate == true) {
+        print_r(
+            json_encode(
+                array(
+                    'status' => 1,
+                    'mensagem' => 'Dados inseridos com sucesso'
+                )
             )
-        )
-    );
+        );
+    } else {
+        print_r(
+            json_encode(
+                array(
+                    'status' => 0,
+                    'mensagem' => 'Falha na inserção de dados'
+                )
+            )
+        );
+    }
 } else {
     print_r(
         json_encode(
             array(
                 'status' => 0,
-                'mensagem' => 'Falha na inserção de dados'
+                'mensagem' => 'Algum dado inserido não está correto'
             )
         )
     );
