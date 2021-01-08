@@ -3,23 +3,23 @@
 header("Access-Control-Allow-Origin:*"); // Permite que outras aplicações consumam a api
 header("Content-type: application/json"); //Indicação de arquivo JSON
 
-require "./Models/RespostasUsuario.php";
+require "./Models/Comentarios.php";
 
-$resposta = new RespostasUsuario;
-$resposta->email = $_POST['email'];
-$resposta->resposta_usuario = $_POST['resposta'];
-$resposta->fk_pergunta = $_POST['idpergunta'];
-$resposta->senha = md5($_POST['senha']);
+$comentario = new Comentarios;
+$comentario->email = $_POST['email'];
+$comentario->comentario = $_POST['comentario'];
+$comentario->fk_loja = $_POST['idloja'];
+$comentario->senha = md5($_POST['senha']);
 
 
-$validate = $resposta->insertRespostas();
+$validate = $comentario->insertComment();
 
 if ($validate == true) {
     print_r(
         json_encode(
             array(
                 'status' => 1,
-                'mensagem' => 'Dados inseridos com sucesso'        
+                'mensagem' => 'Dados inseridos com sucesso'
             )
         )
     );
@@ -28,7 +28,8 @@ if ($validate == true) {
         json_encode(
             array(
                 'status' => 0,
-                'mensagem' => 'Falha na inserção de dados'
+                'mensagem' => 'Falha na inserção de dados',
+                'body'=> $validate
             )
         )
     );

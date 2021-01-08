@@ -3,26 +3,18 @@
 header("Access-Control-Allow-Origin:*"); // Permite que outras aplicações consumam a api
 header("Content-type: application/json"); //Indicação de arquivo JSON
 
-require "./Models/PrestadorServicos.php";
+require "./Models/UserBasico.php";
 
-$prestador = new PrestadorServicos;
-$prestador->nome_fantasia = $_POST['nomefantasia'];
-$prestador->telefone = $_POST['telefone'];
-$prestador->email = $_POST['email'];
-$prestador->cep = $_POST['cep'];
-$prestador->logradouro = $_POST['rua'];
-$prestador->numero = $_POST['numero'];
-$prestador->bairro = $_POST['bairro'];
-$prestador->estado = $_POST['estado'];
-$prestador->cidade = $_POST['cidade'];
-$prestador->senha = md5($_POST['senha']);
-$prestador->pontuacao = 0;
-$prestador->atividades = 0;
-$prestador->imagem = null;
-$prestador->descricao = "";
+$usuario = new UserBasico;
+$usuario->email = $_POST['email'];
+$usuario->nome = $_POST['nome'];
+$usuario->sobrenome = $_POST['sobrenome'];
+$usuario->dataNascimento = $_POST['datanascimento'];
+$usuario->senha = md5($_POST['senha']);
 
-if (strlen($prestador->nome_fantasia) >= 1 && strlen($prestador->telefone) >= 8 && strlen($prestador->email) >= 9) {
-    $validate = $prestador->registerPrestador();
+
+if (strlen($usuario->email) >= 9 && strlen($usuario->nome)>1 && strlen($usuario->sobrenome)>1 && strlen($_POST['senha'])> 5) {
+    $validate = $usuario->registerUser();
     if ($validate == true) {
         print_r(
             json_encode(
