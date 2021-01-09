@@ -1,6 +1,3 @@
-// import './App.css';
-// import Home from './pages/home';
-
 import Rotas from './componentes/rotas';
 
 import {BrowserRouter} from 'react-router-dom';

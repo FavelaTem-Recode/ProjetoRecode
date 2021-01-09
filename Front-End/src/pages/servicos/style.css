@@ -3,7 +3,7 @@ body {
     padding: 0px;
 }
 
-.section-1 .container-1 .header {
+.container-fluid .section-1 .bloco-1 .header {
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@ body {
     margin: 0px;
 }
 
-.section-1 .container-1 .header nav button {
+.container-fluid .section-1 .bloco-1 .header nav button {
     margin: 5px;
     background-color: transparent;
     color: black;
@@ -19,48 +19,73 @@ body {
     border: none;
 }
 
-.section-1 .container-1 main {
-    background: white;    
-    /* background-image: url(../../assets/imagens/paraisopolisfoto.png); */
-    /* background-repeat: no-repeat; */
-    /* background-size: 100%; */
-    /* height: 800px; */
-    margin: 0px;
-}
-
-.section-1 .container-1 main h1 {
-    padding: 200px 0px 0px 80px;
-}
-
-.section-1 .container-1 main div {
-    margin-left: 80px;
-    background-color: rgba(255, 255, 255, 0.274);
-    display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.section-2 {
+.container-fluid .section-2 {
     background-color: #FF4D00;
     width: 100%;
     height: 90px;
     margin: 0px;
     padding: 10px;
-    
+            
 }
-
-.section-2 .container-2 .categorias{
+.container-fluid .section-2 .nav{
     display:flex;
     justify-content: space-between;
 }
 
-.section-2 .container-2 .categorias .cat-1{
-    align-items: center;
+.container-fluid .section-2 .nav .categorias {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5px;
 }
 
+.container-fluid .section-2 .nav .categorias button{
+    margin: 5px;
+    background-color: transparent;
+    outline: 0px;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 60px;
+}
 
+.container-fluid .section-2 .nav .categorias  img {
+    width: 36px;
+    height: 36px;
+}
 
-.section-2 .container-2 .categorias  img {
-    width: 50px;
-    height: 40px;
+.section-3{
+    display:flex;   
+}
+
+.section-3 .filtro aside {
+    background-color: #1CA8C9;
+    width: 350;
+    height: 300px;
+    border: #1CA8C9;
+    border-radius: 0px 0px 16px 0px ;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+
+.section-3 .filtro aside ul {
+    padding: 0px;
+    margin: 50px;
+}
+
+.servicos {
+    width: 100%;
+    height: auto;
+}
+
+.section-3 .servicos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }

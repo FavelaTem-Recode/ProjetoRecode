@@ -1,0 +1,28 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.container-fluid .section-1 .bloco-1 .header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    margin: 0px;
+}
+
+.container-fluid .section-1 .bloco-1 .header nav button {
+    margin: 5px;
+    background-color: transparent;
+    color: black;
+    outline: 0px;
+    border: none;
+}
+
+.section-user{
+    background-color: #6ebaed ;
+    width: 250px;
+    height: auto;
+}
+
+
