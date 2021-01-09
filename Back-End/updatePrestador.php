@@ -1,18 +1,15 @@
 <?php
 
-// header("Access-Control-Allow-Origin:*"); // Permite que outras aplicações consumam a api
-// header("Content-type: application/json"); //Indicação de arquivo JSON
+header("Access-Control-Allow-Origin:*"); // Permite que outras aplicações consumam a api
+header("Content-type: application/json"); //Indicação de arquivo JSON
 
 require "./Models/PrestadorServicos.php";
 
 $prestador = new PrestadorServicos;
 $prestador->nome_fantasia = $_POST['nomefantasia'];
-$prestador->nome = $_POST['nome'];
-$prestador->sobrenome = $_POST['sobrenome'];
 $prestador->telefone = $_POST['telefone'];
 $prestador->email = $_POST['email'];
 $prestador->cep = $_POST['cep'];
-$prestador->data_nascimento = $_POST['datanascimento'];
 $prestador->logradouro = $_POST['rua'];
 $prestador->numero = $_POST['numero'];
 $prestador->bairro = $_POST['bairro'];

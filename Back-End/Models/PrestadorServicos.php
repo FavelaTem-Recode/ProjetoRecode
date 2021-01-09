@@ -4,45 +4,44 @@ require 'Connection.php';
 
 class PrestadorServicos
 {
-    public $id;
-    public $nome_fantasia;
-    public $nome;
-    public $sobrenome;
-    public $cpf_cnpj;
-    public $telefone;
     public $email;
+    public $senha;
+    public $id;
+    public $fk_usuario;
+    public $nome_fantasia;
+    public $telefone;
     public $cep;
-    public $data_nascimento;
     public $logradouro;
     public $numero;
     public $bairro;
     public $estado;
     public $cidade;
-    public $senha;
     public $pontuacao;
     public $atividades;
     public $imagem;
     public $descricao;
 
+    //checked
     public function registerPrestador()
     {
+        //Pega o id do usuário do BD de acordo com a senha e email passado, caso não retorne nada, insere null
         $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT iduser FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
+        $this->fk_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        isset($this->fk_usuario['0']['iduser']) ? $this->fk_usuario = $this->fk_usuario['0']['iduser'] : $this->fk_usuario = null;
+        //----------------------------->
+
         $stmt = $conn->query("INSERT INTO cadastrolojaprestador
         (
             nome_fantasia,
-            nome,
-            sobrenome,
-            cpf_cnpj,
+            fk_cadastro,
             telefone,
-            email,
             cep,
-            data_nascimento,
             logradouro,
             numero,
             bairro,
             estado,
             cidade,
-            senha,
             pontuacao,
             atividades,
             imagem,
@@ -51,19 +50,14 @@ class PrestadorServicos
             VALUES 
         (
             '$this->nome_fantasia',
-            '$this->nome',
-            '$this->sobrenome',
-            '$this->cpf_cnpj',
+            '$this->fk_usuario',
             '$this->telefone',
-            '$this->email',
             '$this->cep',
-            '$this->data_nascimento',
             '$this->logradouro',
             '$this->numero',
             '$this->bairro',
             '$this->estado',
             '$this->cidade',
-            '$this->senha',
             '$this->pontuacao',
             '$this->atividades',
             '$this->imagem',
@@ -74,15 +68,18 @@ class PrestadorServicos
         return $stmt;
     }
 
+    //ckecked
     public function deletePrestador()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT idcadastrolojaprestador FROM cadastrolojaprestador WHERE email = '$this->email' AND senha = '$this->senha';");
-        $idUser = $stmt->fetch(PDO::FETCH_ASSOC)['idcadastrolojaprestador'];
-        $stmt = $conn->query("DELETE FROM cadastrolojaprestador WHERE idcadastrolojaprestador = '$idUser';");
+        $stmt = $conn->query("SELECT iduser FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
+        $this->fk_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        isset($this->fk_usuario['0']['iduser']) ? $this->fk_usuario = $this->fk_usuario['0']['iduser'] : $this->fk_usuario = null;
+        $stmt = $conn->query("DELETE FROM cadastrolojaprestador WHERE fk_cadastro = '$this->fk_usuario';");
         return $stmt->rowCount();
     }
 
+    //Retorna os dados da página da loja
     public function selectPrestador()
     {
         $conn = Connection::getConnection();
@@ -90,19 +87,18 @@ class PrestadorServicos
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    //checked
     public function updatePrestador()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT idcadastrolojaprestador FROM cadastrolojaprestador WHERE email = '$this->email' AND senha = '$this->senha';");
-        $idUser = $stmt->fetch(PDO::FETCH_ASSOC)['idcadastrolojaprestador'];
+        $stmt = $conn->query("SELECT iduser FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
+        $this->fk_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        isset($this->fk_usuario['0']['iduser']) ? $this->fk_usuario = $this->fk_usuario['0']['iduser'] : $this->fk_usuario = null;
 
         $stmt = $conn->query("UPDATE cadastrolojaprestador
         SET nome_fantasia = '$this->nome_fantasia',
-            nome = '$this->nome',
-            sobrenome = '$this->sobrenome',
             telefone = '$this->telefone',
             cep = '$this->cep',
-            data_nascimento = '$this->data_nascimento',
             logradouro = '$this->logradouro',
             numero = '$this->numero',
             bairro = '$this->bairro',
@@ -110,15 +106,7 @@ class PrestadorServicos
             cidade = '$this->cidade',
             imagem = '$this->imagem',
             descricao_loja = '$this->descricao'
-        WHERE idcadastrolojaprestador = '$idUser';");
+        WHERE fk_cadastro = '$this->fk_usuario';");
         return $stmt->rowCount();
     }
-
-    public function loginPrestador() {
-        $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT idcadastrolojaprestador, email FROM cadastrolojaprestador WHERE email = '$this->email' AND senha = '$this->senha';");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 }
-
-//// UPDATEPRESTADOR + INSERT DELETE UPDATE PORTFOLIO

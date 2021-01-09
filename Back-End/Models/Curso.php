@@ -1,7 +1,7 @@
 <?php
 
 require 'Connection.php';
-
+//Checked
 class Cursos
 {
 

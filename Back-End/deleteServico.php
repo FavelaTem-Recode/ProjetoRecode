@@ -8,6 +8,8 @@ require "./Models/Servicos.php";
 
 $servicos = new Servicos;
 $servicos->id = $_POST ['id'];
+$servicos->senha = md5($_POST ['senha']);
+$servicos->email = $_POST ['email'];
 
 $validate = $servicos->deleteServico();
 
@@ -16,7 +18,7 @@ if ($validate == true) {
         json_encode(
             array(
                 'status' => 'sucesso',
-                'mensagem' => 'Conta deletada com sucesso'
+                'mensagem' => 'Serviço deletado com sucesso'
             )
         )
     );
@@ -25,7 +27,7 @@ if ($validate == true) {
         json_encode(
             array(
                 'status' => 'falha',
-                'mensagem' => 'Houve um erro ao deletar esta conta'
+                'mensagem' => 'Houve um erro ao deletar este serviço'
             )
         )
     );

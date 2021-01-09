@@ -7,8 +7,7 @@ require "./Models/Servicos.php";
 
 $servico = new Servicos;
 
-$servico->fk_lojaprestador= $_POST['id'];
-$servico->fk_servico= $_POST['fkservico'];
+$servico->fk_subcategoria= $_POST['idsubcategoria'];
 $servico->descricao_servico = $_POST['descricaoservico'];
 $servico->atendimento_domicilio = $_POST['atendimentodomicilio'];
 $servico->atendimento_local = $_POST['atendimentolocal'];
@@ -17,6 +16,8 @@ $servico->pagamento_cartao = $_POST['pagamentocartao'];
 $servico->inicio_atendimento = $_POST['inicioatendimento'];
 $servico->fim_atendimento = $_POST['fimatendimento'];
 $servico->imagem_servico= $_POST['imagemservico'];
+$servico->senha= md5($_POST['senha']);
+$servico->email= $_POST['email'];
 
 
 $validate = $servico->registerServicos();

@@ -16,7 +16,7 @@ if ($validate === 1) {
         json_encode(
             array(
                 'status' => 'sucesso',
-                'mensagem' => 'Conta deletada com sucesso'
+                'mensagem' => 'Loja deletada com sucesso'
             )
         )
     );
@@ -25,7 +25,7 @@ if ($validate === 1) {
         json_encode(
             array(
                 'status' => 'falha',
-                'mensagem' => 'Houve um erro ao deletar esta conta'
+                'mensagem' => 'Houve um erro ao deletar esta loja'
             )
         )
     );

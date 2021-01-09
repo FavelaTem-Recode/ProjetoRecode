@@ -5,11 +5,7 @@ header("Content-type: application/json"); //Indicação de arquivo JSON
 
 require "./Models/Servicos.php";
 
-$servico = new Servicos;
-$servico->idcateg = $_GET['id'];
 
-$validate = $servico->selectSubcategorias();
+$validate = Servicos::selectServicos();
 
 print_r(json_encode($validate));
-
-
