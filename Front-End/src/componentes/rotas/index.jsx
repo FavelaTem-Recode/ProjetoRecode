@@ -2,7 +2,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../../pages/home';
 import Servicos from '../../pages/servicos';
 import Hub from '../../pages/hub';
-import Cursos from '../../pages/cursos/curso-individual';
+import Cursos from '../../pages/cursos/';
 
 function Rotas () {
     return(

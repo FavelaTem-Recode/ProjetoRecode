@@ -20,7 +20,9 @@ body {
 }
 
 .section-principal{
-    display:flex;    
+    display:flex;
+
+    
 }
 
 .section-user{
@@ -118,8 +120,6 @@ body {
     text-transform: uppercase;
 }
 
-
-
 .section-user .experiencia  li{
     font-size: large;
     font-weight: 700;
@@ -161,19 +161,7 @@ body {
     height: 350px;
 }
 
-.conteudo .carousel-item h5 {
-    color:black;
-    font-weight: 800;
-}
-
-.conteudo .carousel-item p{
-    color: hsl(0, 0%, 0%);
-    font-size: 18px;
-    font-weight: 600;
-}
-
 .conteudo .propaganda {
     background-color: #6EBAED;
     margin-bottom: 100px;
 }
-
