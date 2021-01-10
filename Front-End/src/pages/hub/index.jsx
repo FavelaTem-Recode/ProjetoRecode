@@ -20,21 +20,25 @@ const Hub = () => {
             </div>
             <div className="section-user">
                 <aside className="inf-user">
-                    <img src="" alt="foto usuario"/>
-                    <h4>DACA PRINT</h4>
-                    <div>
-                        retorno do banco
-                        <p>Pontos</p>
+                    <div className="foto-user">
+                        <img src="" alt="foto usuario"/>
                     </div>
-                    <div>
-                        atividade
+                    <div className="name-user">
+                        <p>Nome Usuario/Loja</p>
+                    </div>          
+                    <div className="pontos">
+                        <p>50</p>
+                        <p>pontos</p>
+                    </div>
+                    <div className="atividades">
+                        <p>1/3</p>
                         <p>atividades</p>
                     </div>
-                    <div>
-                        qnt banco
+                    <div className="anuncios">
+                        <p>10</p>
                         <p>anúncios</p>
                     </div>
-                    <div>
+                    <div className="experiencia">
                         <ul>
                             <li>Nivel</li>
                             <li>EXP</li>
