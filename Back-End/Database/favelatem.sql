@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 08-Jan-2021 às 06:19
+-- Tempo de geração: 11-Jan-2021 às 23:09
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -80,7 +80,21 @@ CREATE TABLE IF NOT EXISTS `categorias_servico` (
   `idcategorias_servico` int(11) NOT NULL AUTO_INCREMENT,
   `categoria` varchar(100) NOT NULL,
   PRIMARY KEY (`idcategorias_servico`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `categorias_servico`
+--
+
+INSERT INTO `categorias_servico` (`idcategorias_servico`, `categoria`) VALUES
+(4, 'Arte, Papelaria e Armarinho'),
+(5, 'Assistência Técnica'),
+(6, 'Beleza'),
+(7, 'Serviços gerais'),
+(8, 'Alimentação'),
+(9, 'Moda'),
+(10, 'Saúde e Bem-estar'),
+(11, 'Outros');
 
 -- --------------------------------------------------------
 
@@ -114,14 +128,6 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   PRIMARY KEY (`idcursos`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
---
--- Extraindo dados da tabela `cursos`
---
-
-INSERT INTO `cursos` (`idcursos`, `nome_curso`, `pontuacao`) VALUES
-(1, 'Curso A', 1000),
-(2, 'Curso B', 10000);
-
 -- --------------------------------------------------------
 
 --
@@ -132,8 +138,8 @@ DROP TABLE IF EXISTS `perguntas`;
 CREATE TABLE IF NOT EXISTS `perguntas` (
   `idperguntas` int(11) NOT NULL AUTO_INCREMENT,
   `fk_curso` int(11) NOT NULL,
-  `conteudo` varchar(2000) NOT NULL,
-  `pegunta` varchar(500) NOT NULL,
+  `conteudo` text NOT NULL,
+  `pegunta` varchar(255) NOT NULL,
   `valor_pontos` int(11) NOT NULL,
   PRIMARY KEY (`idperguntas`),
   KEY `fk_pergunta_curso_idx` (`fk_curso`)
@@ -149,7 +155,7 @@ DROP TABLE IF EXISTS `portfolio`;
 CREATE TABLE IF NOT EXISTS `portfolio` (
   `idportfolio` int(11) NOT NULL AUTO_INCREMENT,
   `imagem` varchar(255) NOT NULL,
-  `descricao` varchar(500) DEFAULT NULL,
+  `descricao` varchar(255) DEFAULT NULL,
   `fk_lojaprestador` int(11) NOT NULL,
   PRIMARY KEY (`idportfolio`),
   KEY `fk_portfolio_prestador_idx` (`fk_lojaprestador`)
@@ -165,7 +171,7 @@ DROP TABLE IF EXISTS `respostas_padrao`;
 CREATE TABLE IF NOT EXISTS `respostas_padrao` (
   `idrespostas_padrao` int(11) NOT NULL AUTO_INCREMENT,
   `fk_pergunta` int(11) NOT NULL,
-  `veracidade` tinyint(4) NOT NULL,
+  `veracidade` tinyint(1) NOT NULL,
   `resposta` varchar(500) NOT NULL,
   PRIMARY KEY (`idrespostas_padrao`),
   KEY `fk_pergunta_respostapadrao_idx` (`fk_pergunta`)
@@ -201,11 +207,11 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   `idservicos` int(11) NOT NULL AUTO_INCREMENT,
   `fk_lojaprestador` int(11) NOT NULL,
   `fk_subcategoria` int(11) NOT NULL,
-  `descricao_servico` varchar(500) NOT NULL,
-  `atendimento_domicilio` tinyint(4) NOT NULL,
-  `atendimento_local` tinyint(4) NOT NULL,
-  `pagamento_dinheiro` tinyint(4) NOT NULL,
-  `pagamento_cartao` tinyint(4) NOT NULL,
+  `descricao_servico` varchar(255) NOT NULL,
+  `atendimento_domicilio` tinyint(1) NOT NULL,
+  `atendimento_local` tinyint(1) NOT NULL,
+  `pagamento_dinheiro` tinyint(1) NOT NULL,
+  `pagamento_cartao` tinyint(1) NOT NULL,
   `inicio_atendimento` time NOT NULL,
   `fim_atendimento` time NOT NULL,
   `imagem_servico` varchar(255) NOT NULL,
@@ -227,7 +233,47 @@ CREATE TABLE IF NOT EXISTS `subcategorias` (
   `fk_categoria` int(11) NOT NULL,
   PRIMARY KEY (`idsubcategorias`),
   KEY `fk_categoria_idx` (`fk_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `subcategorias`
+--
+
+INSERT INTO `subcategorias` (`idsubcategorias`, `nome_subcategoria`, `fk_categoria`) VALUES
+(8, 'Artesanato', 4),
+(9, 'Fotografia', 4),
+(10, 'Música', 4),
+(11, 'Eletrodomésticos', 5),
+(12, 'Eletrônicos', 5),
+(13, 'Informática', 5),
+(14, 'Barbeiro', 6),
+(15, 'Cabeleireira', 6),
+(16, 'Depilação', 6),
+(17, 'Limpeza de Pele', 6),
+(18, 'Maquiagem', 6),
+(19, 'Manicure', 6),
+(20, 'Pedicure', 6),
+(21, 'Sobrancelha', 6),
+(22, 'Tranças', 6),
+(23, 'Consultoria', 7),
+(24, 'Reformas e Reparos', 7),
+(25, 'Serviços Automotivos', 7),
+(26, 'Serviços de Limpeza', 7),
+(27, 'Entrega/Carreto', 7),
+(28, 'Cuidador', 7),
+(29, 'Doces', 8),
+(30, 'Salgados', 8),
+(31, 'Refeições', 8),
+(32, 'Corte e Costura', 9),
+(33, 'Moda Feminina', 9),
+(34, 'Moda Masculina', 9),
+(35, 'Moda Plus Size', 9),
+(36, 'Sapateiro', 9),
+(37, 'Personal Trainer', 10),
+(38, 'Podólogo', 10),
+(39, 'Fisioterapeuta', 10),
+(40, 'Massoterapeuta', 10),
+(41, 'Outros', 11);
 
 --
 -- Restrições para despejos de tabelas
