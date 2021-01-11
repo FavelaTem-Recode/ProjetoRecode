@@ -8,6 +8,7 @@ import Registro from '../../pages/cadastro-usuario/';
 import Contato from '../../pages/contato/';
 import Servico from '../../pages/cadastro-servico/';
 import Loja from '../../pages/cadastro-loja/';
+import Portifolio from '../../pages/portifolio';
 
 function Rotas () {
     return(
@@ -21,6 +22,8 @@ function Rotas () {
             <Route exact path='/contato' component={Contato}/>
             <Route exact path='/servico' component={Servico}/>
             <Route exact path='/loja' component={Loja}/>
+            <Route exact path='/portifolio' component={Portifolio}/>
+            
         </Switch>
     )
 }

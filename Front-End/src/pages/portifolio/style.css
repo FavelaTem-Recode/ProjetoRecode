@@ -1,0 +1,187 @@
+p {
+    font-family: arial;
+}
+
+h4 {
+    text-transform: uppercase;
+    font-size: 14px
+}
+
+.section1 {
+    background-color: white;
+}
+
+.voltar {
+    padding: 5px 0px 0px 15px;
+    color: #1CA8C9;
+    margin-left:10px ;
+}
+
+
+.primeiro {
+    width: 50%;
+    margin: auto; 
+}
+
+.tesoura {
+    margin: auto;
+    width: 50%;
+    align-items: center;
+    max-width: 100px;
+    margin-bottom: 20px;
+}
+
+.tesoura img {
+    position: relative;
+}
+
+.segundo {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    text-align:center;
+    align-items: center;   
+    margin: 0 auto;
+    width: 50%;
+    /* flex-wrap: wrap;  */
+}
+
+.topo {
+    background-color: #1CA8C9;
+    border-radius: 10px 10px 0px 0px;
+    text-align: center;
+    padding: 3px;
+    margin: 0px;
+}
+
+.corpo {
+    border-radius: 0px 0px 10px 10px;
+    text-align: center;
+    height: auto;
+    padding: 15px; 
+    border: 2px solid #1CA8C9;
+    margin: 0px;  
+    font-size: 13px; 
+}
+
+.one {
+    margin:20px;
+    justify-content: space-between;
+    width: auto;
+    align-items: center;  
+}
+
+.terceiro {
+    display: flex;
+    background-color: white;
+    text-align:center;
+    align-items: center;   
+    margin: 0 auto;
+    width: 70%;
+    flex-wrap: wrap;
+}
+
+.two {
+    background-color: #1CA8C9;
+    margin:auto;
+    width: 70;
+    border-radius: 50px;
+    align-items: center;
+    padding: 5px; 
+    height: 15px;
+}
+
+.p-servico {
+    margin: 0px;
+    padding: 0px;
+    font-size: 13px;
+
+}
+
+.section2 {
+    background-color:rgb(255, 255, 255);
+    height: auto;
+    margin-top: 30px;
+}
+
+.quarto {
+    margin:10px 200px;
+    height: auto;
+    border: 2px solid rgb(243, 147, 69);
+    width: auto;
+}
+
+.um1 {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    padding: 1px;
+    color: rgb(243, 147, 69);
+}
+
+.dois2 {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.a {
+    margin: 10px;
+}
+
+.b img {
+    background-color: rgb(204, 0, 255);
+    width: 400px;
+    margin-bottom: 30px;
+
+
+}
+
+.c {
+    margin: 10px;
+}
+
+.test {
+    margin: auto;
+    display: flex;
+    padding: 5px;
+    height: 20px;
+    width: 100px;
+    border-radius:8px ;
+    justify-content: space-evenly;
+    background-color: rgb(65, 218, 103);
+}
+
+.test p {
+    margin: 0px;
+    padding: 2px;
+    color: white;
+}
+
+.section3 {
+    /* margin:40px 20px 20px 20px ;
+    height: 200px;
+    background-color: rgb(218, 65, 218); */
+}
+
+#comenttitulo {
+    margin: auto;
+    width: 50%;
+}
+.coment {
+    padding: 20px;
+    border: 10px solid #2189eb55;
+    border-radius: 10px;
+}
+
+.test2 {
+    margin: auto;
+    display: flex;
+    padding: 5px;
+    height: 20px;
+    width: 100px;
+    border-radius:8px ;
+    justify-content: space-evenly;
+    background-color:#FF4D00;
+}
