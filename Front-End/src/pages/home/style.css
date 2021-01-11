@@ -1,373 +1,369 @@
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: roboto;
+.home body {
+  margin: 0px;
+  padding: 0px;
+  font-family: roboto;
 }
 
-header {
-    background-color:rgb(255, 255, 255);
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-    margin: 0px;
-    width: 100%;
+.home header {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  margin: 0px;
+  width: 100%;
 }
 
-header nav button{
-    margin:6px 5px 3px 0px;
-    background-color: transparent;
-    color:  rgba(255, 77, 0, 1);
-    outline: 0px;
-    border: none;
-    text-transform: uppercase;
-    
+.home header nav button {
+  margin: 6px 5px 3px 0px;
+  background-color: transparent;
+  color: rgba(255, 77, 0, 1);
+  outline: 0px;
+  border: none;
+  text-transform: uppercase;
 }
 
-header nav button a {
-    text-decoration: none;
-    color: rgba(255, 77, 0, 1);
+.home header nav button a {
+  text-decoration: none;
+  color: rgba(255, 77, 0, 1);
 }
 
- main {
-   background: url(../../assets/imagens/paraisopolisfoto.png);
-   background-size: cover;  
-   background-repeat: no-repeat;
-   width: auto;
-   height: auto;
-   min-width: 100%;
-   min-height: 510px;
-    padding: 1px;
+.home main {
+  background: url(../../assets/imagens/paraisopolisfoto.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 510px;
+  padding: 1px;
 }
 
-main h1 {
-    padding: 8% 0% 0% 8%;
-    font-style: unset;
-    text-transform: uppercase;
-    color: rgba(255, 77, 0, 1);
-    font-size: 180%;
+.home main h1 {
+  padding: 8% 0% 0% 8%;
+  font-style: unset;
+  text-transform: uppercase;
+  color: rgba(255, 77, 0, 1);
+  font-size: 180%;
 }
 
-main div {
-    margin: 0px 0px 0px 80px;
-    background-color: rgba(255, 255, 255, 0.473);
-    display: flex;
-    padding: 8px;
-    border-radius: 10px;  
-    width: 45%;
+.home main div {
+  margin: 0px 0px 0px 80px;
+  background-color: rgba(255, 255, 255, 0.473);
+  display: flex;
+  padding: 8px;
+  border-radius: 10px;
+  width: 45%;
 }
 
-main div input {
-    margin: 0px 8px 0px 0px;
-    border: none;
-    border-radius: 3px;
-    width: 90%;
-    padding: 8px;
+.home main div input {
+  margin: 0px 8px 0px 0px;
+  border: none;
+  border-radius: 3px;
+  width: 90%;
+  padding: 8px;
 }
 
-main div button {
-    background-color: rgba(255, 77, 0, 1);
-    color: white;
-    padding: 7px;
-    border-style: solid;
-    border-radius: 7px;
-    border-color: white;
-    border-width: 3px;
-    text-transform: uppercase;
+.home main div button {
+  background-color: rgba(255, 77, 0, 1);
+  color: white;
+  padding: 7px;
+  border-style: solid;
+  border-radius: 7px;
+  border-color: white;
+  border-width: 3px;
+  text-transform: uppercase;
 }
 
-.containerflex {
-    background:url(../../assets/imagens/fundobrancotriangulolaranja.jpg);
-    background-size: cover;  
-   background-repeat: no-repeat;
-   width: auto;
-   height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    min-height: 500px;
-    padding: 0px;
-    width: 100%; 
+.home .containerflex {
+  background: url(../../assets/imagens/fundobrancotriangulolaranja.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  min-height: 500px;
+  padding: 0px;
+  width: 100%;
 }
 
-.containerflex div {
-    flex: 1 1 200px;
-    margin:0px;
+.home .containerflex div {
+  flex: 1 1 200px;
+  margin: 0px;
 }
 
-.containerflex .item1 {
-    background: url(../../assets/imagens/mocaboloroxom.jpg);
-    background-size:cover ;
-    padding: 60px 0px 60px 30px;
-    margin: 5% 5% 5% 5%;
-    border-radius: 10px;
-    max-width: 390px;
-    min-width: 390px;
-    min-height: 240px;
-    border: 3px solid rgba(255, 77, 0, 1);
+.home .containerflex .item1 {
+  background: url(../../assets/imagens/mocaboloroxom.jpg);
+  background-size: cover;
+  padding: 60px 0px 60px 30px;
+  margin: 5% 5% 5% 5%;
+  border-radius: 10px;
+  max-width: 390px;
+  min-width: 390px;
+  min-height: 240px;
+  border: 3px solid rgba(255, 77, 0, 1);
 }
 
-.containerflex .item2 {
-    display: block;
-    padding: 10px;
-    border:rgba(161, 135, 135, 0.027) solid;
-    margin: 5% 5% 5% 5%;
-    width: 80%;
-    padding:50px 0px 20px 20px; 
-    max-width: 400px;
-    align-items: center;
+.home .containerflex .item2 {
+  display: block;
+  padding: 10px;
+  border: rgba(161, 135, 135, 0.027) solid;
+  margin: 5% 5% 5% 5%;
+  width: 80%;
+  padding: 50px 0px 20px 20px;
+  max-width: 400px;
+  align-items: center;
 }
 
-.containerflex .item2 h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:  320%; 
-    color: rgba(255, 77, 0, 1);
-    margin-bottom: 0px;
+.home .containerflex .item2 h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 320%;
+  color: rgba(255, 77, 0, 1);
+  margin-bottom: 0px;
 }
 
-.containerflex .item2 h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgba(255, 77, 0, 1);
-    margin-top: 0px;
+.home .containerflex .item2 h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(255, 77, 0, 1);
+  margin-top: 0px;
 }
 
-#frase {
-    display: flex;
+.home #frase {
+  display: flex;
 }
 
-#frase h1{
-   font-family: Arial, Helvetica, sans-serif;
-    font-size:  340%; 
-    color: rgba(255, 77, 0, 1);
-    margin: 12px 20px 20px 0px;
+.home #frase h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 340%;
+  color: rgba(255, 77, 0, 1);
+  margin: 12px 20px 20px 0px;
 }
 
-#frase h2{
-    font-family: calibri;
-    color: rgb(119, 118, 118);
-    text-transform: uppercase;
-    margin-top: 10px;
+.home #frase h2 {
+  font-family: calibri;
+  color: rgb(119, 118, 118);
+  text-transform: uppercase;
+  margin-top: 10px;
 }
 
-#fraseA {
-    margin-top: 40px;
-    padding-top: 15px;
+.home #fraseA {
+  margin-top: 40px;
+  padding-top: 15px;
 }
 
-#fraseB h1 {
-    margin-top:0px ;
+.home #fraseB h1 {
+  margin-top: 0px;
 }
 
-#fraseB h2 {
-    text-transform:uppercase;
+.home #fraseB h2 {
+  text-transform: uppercase;
 }
 
-.containerflex2 {
-    background:url(../../assets/imagens/fundoazul.jpg);
-    background-size: cover;  
-   background-repeat: no-repeat;
-   width: auto;
-   height: auto;
-    display: flex;
-    margin: 0 auto;
-    max-height: 530px;
-    padding: 40px 0px 40px 0px;
-    width: 100%; 
+.home .containerflex2 {
+  background: url(../../assets/imagens/fundoazul.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  max-height: 530px;
+  padding: 40px 0px 40px 0px;
+  width: 100%;
 }
 
-.item3 {
-    display: inline-block;
-    padding: 10px;
-    border:rgba(255, 243, 243, 0) solid;
-    margin: 2% 2% 2% 2%;
-    width: 40%;
-    padding:5% 5% 3% 2%; 
-    text-align:right;
+.home .item3 {
+  display: inline-block;
+  padding: 10px;
+  border: rgba(255, 243, 243, 0) solid;
+  margin: 2% 2% 2% 2%;
+  width: 40%;
+  padding: 5% 5% 3% 2%;
+  text-align: right;
 }
 
-.item3 h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size:  300%; 
-    color: rgba(255, 77, 0, 1);
-    margin-bottom: 0px;
-    text-align: center;
+.home .item3 h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 300%;
+  color: rgba(255, 77, 0, 1);
+  margin-bottom: 0px;
+  text-align: center;
 }
 
-.containerflex2 .item3 h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgba(255, 77, 0, 1);
-    margin-top: 0px;
+.home .containerflex2 .item3 h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(255, 77, 0, 1);
+  margin-top: 0px;
 }
 
-.item4 {
-    background: url(../../assets/imagens/costura.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin: 750% 2% 2% 2%;
-    border-radius: 10px;
-    width: 5070%;
-    height: 300px;
-    border: 3px solid  rgb(255, 77, 0);   
+.home .item4 {
+  background: url(../../assets/imagens/costura.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 750% 2% 2% 2%;
+  border-radius: 10px;
+  width: 5070%;
+  height: 300px;
+  border: 3px solid rgb(255, 77, 0);
 }
 
-#frase2 {
-    text-align:right;
+.home #frase2 {
+  text-align: right;
 }
 
-#frase2B {
-    margin-top: 20px;
+.home #frase2B {
+  margin-top: 20px;
 }
 
-#frase2B h1{
-   font-family: Arial, Helvetica, sans-serif;
-    font-size:  280%; 
-    color: rgb(255, 77, 0);
-    margin: 0px 0px 0px 0px;
+.home #frase2B h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 280%;
+  color: rgb(255, 77, 0);
+  margin: 0px 0px 0px 0px;
 }
 
-#frase2 h2{
-    font-family: calibri;
-    color: rgb(255, 255, 255);
-    text-transform: uppercase;
-    margin: 10px 0px 10px 0px;
+.home #frase2 h2 {
+  font-family: calibri;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  margin: 10px 0px 10px 0px;
 }
 
-#frase2A {
-    margin-top: 40px;
-    padding-top: 15px;
+.home #frase2A {
+  margin-top: 40px;
+  padding-top: 15px;
 }
 
-#frase2B h1 {
-    margin-top:0px ;
-    text-align: right;
+.home #frase2B h1 {
+  margin-top: 0px;
+  text-align: right;
 }
 
-#frase2B input  {
-    background-color: #1CA8C9;
-    border-color: rgba(255, 77, 0, 1);
-    border-radius: 50px;
-    padding: 15px;
-    color: rgb(255, 255, 255);
-    font-size: 15px;  
-    height: 50px;
-    width: 120px;
+.home #frase2B input {
+  background-color: #1ca8c9;
+  border-color: rgba(255, 77, 0, 1);
+  border-radius: 50px;
+  padding: 15px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  height: 50px;
+  width: 120px;
 }
 
-
-#item5 {
-    text-align: center;
-    padding: 40px;
-    margin: 0px;
-    color:rgba(255, 77, 0, 1);
-    text-transform:uppercase ;
-    font-family: calibri;
-    font-size: 130%;
-    font-style: inherit;
+.home #item5 {
+  text-align: center;
+  padding: 40px;
+  margin: 0px;
+  color: rgba(255, 77, 0, 1);
+  text-transform: uppercase;
+  font-family: calibri;
+  font-size: 130%;
+  font-style: inherit;
 }
 
-.containerflex .item5 h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: rgb(201, 167, 129);
-    margin-top: 0px;
+.home .containerflex .item5 h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(201, 167, 129);
+  margin-top: 0px;
 }
 
-.containerflex3 {
-    background-color:#e6aa65;
-        margin: 0 auto;
-        width: 100%;
-        height: auto;
-        padding: 20px;
+.home .containerflex3 {
+  background-color: #e6aa65;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  padding: 20px;
 }
 
-.cursos {
-    display: flex;
-    width: 80%;
-    margin: 0 auto;
-    align-items:right;
-    justify-content: space-between;
+.home .cursos {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  align-items: right;
+  justify-content: space-between;
 }
 
-.cursos img {
-    width: 21%;
+.home .cursos img {
+  width: 21%;
 }
 
-.icone {
-    margin: 30px;
+.home .icone {
+  margin: 30px;
 }
 
- #item6 {
-    font-family:calibri;
-    color: rgb(253, 237, 237);
-    font-weight:inherit ;
-    text-align: center;
-    font-size: 117%;
-    margin: 50px;
+.home #item6 {
+  font-family: calibri;
+  color: rgb(253, 237, 237);
+  font-weight: inherit;
+  text-align: center;
+  font-size: 117%;
+  margin: 50px;
 }
 
-#item7 {
-    font-family:calibri;
-    color: #1CA8C9;
-    margin: 30px;
-    font-weight:inherit ;
-    text-align: center;
-    font-size: 75%;
-    text-transform: uppercase;
+.home #item7 {
+  font-family: calibri;
+  color: #1ca8c9;
+  margin: 30px;
+  font-weight: inherit;
+  text-align: center;
+  font-size: 75%;
+  text-transform: uppercase;
 }
 
-#botaocadastrar {
-    background: url(../../assets/imagens/mapa.png);
-    width: 100%;
-    min-height: 110px;
-    padding: 5% 45% 0% 45%;  
+.home #botaocadastrar {
+  background: url(../../assets/imagens/mapa.png);
+  width: 100%;
+  min-height: 110px;
+  padding: 5% 45% 0% 45%;
 }
 
-#botaocadastrar input  {
-    background-color: rgba(255, 77, 0, 1);;
-    border-color: rgba(255, 77, 0, 1);
-    border-radius: 50px;
-    padding: 13px;
-    color: rgb(255, 255, 255);
-    font-size: 14px;  
+.home #botaocadastrar input {
+  background-color: rgba(255, 77, 0, 1);
+  border-color: rgba(255, 77, 0, 1);
+  border-radius: 50px;
+  padding: 13px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
 }
 
-
-#fraseC {
-    font-family:calibri;
-    color: #53585f;
-    margin: 20%px;
-    font-weight:inherit ;
-    text-align: center;
-    font-size: 95%;
-    text-transform: uppercase;   
+.home #fraseC {
+  font-family: calibri;
+  color: #53585f;
+  margin: 20%px;
+  font-weight: inherit;
+  text-align: center;
+  font-size: 95%;
+  text-transform: uppercase;
 }
 
-
-#fraseD {
-    font-family:calibri;
-    color: rgb(238, 120, 41);
-    font-weight:bold;
-    text-align: center;
-    font-size: 117%;
-    margin: 0px 40% 0px 38%;
+.home #fraseD {
+  font-family: calibri;
+  color: rgb(238, 120, 41);
+  font-weight: bold;
+  text-align: center;
+  font-size: 117%;
+  margin: 0px 40% 0px 38%;
 }
 
-.containerflex4 {
-    margin:10px;
+.home .containerflex4 {
+  margin: 10px;
 }
 
-.containerflex4 img {
-    align-items: center;
-    margin: 10px;
+.home .containerflex4 img {
+  align-items: center;
+  margin: 10px;
 }
 
-#logo {
-    width: 100%;
-    padding: 3% 43% 0% 45%;
-    justify-content: space-between;  
+.home #logo {
+  width: 100%;
+  padding: 3% 43% 0% 45%;
+  justify-content: space-between;
 }
 
-#logo img  {
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-size: 14px;  
-    justify-content: space-between;
+.home #logo img {
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  justify-content: space-between;
 }

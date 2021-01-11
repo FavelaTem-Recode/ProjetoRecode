@@ -9,6 +9,7 @@ import empreendedorismo from "../../assets/imagens/empreendedorismo.png";
 
 const Cursos = () => {
     return (
+        <div className="curso">
         <div className="container-fluid">
             <div className="section-1">
                 <div className="bloco-1">
@@ -101,6 +102,7 @@ const Cursos = () => {
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

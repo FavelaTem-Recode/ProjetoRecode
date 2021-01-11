@@ -11,7 +11,7 @@ import zap from "../../assets/imagens/whatsapp.png";
 
 const Portifolio = () => {
     return (
-        <div>
+        <div className="portfolio">
             <header className="header">
                 <img src={logo} alt="logo" />
                 <nav>
@@ -33,15 +33,15 @@ const Portifolio = () => {
                 </div>
                 <div class="segundo">
                     <div class="one">
-                        <h4 class="topo">> Nosso endereço </h4>
+                        <h4 class="topo"> Nosso endereço </h4>
                         <p class="corpo">rua das dores numero zero</p>
                     </div>
                     <div class="one">
-                        <h4 class="topo">> Contato </h4>
+                        <h4 class="topo"> Contato </h4>
                         <p class="corpo">meuemail@contato.com </p>
                     </div>
                     <div class="one">
-                        <h4 class="topo">> Atendemos </h4>
+                        <h4 class="topo"> Atendemos </h4>
                         <p class="corpo">pessoa fisica <br /> pequenas empresas </p>
                     </div>
                 </div>
