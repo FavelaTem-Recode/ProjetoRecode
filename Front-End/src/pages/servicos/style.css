@@ -1,4 +1,4 @@
-.page-servicos body {
+.page-servicos body, html {
     margin: 0px;
     padding: 0px;
 }
@@ -22,24 +22,16 @@
 .page-servicos .container-fluid .section-2 {
     background-color: #FF4D00;
     width: 100%;
-    height: 90px;
     margin: 0px;
     padding: 10px;
             
 }
-.page-servicos .container-fluid .section-2 .nav{
-    display:flex;
-    justify-content: space-between;
+
+.page-servicos .container-fluid .section-2 .navbar li {
+    background-color: transparent;
 }
 
-.page-servicos .container-fluid .section-2 .nav .categorias {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 5px;
-}
-
-.page-servicos .container-fluid .section-2 .nav .categorias button{
+.page-servicos .container-fluid .section-2 .navbar button{
     margin: 5px;
     background-color: transparent;
     outline: 0px;
@@ -50,7 +42,7 @@
     height: 60px;
 }
 
-.page-servicos .container-fluid .section-2 .nav .categorias  img {
+.page-servicos .container-fluid .section-2 .navbar  img {
     width: 36px;
     height: 36px;
 }
@@ -78,6 +70,10 @@
     margin: 50px;
 }
 
+.page-servicos .section-3 .filtro aside ul select {
+    height: 40px;
+}
+
 .page-servicos .section-3 .servicos{
     display: block;
     text-align: center;
@@ -87,8 +83,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -16px;
+}
+.page-servicos .section-3 .servicos .pesquisa .d-flex .btn {
+    height: 33px;
 }
 
 .page-servicos .section-3 .servicos .group-servicos{
     display: flex;
 }
+

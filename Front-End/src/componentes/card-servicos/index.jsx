@@ -1,20 +1,26 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 
-const CardServicos = () => {
-    return (
-        <div className="cardServicos">
-            <div className="card border-dark mb-3" style={{maxWidth: '18rem'}}>
-                <div className="card-header bg-transparent border-dark">Header</div>
-                <div className="card-body text-dark">
-                    <h5 className="card-title">Success card title</h5>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-                <div className="card-footer bg-transparent border-dark">Footer</div>
-            </div>
-
+const CardServicos = (props) => {
+  return (
+    <div className="cardServicos card">
+      <div className="card-header d-flex">
+        <img src={props.imgpessoa} alt="imngteste" className="rounded-circle" />
+        <div className="ml-2">
+          <p className="nome">{props.nome}</p>
+          <p className="local">{props.local}</p>
         </div>
-    )
+      </div>
+
+      <div className="card-body p-0">
+        <img src={props.imgcard} alt="rggege" />
+      </div>
+      <div className="card-footer p-1">
+        <p>{props.descricao}</p>
+        <button className="btn btn-block">Ver perfil completo</button>
+      </div>
+    </div>
+  );
 };
 
 export default CardServicos;
