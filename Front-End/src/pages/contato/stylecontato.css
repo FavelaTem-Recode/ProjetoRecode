@@ -1,0 +1,161 @@
+.nav {
+    background-color: white;
+}
+
+.logo img{
+    height: 28px;
+}
+
+
+
+.navbar-nav {
+    flex: 1;
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.link a {
+    font-size: 16px;
+    font-weight: bold;
+    color:#FF4D00;
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+
+.jumbotron{
+
+    background-color: #1CA8C9;
+
+
+}
+
+.image{
+    margin: 20px;
+}
+
+.form {
+    
+        display: block;
+        margin: auto;
+        width: 736px;
+        margin-top: -100px;
+        border-radius: 10px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    
+}
+
+.box.int{
+
+    background-color: transparent;
+
+}
+.form label {
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+
+.nome{
+    font-size: 20px;
+    font-weight: bold;
+    color:white;
+}
+
+.title {
+
+    font-size: 26px;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-bottom: 50px;
+    color:white;
+}
+
+
+.p {
+    font-size: 16px;
+    font-weight: bold;
+    color:#FF4D00;
+}
+
+.h3{
+    font-size: 16px;
+    font-weight: bold;
+    color:#FF4D00;
+    margin-bottom: 0px;
+    padding: 0px;
+    
+   
+}
+
+
+
+button{
+
+    height: 40px;
+    width: 20%;
+    margin-right: 10px;
+    border-radius: 10px;
+    float: right;
+    
+}
+
+.footer{
+    background-color: transparent;
+    height: 130 px;
+    display: inline-block;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0px;
+    margin: 0 px;
+    padding: 15px;
+    width: 100%;
+    
+    
+   
+}
+
+.footer p{
+    color:white;
+    font-size: 10px;
+    
+}
+
+.alert{
+    display: flex;
+    align-items: flex-start
+   
+    
+}
+
+.alert img{
+    width: 32px;
+    height: 32px;
+}
+
+.btn{
+    background-color:#FF4D00;
+    color: white;
+    height: 50px;
+    width: 150px;
+    margin-right: 10px;
+    border-radius: 10px;
+    margin-top: -60px;
+    
+}
+
+
+.row{
+    background-image:url(../../assets/imagens/paraisopolisfoto.png) ;
+    background-repeat: no-repeat;
+    bottom: 0%;
+    border-radius: 0px;
+    left: 0%;
+    right: 0%;
+    margin-top: -32px;
+    background-size: cover;
+   
+}
+
