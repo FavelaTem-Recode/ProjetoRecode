@@ -11,7 +11,7 @@ import zap from "../../assets/imagens/whatsapp.png";
 
 const Portifolio = () => {
     return (
-        <div className="portfolio">
+        <div>
             <header className="header">
                 <img src={logo} alt="logo" />
                 <nav>
@@ -75,8 +75,7 @@ const Portifolio = () => {
                     </div>
                 </div>
                 <div class="test">
-                    <img src={zap} alt="" />
-                    <p>Contato</p>
+                    <button type="button">Whatsapp</button>
                 </div>
             </section>
             <section class="section3">
@@ -88,23 +87,23 @@ const Portifolio = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget placerat massa, ut tincidunt eros. Pellentesque ac lorem ipsum. Vestibulum dapibus pretium nisl in vehicula. Nulla ut justo commodo, lobortis purus in, ultricies eros. Duis sodales, magna blandit dapibus iaculis, augue orci dignissim sem, at luctus eros diam vitae ligula. Donec sit amet dui ultricies, vehicula libero ut, ultrices nunc. Fusce laoreet hendrerit magna, sed rutrum neque egestas nec.</p>
                     </div>
                 </div>
-                <div class="test2">
-                   
-                    <p>+Comentário</p>
+                <div class="test2">  
+                    <button type="button">+Comentarios</button>
                 </div>
 
 
-                <div>
+                <div id="comenttitulo">
                     <p>Comentarios:</p>
                     <div class="coment">
                         <p>nome da loja </p>
                         <p> Data e hora </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget placerat massa, ut tincidunt eros. Pellentesque ac lorem ipsum. Vestibulum dapibus pretium nisl in vehicula. Nulla ut justo commodo, lobortis purus in, ultricies eros. Duis sodales, magna blandit dapibus iaculis, augue orci dignissim sem, at luctus eros diam vitae ligula. Donec sit amet dui ultricies, vehicula libero ut, ultrices nunc. Fusce laoreet hendrerit magna, sed rutrum neque egestas nec.</p>
+                        <textarea id="w3review" name="w3review" rows="4" cols="50"> Digite aqui o seu comentario!</textarea>
+
                     </div>
                 </div>
                 <div class="test2">
                 
-                    <p>Enviar Comentários</p>
+                <button type="button">Enviar comentarios</button>
                 </div>
 
             </section>
