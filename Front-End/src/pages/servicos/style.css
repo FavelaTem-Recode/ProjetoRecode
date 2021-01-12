@@ -1,9 +1,9 @@
-body {
+.page-servicos body, html {
     margin: 0px;
     padding: 0px;
 }
 
-.container-fluid .section-1 .bloco-1 .header {
+.page-servicos .container-fluid .section-1 .bloco-1 .header {
     background-color: white;
     display: flex;
     justify-content: space-between;
@@ -11,7 +11,7 @@ body {
     margin: 0px;
 }
 
-.container-fluid .section-1 .bloco-1 .header nav button {
+.page-servicos .container-fluid .section-1 .bloco-1 .header nav button {
     margin: 5px;
     background-color: transparent;
     color: black;
@@ -19,27 +19,19 @@ body {
     border: none;
 }
 
-.container-fluid .section-2 {
+.page-servicos .container-fluid .section-2 {
     background-color: #FF4D00;
     width: 100%;
-    height: 90px;
     margin: 0px;
     padding: 10px;
             
 }
-.container-fluid .section-2 .nav{
-    display:flex;
-    justify-content: space-between;
+
+.page-servicos .container-fluid .section-2 .navbar li {
+    background-color: transparent;
 }
 
-.container-fluid .section-2 .nav .categorias {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    padding: 5px;
-}
-
-.container-fluid .section-2 .nav .categorias button{
+.page-servicos .container-fluid .section-2 .navbar button{
     margin: 5px;
     background-color: transparent;
     outline: 0px;
@@ -50,16 +42,16 @@ body {
     height: 60px;
 }
 
-.container-fluid .section-2 .nav .categorias  img {
+.page-servicos .container-fluid .section-2 .navbar  img {
     width: 36px;
     height: 36px;
 }
 
-.section-3{
+.page-servicos .section-3{
     display:flex;   
 }
 
-.section-3 .filtro aside {
+.page-servicos .section-3 .filtro aside {
     background-color: #1CA8C9;
     width: 350;
     height: 300px;
@@ -73,19 +65,31 @@ body {
     padding: 0px;
 }
 
-.section-3 .filtro aside ul {
+.page-servicos .section-3 .filtro aside ul {
     padding: 0px;
     margin: 50px;
 }
 
-.servicos {
-    width: 100%;
-    height: auto;
+.page-servicos .section-3 .filtro aside ul select {
+    height: 40px;
 }
 
-.section-3 .servicos{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.page-servicos .section-3 .servicos{
+    display: block;
+    text-align: center;
 }
+
+.page-servicos .section-3 .servicos .pesquisa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -16px;
+}
+.page-servicos .section-3 .servicos .pesquisa .d-flex .btn {
+    height: 33px;
+}
+
+.page-servicos .section-3 .servicos .group-servicos{
+    display: flex;
+}
+

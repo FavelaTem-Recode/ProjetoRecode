@@ -1,14 +1,14 @@
-.jumbotron{
+.servico .jumbotron{
 
     background-color: #1CA8C9;
 
 }
 
-.image{
+.servico .image{
     margin: 20px;
 }
 
-.form {
+.servico .form {
     background-color: white;
     display: block;
     margin: auto;
@@ -16,13 +16,13 @@
     border-radius: 20px;
 }
 
-.form label {
+.servico .form label {
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
 }
 
-.title {
+.servico .title {
 
     font-size: 16px;
     font-weight: bold;
@@ -32,13 +32,13 @@
 }
 
 
-.p {
+.servico .p {
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
 }
 
-.h3{
+.servico .h3{
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
@@ -48,24 +48,24 @@
    
 }
 
-.checkbox1{
+.servico .checkbox1{
     background-color: gray;
    float: left;
     
 }
 
-.checkbox2{
+.servico .checkbox2{
     background-color: green;
     float: left;
     
 }
 
-.file{
+.servico .file{
     background-color: rebeccapurple;
 }
 
 
-button{
+.servico button{
 
     height: 40px;
     width: 20%;
@@ -75,7 +75,7 @@ button{
     
 }
 
-.footer{
+.servico .footer{
     background-color:#1CA8C9;
     height: 130 px;
     display: inline-block;
@@ -90,25 +90,25 @@ button{
    
 }
 
-.footer p{
+.servico .footer p{
     color:white;
     font-size: 10px;
     
 }
 
-.alert{
+.servico .alert{
     display: flex;
     align-items: flex-start
    
     
 }
 
-.alert img{
+.servico .alert img{
     width: 32px;
     height: 32px;
 }
 
-.btn{
+.servico .btn{
     background-color:#FF4D00;
     color: white;
     height: 50px;
@@ -120,7 +120,7 @@ button{
 }
 
 
-.row{
+.servico .row{
     background-image:url(../../assets/imagens/paraisopolisfoto.png) ;
     background-repeat: no-repeat;
     bottom: 0%;

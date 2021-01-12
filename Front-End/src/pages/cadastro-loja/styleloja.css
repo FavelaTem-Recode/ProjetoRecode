@@ -1,14 +1,14 @@
-.jumbotron{
+.loja .jumbotron{
 
     background-color: #1CA8C9;
 
 }
 
-.image{
+.loja .image{
     margin: 20px;
 }
 
-.form {
+.loja .form {
     background-color: white;
     display: block;
     margin: auto;
@@ -16,13 +16,13 @@
     border-radius: 20px;
 }
 
-.form label {
+.loja .form label {
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
 }
 
-.title {
+.loja .title {
 
     font-size: 16px;
     font-weight: bold;
@@ -32,13 +32,13 @@
 }
 
 
-.p {
+.loja .p {
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
 }
 
-.h3{
+.loja .h3{
     font-size: 16px;
     font-weight: bold;
     color:#FF4D00;
@@ -48,7 +48,7 @@
    
 }
 
-.checkbox1{
+.loja .checkbox1{
     background-color: gray;
    float: left;
     
@@ -56,7 +56,7 @@
 
     
 
-.portifolio p {
+.loja .portifolio p {
 
     font-size: 25px;
     color:black;
@@ -65,7 +65,7 @@
 }
 
 
-button{
+.loja button{
 
     height: 40px;
     width: 20%;
@@ -75,7 +75,7 @@ button{
     
 }
 
-.footer{
+.loja .footer{
     background-color:#1CA8C9;
     height: 130 px;
     display: inline-block;
@@ -90,25 +90,25 @@ button{
    
 }
 
-.footer p{
+.loja .footer p{
     color:white;
     font-size: 10px;
     
 }
 
-.alert{
+.loja .alert{
     display: flex;
     align-items: flex-start
    
     
 }
 
-.alert img{
+.loja .alert img{
     width: 32px;
     height: 32px;
 }
 
-.btn{
+.loja .btn{
     background-color:#FF4D00;
     color: white;
     height: 50px;
@@ -120,7 +120,7 @@ button{
 }
 
 
-.row{
+.loja .row{
     background-image:url(../../assets/imagens/paraisopolisfoto.png) ;
     background-repeat: no-repeat;
     bottom: 0%;

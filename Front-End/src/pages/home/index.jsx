@@ -8,7 +8,7 @@ import "./style.css";
 
 const Home = () => {
     return (
-        <div>
+        <div className="home">
             <header className="header">
                 <img src={logo} alt="logo" />
                 <nav>

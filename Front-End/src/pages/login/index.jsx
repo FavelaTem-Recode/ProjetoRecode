@@ -8,7 +8,7 @@ const Login = () => {
 
         <div className="login">
 
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid h-25">
                 <div class="image">
                     <img src={Voltar} alt="voltar" />
                 </div>
@@ -16,9 +16,9 @@ const Login = () => {
 
             </div>
 
-            <div class="row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center h-75 justify-content-center">
 
-                <div class="h3 col-6 form bg-white">
+                <div class="form bg-white">
 
                     <h3>Seja bem-vindo(a)!</h3>
 
