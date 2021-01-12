@@ -8,7 +8,7 @@ const Login = () => {
 
         <div className="login">
 
-            <div class="jumbotron jumbotron-fluid h-25">
+            <div class="jumbotron jumbotron-fluid h-25 pt-4">
                 <div class="image">
                     <img src={Voltar} alt="voltar" />
                 </div>
@@ -16,44 +16,43 @@ const Login = () => {
 
             </div>
 
-            <div class="row d-flex justify-content-center h-75 justify-content-center">
+            <div class="container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis">
+               
+                    <div class="form bg-white w-75">
+                        <h3>Seja bem-vindo(a)!</h3>
 
-                <div class="form bg-white">
-
-                    <h3>Seja bem-vindo(a)!</h3>
-
-                    <div class="link">
-                        <a href="#">
-                            Ainda não tem uma conta?
+                        <div class="link">
+                            <a href="#">
+                                Ainda não tem uma conta?
                         </a>
-                    </div>
-                    <hr />
-                    <form clas="form-log">
-                        <div class="form-group">
-                            <label for="email">Endereço de email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Digite aqui seu email" />
                         </div>
-                        <div class="form-group">
-                            <label for="password">Senha</label>
-                            <input type="password" class="form-control" id="password" placeholder="Digite sua senha" />
-                        </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                            <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
-                        </div>
-                    </form>
-
-                    <div class="link">
-                        <a href="#">Esqueceu sua senha?</a>
-                    </div>
-                    <footer>
-                        <div class="footer">
-                            <div>
-                                <button type="submit" class="btn">Enviar</button>
+                        <hr />
+                        <form className="form-log">
+                            <div class="form-group">
+                                <label for="email">Endereço de email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu email" />
                             </div>
+                            <div class="form-group">
+                                <label for="password">Senha</label>
+                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" />
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Clique em mim</label>
+                            </div>
+                        </form>
+                        <div class="link">
+                            <a href="#">Esqueceu sua senha?</a>
+                        </div>
+                    </div>
+                    <footer className="w-75">
+                        <div class="footer">
+
+                            <button type="submit" class="btn">Enviar</button>
+
                         </div>
                     </footer>
-                </div>
+               
             </div>
         </div>
     )

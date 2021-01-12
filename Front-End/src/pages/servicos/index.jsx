@@ -19,6 +19,17 @@ import teste from "../../assets/imagens/maquininha.jpg";
 import Home from "../home";
 
 const Servicos = () => {
+  const [categorias, setCategorias] = React.useState([]);
+
+  React.useEffect(async () => {
+    const url = "http://recode/FavelaTem/Back-End/selectCategorias.php";
+    const busca = fetch(url);
+    const resposta = await busca;
+    const dados = await resposta.json()
+
+    setCategorias(dados);
+  }, [])
+
   return (
     <div className="page-servicos">
       <div className="container-fluid p-0">
@@ -50,55 +61,55 @@ const Servicos = () => {
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0 w-100 justify-content-between">
-              
+
                 <li class="nav-item">
-                <button>
-                  <img src={reformas} alt="" />
-                  <p>Reforma</p>
-                </button>
+                  <button>
+                    <img src={reformas} alt="" />
+                    <p>Reforma</p>
+                  </button>
                 </li>
 
                 <li class="nav-item">
-                <button>
-                  <img src={confeitaria} alt="" />
-                  <p>Confeitaria</p>
-                </button>
+                  <button>
+                    <img src={confeitaria} alt="" />
+                    <p>Confeitaria</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={beleza} alt="" />
-                  <p>Beleza</p>
-                </button>
+                  <button>
+                    <img src={beleza} alt="" />
+                    <p>Beleza</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={costura} alt="" />
-                  <p>Costura</p>
-                </button>
+                  <button>
+                    <img src={costura} alt="" />
+                    <p>Costura</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={camera} alt="" />
-                  <p>Fotografia</p>
-                </button>
+                  <button>
+                    <img src={camera} alt="" />
+                    <p>Fotografia</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={diarista} alt="" />
-                  <p>Diarista</p>
-                </button>
+                  <button>
+                    <img src={diarista} alt="" />
+                    <p>Diarista</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={refeicao} alt="" />
-                  <p>Refeição</p>
-                </button>
+                  <button>
+                    <img src={refeicao} alt="" />
+                    <p>Refeição</p>
+                  </button>
                 </li>
                 <li class="nav-item">
-                <button>
-                  <img src={frete} alt="" />
-                  <p>Frete</p>
-                </button>
+                  <button>
+                    <img src={frete} alt="" />
+                    <p>Frete</p>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -112,14 +123,13 @@ const Servicos = () => {
                 <p>Filtrar</p>
                 <select className="form-select-sm w-100">
                   <option selected>Categoria</option>
-                  <option value="1">Reforma</option>
-                  <option value="2">Confeitaria</option>
-                  <option value="3">Frete</option>
-                  <option value="4">Diarista</option>
-                  <option value="5">Refeição</option>
-                  <option value="6">Costura</option>
-                  <option value="7">Grafica</option>
-                  <option value="8">Beleza</option>
+                  {categorias.map((item) => {
+                    return (
+                      <option value={item.idcategorias_servico}>{item.categoria}</option>
+                    )
+                  })};
+
+
                 </select>
 
                 <select className="form-select-sm mt-2 w-100">
@@ -150,11 +160,11 @@ const Servicos = () => {
               </div>
             </div>
 
-            <div className="group-servicos flex-wrap">
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard ={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo."/>
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard ={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo."/>
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard ={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo."/>
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard ={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo."/>
+            <div className="group-servicos flex-wrap justify-content-center">
+              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
+              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
+              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
+              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
             </div>
           </div>
         </div>

@@ -22,12 +22,8 @@
 }
 
 .login .form {
-  background-color: white;
-  display: block;
-  margin: auto;
   margin-top: -4.4rem;
   border: 1px solid #cccccc;
-  width: 736px;
   border-radius: 20px;
 }
 
@@ -51,19 +47,6 @@
   padding: 0px;
 }
 
-.login .checkbox1 {
-  background-color: gray;
-  float: left;
-}
-
-.login .checkbox2 {
-  background-color: green;
-  float: left;
-}
-
-.login .file {
-  background-color: rebeccapurple;
-}
 
 .login button {
   height: 40px;
@@ -75,7 +58,6 @@
 
 .login .footer {
   background-color: #1ca8c9;
-  display: inline-block;
   justify-content: space-between;
   align-items: center;
   border-radius: 0px;
@@ -88,16 +70,6 @@
   font-size: 10px;
 }
 
-.login .alert {
-  display: flex;
-  align-items: flex-start;
-}
-
-.login .alert img {
-  width: 32px;
-  height: 32px;
-}
-
 .login .btn {
   background-color: #ff4d00;
   color: white;
@@ -105,16 +77,11 @@
   width: 150px;
   margin-right: 10px;
   border-radius: 10px;
-  margin-top: -60px;
 }
 
-.login .row {
+.login .paraisopolis {
   background-image: url(../../assets/imagens/paraisopolisfoto.png);
   background-repeat: no-repeat;
-  bottom: 0%;
-  border-radius: 0px;
-  left: 0%;
-  right: 0%;
   margin-top: -32px;
   background-size: cover;
 }
