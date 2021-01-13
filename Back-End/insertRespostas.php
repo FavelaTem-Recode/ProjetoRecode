@@ -19,7 +19,8 @@ if ($validate == true) {
         json_encode(
             array(
                 'status' => 1,
-                'mensagem' => 'Dados inseridos com sucesso'        
+                'mensagem' => 'Dados inseridos com sucesso',
+                'body'=> $validate        
             )
         )
     );

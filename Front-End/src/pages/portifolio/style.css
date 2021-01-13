@@ -1,29 +1,28 @@
-p {
+.portfolio p {
     font-family: arial;
 }
 
-h4 {
+.portfolio h4 {
     text-transform: uppercase;
     font-size: 14px
 }
 
-.section1 {
+.portfolio .section1 {
     background-color: white;
 }
 
-.voltar {
+.portfolio .voltar {
     padding: 5px 0px 0px 15px;
     color: #1CA8C9;
     margin-left:10px ;
 }
 
 
-.primeiro {
-    width: 50%;
+.portfolio .primeiro {
     margin: auto; 
 }
 
-.tesoura {
+.portfolio .tesoura {
     margin: auto;
     width: 50%;
     align-items: center;
@@ -31,29 +30,37 @@ h4 {
     margin-bottom: 20px;
 }
 
-.tesoura img {
+.portfolio .tesoura img {
     position: relative;
 }
 
-.segundo {
+.portfolio .segundo {
     display: flex;
     background-color: rgb(255, 255, 255);
     text-align:center;
     align-items: center;   
     margin: 0 auto;
-    width: 50%;
     /* flex-wrap: wrap;  */
 }
 
-.topo {
+.portfolio .topo {
     background-color: #1CA8C9;
-    border-radius: 10px 10px 0px 0px;
     text-align: center;
     padding: 3px;
     margin: 0px;
 }
 
-.corpo {
+.portfolio .corpo {
+    
+    text-align: center;
+    height: auto;
+    padding: 15px; 
+    
+    margin: 0px;  
+    font-size: 13px; 
+}
+
+.portfolio .corpo.descricao {
     border-radius: 0px 0px 10px 10px;
     text-align: center;
     height: auto;
@@ -63,62 +70,55 @@ h4 {
     font-size: 13px; 
 }
 
-.one {
+.portfolio .one {
+    border-radius: 10px;
     margin:20px;
-    justify-content: space-between;
-    width: auto;
     align-items: center;  
+    border: 2px solid #1CA8C9;
 }
 
-.terceiro {
+.portfolio .terceiro {
     display: flex;
     background-color: white;
     text-align:center;
     align-items: center;   
     margin: 0 auto;
-    width: 70%;
     flex-wrap: wrap;
 }
 
-.two {
+.portfolio .two {
     background-color: #1CA8C9;
-    margin:auto;
-    width: auto;
-    border-radius: 50px;
+    color: #ffffff;
+    border-radius: 12px;
     align-items: center;
     padding: 5px; 
     height: auto;
 }
 
-.p-servico {
+.portfolio .p-servico {
     margin: 0px;
     padding: 2px;
     font-size: 11px;
 
 }
 
-.section2 {
+.portfolio .section2 {
     background-color:rgb(255, 255, 255);
     height: auto;
     margin-top: 30px;
 }
 
-.quarto {
-    margin:10px 200px;
+.portfolio .quarto {
     height: auto;
     border: 2px solid rgb(243, 147, 69);
-    width: auto;
 }
 
-.um1 {
-    margin: auto;
-    width: 50%;
-    text-align: center;
-    padding: 1px;
+.portfolio .um1 {
+ 
     color: rgb(243, 147, 69);
 }
 
-.dois2 {
+.portfolio .dois2 {
     
     display: flex;
     justify-content: space-between;
@@ -126,34 +126,8 @@ h4 {
 
 }
 
-.a {
-    margin: 10px;
-}
 
-.b img {
-    background-color: rgb(204, 0, 255);
-    width: 400px;
-    margin-bottom: 30px;
-
-
-}
-
-.c {
-    margin: 10px;
-}
-
-.test {
-    margin: auto;
-    display: flex;
-    padding: 0px;
-    width: 150px;
-    border-radius:8px ;
-    justify-content: space-evenly;
-    background-color: rgb(65, 218, 103);
-}
-
-
-.test button{
+.portfolio .test button{
     background-color: transparent;
     color:  rgb(255, 255, 255);
     outline: 0px;
@@ -161,27 +135,17 @@ h4 {
     text-transform: uppercase;    
 }
 
-.test button a {
+.portfolio .test button a {
     text-decoration: none;
 }
 
-.section3 {
-    /* margin:40px 20px 20px 20px ;
-    height: 200px;
-    background-color: rgb(218, 65, 218); */
-}
-
-#comenttitulo {
-    margin: auto;
-    width: 50%;
-}
-.coment {
+.portfolio .coment {
     padding: 20px;
     border: 10px solid #2189eb55;
     border-radius: 10px;
 }
 
-.test2 {
+.portfolio .test2 {
     margin: auto;
     display: flex;
     padding: 0px;
@@ -192,7 +156,7 @@ h4 {
 }
 
 
-.test2 button{
+.portfolio .test2 button{
     background-color: transparent;
     color:  rgb(255, 255, 255);
     outline: 0px;
@@ -200,6 +164,6 @@ h4 {
     text-transform: uppercase;    
 }
 
-.test2 button a {
+.portfolio .test2 button a {
     text-decoration: none;
 }

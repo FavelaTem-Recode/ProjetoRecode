@@ -21,10 +21,14 @@
   text-align: right;
 }
 
+.login hr {
+  background-color:#1ca8c9 !important;
+}
+
 .login .form {
   margin-top: -4.4rem;
   border: 1px solid #cccccc;
-  border-radius: 20px;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .login .form label {
@@ -56,13 +60,14 @@
   float: right;
 }
 
-.login .footer {
+.login footer {
   background-color: #1ca8c9;
   justify-content: space-between;
   align-items: center;
   border-radius: 0px;
   padding: 15px;
   width: 100%;
+  border-radius: 0px 0px 20px 20px;
 }
 
 .login .footer p {
@@ -75,7 +80,7 @@
   color: white;
   height: 50px;
   width: 150px;
-  margin-right: 10px;
+
   border-radius: 10px;
 }
 
