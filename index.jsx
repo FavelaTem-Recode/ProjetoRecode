@@ -1,105 +1,57 @@
-import React from "react";
-import logo from "../../assets/imagens/logofavelatem.png";
-import financas from "../../assets/imagens/financas.png";
-import marketing from "../../assets/imagens/mktdigital.png";
-import empreendedorismo from "../../assets/imagens/empreendedorismo2.png";
-import "./style.css";
+import React from 'react';
+import './stylelogin.css';
 
+import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 
-const Home = () => {
+const Login = () => {
     return (
-        <div className="home">
-            <header className="header">
-                <img src={logo} alt="logo" />
-                <nav>
-                    <button ><a href="#qs">Como funciona</a></button>
-                    <button>Login</button>
-                </nav>
-            </header>
-            <main>
-                <h1>o que você procura?</h1>
-                <div>
-                    <input type="text" placeholder="Digite aqui" name="buscar"></input>
-                    <button type="button">Buscar</button>
-                </div>
-            </main>
 
-            <section class="containerflex">
-                <div class="item1">
-                    <img />
+        <div className="login">
+            <div class="jumbotron jumbotron-fluid h-25 pt-4">
+                <div class="image">
+                    <img src={Voltar} alt="voltar" />
                 </div>
-                <div class="item2">
-                    <div id="frase">
-                        <h1>64</h1>
-                        <h2>Clientes compartilharam suas exeperiências aqui</h2>
-                    </div>
-                    <div id="frase">
-                        <h1>42</h1>
-                        <h2 id="fraseA">profissionais registrados</h2>
-                    </div>
-                    <div id="fraseB">
-                        <h1>Dezenas</h1>
-                        <h2>de possibilidades</h2>
-                    </div>
-                </div>
-            </section>
-            <section class="containerflex2">
-                <div class="item3">
-                    <div id="frase2B">
-                        <h1>+ Negócios</h1>
-                    </div>
-                    <div id="frase2">
-                        <h2 id="frase2A">Traga seu anúncio <br /> para cá e comece a conquistar <br /> clientes também pela internet
-                    </h2>
-                    </div>
-                    <div id="frase2B">
-                        <input class="button" type="button" value="ANUNCIAR"></input>
-                    </div>
-                </div>
-                <div>
-                    <div class="item4">
-                        <img />
-                </div>
-                </div>
-            </section>
-            <section>
-                <div>
-                    <h2  id="item5">Favela tem é uma plataforma de pubicidade de serviços dos moradores de paraisópolis. <a href name="qs"></a> </h2>
-                </div>
-            </section>
-            <section class="containerflex3">
-                <div class="cursos">
-                    <img class="icone" src={empreendedorismo} alt=""/>
-                    <img class="icone" src={financas} alt=""/>
-                    <img class="icone" src={marketing} alt=""/>
-
-                </div>
-                <div>
-                    <h2 id="item6">Ao fazer o cadastro você passará por um trilha rápida de aprendizado que te ensinará não só a
-                    usar a plataforma, mas também a fazer o melhor anúncio do universo!</h2>
-                </div>
-                </section>
-                <div id="item7">
-                    <h1>Tudo isso, totalmente gratuito!!</h1>
-                </div>
-                <div id="botaocadastrar">
-                    <input class="button" type="button" value="CADASTRAR AGORA"></input>
-                </div>
-                <section class="contanerflex4">
-                    <div id="logo">
-                        <img src="./imagen/logofavelatem.png" alt=""/>
-                    </div> 
-                    <p id="fraseC">
-                    o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gameficação.
-                    </p>
-                    <div>
-                        <img src="" alt=""/>
-                        <p id="fraseD">Contato</p>
-                        <img src="" alt=""/>
-                        <p id="fraseC">Av. Hebe Camargo n°128b - Paraisópolis</p>
-                    </div>
-                </section>
             </div>
+
+            <div class="row container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis">
+                <div className='col-sm-8'>
+                    <div class="form bg-white w-100 px-3 pt-3">
+                        <h3>Seja bem-vindo(a)!</h3>
+                        <div class="link">
+                            <a href="#">
+                                Ainda não tem uma conta?
+                        </a>
+                        </div>
+                        <hr />
+                        <form className="form-log">
+                            <div class="form-group">
+                                <label for="email">E-mail:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu e-mail" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Senha:</label>
+                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" />
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                                <label class="form-check-label" for="exampleCheck1">Lembrar sua senha</label>
+                            </div>
+                        </form>
+                        <div class="link">
+                            <a href="#">Esqueceu sua senha?</a>
+                        </div>
+                    </div>
+                    <footer className="footer d-flex e justify-content-end">
+
+                        <button class="btn btn-auto" type="submit">Entrar</button>
+
+                    </footer>
+                </div>
+
+            </div>
+        </div>
+
     )
 }
-export default Home;
+
+export default Login;
