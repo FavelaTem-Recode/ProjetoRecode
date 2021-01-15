@@ -8,20 +8,18 @@ const Registro = () => {
     return (
 
         <div className='cadastro'>
-            <header className='jumbotron jumbotron-fluid pt-4 h-25 section-1'>             
-                    <button><img src={Voltar} alt="botão para voltar" /></button>
-                    <p>Cadastre-se no Favela Tem e encontre um profissional para sua necessidade.</p>
-                    <hr />
-                
+            <header className='jumbotron jumbotron-fluid pt-4 h-25 section-1'>
+                <button><img src={Voltar} alt="botão para voltar" /></button>
+                <p>Cadastre-se no Favela Tem e encontre um profissional para sua necessidade.</p>
+
             </header>
-
-
-            <main className='row d-flex justify-content-center'>
-                
-                    <div className="h3 col-sm-6 form bg-white">
+            <main className='row d-flex justify-content-center principal'>
+                <div className="col-sm-6">
+                    <div className="h3  form bg-white borda-formulario" >
                         <form action="post">
                             <div className='formulario'>
                                 <p>Insira seu dados abaixo</p>
+                                <hr />
 
                                 <div class="form-group">
                                     <label for="nome">Nome completo:</label>
@@ -49,30 +47,25 @@ const Registro = () => {
 
                                 <div class="form-group">
                                     <input type="checkbox" className="checkbox" name="checkbox" id="checknox" />
-                                    <label for="checkbox" className="form-check-label"></label>
+                                    <label for="checkbox" className="form-check-label">Li e concordo com os termos de uso e a Política de Privacidade!</label>
                                 </div>
                             </div>
-                            <footer className="footer">
-                                <div className='alerta'>
-                                    <img src={Alerta} alt='atenção' />
-                                    <p>Atenção <br /> Preencha todos os dados!</p>
-                                </div>
-                                <div className="cadastrar">
-                                    <input type="button" value="Cadastrar" />
-                                </div>
-                            </footer>
                         </form>
                     </div>
-                
-
+                    <footer className="footer jumbotron jumbotron-fluid d-flex ">
+                        <div className='alerta d-flex'>
+                            <img src={Alerta} alt='atenção' />
+                            <p>Atenção <br /> Preencha todos os dados!</p>
+                        </div>
+                        <div className="cadastrar btn m-0">
+                            <input type="button" value="Cadastrar" />
+                        </div>
+                    </footer>
+                </div>
             </main>
         </div>
-
 
     )
 
 }
 export default Registro;
-
-
-

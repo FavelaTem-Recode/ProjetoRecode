@@ -47,7 +47,6 @@ const Login = () => {
 
                     </footer>
                 </div>
-
             </div>
         </div>
 
