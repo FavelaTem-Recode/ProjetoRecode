@@ -45,7 +45,6 @@ const Login = () => {
                         <button type="submit" class="btn m-0">Entrar</button>
                     </footer>
                 </div>
-
             </div>
         </div>
     )
