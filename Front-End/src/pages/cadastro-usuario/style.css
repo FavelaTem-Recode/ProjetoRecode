@@ -1,0 +1,25 @@
+.cadastro {
+    width: 100%;
+    height: 100%;
+    margin-left: 0px;
+    padding: 0px;
+}
+.cadastro .section-1{
+    display: flex;
+    justify-content: space-between;
+    background-color: #1ca8c9;
+    color: #ff4d00;
+    font-size: 14pt;
+    font-weight: 800;
+}
+
+.cadastro .section-1  button{
+    background-color: transparent;
+    border: none;
+    width: 25px;
+    height: 25px;
+}
+
+.cadastro main{
+    background-image: url('../../assets/imagens/paraisopolisfoto.png');
+}
