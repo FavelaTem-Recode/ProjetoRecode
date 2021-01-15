@@ -31,11 +31,11 @@ const Home = () => {
                 <div class="item2">
                     <div id="frase">
                         <h1>64</h1>
-                        <h2>Clientes compartilharam suas exeperiencias aqui</h2>
+                        <h2>Clientes compartilharam suas exeperiências aqui</h2>
                     </div>
                     <div id="frase">
                         <h1>42</h1>
-                        <h2 id="fraseA">empresas registradas</h2>
+                        <h2 id="fraseA">profissionais registrados</h2>
                     </div>
                     <div id="fraseB">
                         <h1>Dezenas</h1>
@@ -49,11 +49,11 @@ const Home = () => {
                         <h1>+ Negócios</h1>
                     </div>
                     <div id="frase2">
-                        <h2 id="frase2A">Traga seu negócio <br /> para cá e comece a conquistar <br /> clientes também pela internet
+                        <h2 id="frase2A">Traga seu anúncio <br /> para cá e comece a conquistar <br /> clientes também pela internet
                     </h2>
                     </div>
                     <div id="frase2B">
-                        <input class="button" type="button" value="ANÚNCIAR"></input>
+                        <input class="button" type="button" value="ANUNCIAR"></input>
                     </div>
                 </div>
                 <div>
@@ -64,7 +64,7 @@ const Home = () => {
             </section>
             <section>
                 <div>
-                    <h2  id="item5">Favela tem é uma plataforma de pubicidade de serviços dos moradores de paraisópolis <a href name="qs"></a> </h2>
+                    <h2  id="item5">Favela tem é uma plataforma de pubicidade de serviços dos moradores de paraisópolis. <a href name="qs"></a> </h2>
                 </div>
             </section>
             <section class="containerflex3">
@@ -75,7 +75,7 @@ const Home = () => {
 
                 </div>
                 <div>
-                    <h2 id="item6">Ao fazer o cadastro você passara por um trilha rápida de aprendizado que te ensinará não só a
+                    <h2 id="item6">Ao fazer o cadastro você passará por um trilha rápida de aprendizado que te ensinará não só a
                     usar a plataforma, mas também a fazer o melhor anúncio do universo!</h2>
                 </div>
                 </section>
@@ -90,10 +90,7 @@ const Home = () => {
                         <img src="./imagen/logofavelatem.png" alt=""/>
                     </div> 
                     <p id="fraseC">
-                        Foi idealizado por um grupo de jovens com o intuito de ajudar
-                        comerciantes que não possuem condições de se estabelecerem em
-                        um espaço físico a ampliarem sua carteira de clientes atrávez
-                        da internet, com um aúxilio educacional.
+                    o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gameficação.
                     </p>
                     <div>
                         <img src="" alt=""/>

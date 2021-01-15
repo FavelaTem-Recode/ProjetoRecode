@@ -23,6 +23,7 @@
 
 .contato .jumbotron {
   background-color: #1ca8c9;
+  margin-bottom:auto;
 }
 
 .contato .image {
@@ -122,12 +123,9 @@
 }
 
 .contato .row {
-  background-image: url(../../assets/imagens/paraisopolisfoto.png);
-  background-repeat: no-repeat;
-  bottom: 0%;
-  border-radius: 0px;
-  left: 0%;
-  right: 0%;
-  margin-top: -32px;
-  background-size: cover;
+   background-image: url(../../assets/imagens/paraisopolisfoto.png);
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin:0px;
 }

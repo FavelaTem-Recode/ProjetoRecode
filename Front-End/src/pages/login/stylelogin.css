@@ -5,6 +5,8 @@
 
 .login .jumbotron {
   background-color: #1ca8c9;
+  margin: 0px;
+    
 }
 
 .login .image {
@@ -29,6 +31,7 @@
   margin-top: -4.4rem;
   border: 1px solid #cccccc;
   border-radius: 20px 20px 0px 0px;
+ 
 }
 
 .login .form label {
@@ -51,23 +54,15 @@
   padding: 0px;
 }
 
-
-.login button {
-  height: 40px;
-  width: 20%;
-  margin-right: 10px;
-  border-radius: 10px;
-  float: right;
-}
-
 .login footer {
   background-color: #1ca8c9;
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
   justify-content: space-between;
   align-items: center;
-  border-radius: 0px;
-  /* padding: 15px; */
-  width: 100%;
   border-radius: 0px 0px 20px 20px;
+  
 }
 
 .login .footer p {
@@ -75,18 +70,24 @@
   font-size: 10px;
 }
 
-.login .btn {
+.login .footer .btn {
+
   background-color: #ff4d00;
   color: white;
   height: 50px;
   width: 150px;
-
   border-radius: 10px;
+  margin-right: 10px;
+  float: right;
+  
 }
-
+  
 .login .paraisopolis {
   background-image: url(../../assets/imagens/paraisopolisfoto.png);
-  background-repeat: no-repeat;
-  margin-top: -32px;
-  background-size: cover;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  margin:0px;
+ 
+  
 }

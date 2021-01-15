@@ -25,11 +25,11 @@ const Login = () => {
                         <hr />
                         <form className="form-log">
                             <div class="form-group">
-                                <label for="email">Endereço de email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu email" />
+                                <label for="email">E-mail:</label>
+                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu e-mail" />
                             </div>
                             <div class="form-group">
-                                <label for="password">Senha</label>
+                                <label for="password">Senha:</label>
                                 <input type="password" class="form-control" id="password" placeholder="Digite sua senha" />
                             </div>
                             <div class="form-group form-check">
@@ -41,13 +41,16 @@ const Login = () => {
                             <a href="#">Esqueceu sua senha?</a>
                         </div>
                     </div>
-                    <footer className="w-100 p-3">
-                        <button type="submit" class="btn m-0">Entrar</button>
+                    <footer className="footer d-flex e justify-content-end">
+
+                        <button class="btn btn-auto" type="submit">Entrar</button>
+
                     </footer>
                 </div>
 
             </div>
         </div>
+
     )
 }
 
