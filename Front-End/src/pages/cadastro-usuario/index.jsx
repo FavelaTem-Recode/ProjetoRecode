@@ -13,12 +13,12 @@ const Registro = () => {
                 <p>Cadastre-se no Favela Tem e encontre um profissional para sua necessidade.</p>
 
             </header>
-            <main className='row d-flex justify-content-center principal'>
-                <div className="col-sm-6">
-                    <div className="h3  form bg-white borda-formulario" >
+            <main className='row d-flex justify-content-center principal m-0'>
+                <div className="col-lg-6">
+                    <div className="h3 form bg-white borda-formulario" >
                         <form action="post">
                             <div className='formulario'>
-                                <p>Insira seu dados abaixo</p>
+                                <h3>Insira seu dados abaixo</h3>
                                 <hr />
 
                                 <div class="form-group">
@@ -46,16 +46,16 @@ const Registro = () => {
 
 
                                 <div class="form-group">
-                                    <input type="checkbox" className="checkbox" name="checkbox" id="checknox" />
+                                    <input type="checkbox" className="checkbox" name="checkbox" id="checkbox" />
                                     <label for="checkbox" className="form-check-label">Li e concordo com os termos de uso e a Política de Privacidade!</label>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <footer className="footer jumbotron jumbotron-fluid d-flex ">
-                        <div className='alerta d-flex'>
+                        <div className='alerta d-flex align-items-center justify-content-start'>
                             <img src={Alerta} alt='atenção' />
-                            <p>Atenção <br /> Preencha todos os dados!</p>
+                            <p className="pl-2 m-0" >Atenção <br /> Preencha todos os dados!</p>
                         </div>
                         <div className="cadastrar btn m-0">
                             <input type="button" value="Cadastrar" />

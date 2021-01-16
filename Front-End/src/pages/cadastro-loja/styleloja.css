@@ -1,11 +1,19 @@
+.loja html,body {
+    margin: 0px;
+    padding: 0px;
+}
+
 .loja .jumbotron{
-
     background-color: #1CA8C9;
-
+    margin: 0px;
 }
 
 .loja .image{
-    margin: 20px;
+    margin: 20px 0px 20px 20px;
+}
+
+.loja hr {
+    background-color: #1CA8C9;
 }
 
 .loja .form {
@@ -17,20 +25,21 @@
 }
 
 .loja .form label {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 13pt;
     color:#FF4D00;
 }
 
 .loja .title {
-
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     margin-left: 25%;
-    margin-bottom: 15px;;    
+    margin-bottom: 15px;   
     color:white;
 }
 
+.loja .form-inteiro {
+    margin-top: -32px;
+}
 
 .loja .p {
     font-size: 16px;
@@ -39,40 +48,31 @@
 }
 
 .loja .h3{
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 20px;
     color:#FF4D00;
     margin-bottom: 0px;
     padding: 0px;
-    
-   
 }
 
 .loja .checkbox1{
     background-color: gray;
-   float: left;
-    
+   float: left;    
 }
 
     
 
 .loja .portifolio p {
-
     font-size: 25px;
     color:black;
-    
-    
 }
 
 
 .loja button{
-
     height: 40px;
     width: 20%;
     margin-right: 10px;
     border-radius: 10px;
-    float: right;
-    
+    float: right; 
 }
 
 .loja .footer{
@@ -81,31 +81,25 @@
     display: inline-block;
     justify-content: space-between;
     align-items: center;
-    border-radius: 0px;
-    margin: 0 px;
+    border-radius: 0px 0px 20px 20px;
+    margin: 0px;
     padding: 15px;
     width: 100%;
-    
-    
-   
 }
 
 .loja .footer p{
     color:white;
-    font-size: 10px;
-    
 }
 
 .loja .alert{
     display: flex;
-    align-items: flex-start
-   
-    
+    align-items: center;
+   justify-content: start;  
 }
 
 .loja .alert img{
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
 }
 
 .loja .btn{
@@ -114,21 +108,14 @@
     height: 50px;
     width: 150px;
     margin-right: 10px;
-    border-radius: 10px;
-    margin-top: -60px;
-    
+    margin-top: -60px;  
 }
 
 
 .loja .row{
     background-image:url(../../assets/imagens/paraisopolisfoto.png) ;
     background-repeat: no-repeat;
-    bottom: 0%;
-    border-radius: 0px;
-    left: 0%;
-    right: 0%;
-    margin-top: -32px;
-    background-size: cover;
-   
+    margin: 0px;
+    background-size: cover; 
 }
 

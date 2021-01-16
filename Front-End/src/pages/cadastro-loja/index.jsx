@@ -9,9 +9,9 @@ const Loja = () => {
 
         <div className="loja">
 
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid py-5">
                 <div class="image">
-                    <img src="./images/icons8-voltar-26.png" alt="voltar" />
+                    <img src={Voltar} alt="voltar" />
                 </div>
                 <h3 class="title">Seja um profissional disponível no Favela Tem!</h3>
 
@@ -19,78 +19,77 @@ const Loja = () => {
 
             <div class="row d-flex justify-content-center">
 
-                <div class="h3 col-6 form bg-white">
+                <div class="h3 col-md-8 col-lg-6 form bg-white form-inteiro">
 
-                    <div class="box.int">
+                    <div class="box.int p-3">
                         <h3>Cadastre-se para divulgar seu serviço:</h3>
                         <hr />
 
                         <form>
                             <label for="nome">Seu nome ou nome fantasia:</label>
                             <input type="text" class="form-control" id="nome" placeholder="Input exemplo" />
-                            <div />
-                            <div class="form-group">
-                                <label for="categoria">Categoria (separe com vírgula):</label>
-                                <input type="text" class="form-control" id="categoria" placeholder="Outro input" />
-                            </div>
-                        </form>
 
-                        <form>
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
                                 <input type="text" class="form-control" placeholder="" />
-                                <div />
-                                <div class="form-group">
-                                    <label for="email">E-mail:</label>
-                                    <input type="text" class="form-control" placeholder="Digite seu e-mail" />
-                                </div>
 
                             </div>
 
-                            <div class="form-group">
-                                <label for="address">Endereço:</label>
-                                <input type="text" class="form-control" id="address" placeholder="Ex: Rua do Meio, nº 10" />
+                            <div className="form-row">
+                                <div class="form-group col-md-9">
+                                    <label for="address">Endereço:</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Rua do Meio" />
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="address">Número:</label>
+                                    <input type="text" class="form-control" id="address" placeholder="1000" />
+                                </div>
                             </div>
 
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-4">
                                     <label for="inputCity">Cidade</label>
                                     <input type="text" class="form-control" id="inputCity" />
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputEstado">Estado</label>
                                     <select id="inputEstado" class="form-control">
-                                        <option selected>Escolher...</option>
-                                        <option>...</option>
+                                        <option value="AC">Acre</option>
+                                        <option value="AL">Alagoas</option>
+                                        <option value="AP">Amapá</option>
+                                        <option value="AM">Amazonas</option>
+                                        <option value="BA">Bahia</option>
+                                        <option value="CE">Ceará</option>
+                                        <option value="DF">Distrito Federal</option>
+                                        <option value="ES">Espírito Santo</option>
+                                        <option value="GO">Goiás</option>
+                                        <option value="MA">Maranhão</option>
+                                        <option value="MT">Mato Grosso</option>
+                                        <option value="MS">Mato Grosso do Sul</option>
+                                        <option value="MG">Minas Gerais</option>
+                                        <option value="PA">Pará</option>
+                                        <option value="PB">Paraíba</option>
+                                        <option value="PR">Paraná</option>
+                                        <option value="PE">Pernambuco</option>
+                                        <option value="PI">Piauí</option>
+                                        <option value="RJ">Rio de Janeiro</option>
+                                        <option value="RN">Rio Grande do Norte</option>
+                                        <option value="RS">Rio Grande do Sul</option>
+                                        <option value="RO">Rondônia</option>
+                                        <option value="RR">Roraima</option>
+                                        <option value="SC">Santa Catarina</option>
+                                        <option value="SP" selected>São Paulo</option>
+                                        <option value="SE">Sergipe</option>
+                                        <option value="TO">Tocantins</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-md-2">
+                                <div class="form-group col-md-4">
                                     <label for="inputCEP">CEP</label>
                                     <input type="text" class="form-control" id="inputCEP" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="textarea">Fale sobre horário e público que atende:</label>
-                                <textarea class="form-control" id="textarea" rows="3"></textarea>
-                            </div>
-                        </form>
-
-
-
-                        <div class="portifolio">
-                            <p>Portifólio</p>
-                        </div>
-                        <hr />
-                        <div class="file">
-                            <p>Poste o antes e depois de serviços que já realizou!</p>
-                        </div>
-                        <form>
-                            <div class="file form-file">
-                                <label class-for="file">Clique aqui para anexar ou arraste o arquivo para cá.</label>
-                                <input type="file" class="form-control-file" id="file" />
-                            </div>
-                            <div class="form-group">
-                                <label for="textarea">Descreva brevemente o serviço feito:</label>
+                                <label for="textarea">Descreva seu trabalho em geral,públicos que atende, etc:</label>
                                 <textarea class="form-control" id="textarea" rows="3"></textarea>
                             </div>
                         </form>
@@ -99,9 +98,8 @@ const Loja = () => {
                     <div class="footer">
                         <footer>
                             <div class="alert">
-
                                 <img src={Alerta} alt="alert" />
-                                <p>Importante!<br />Preencha todos os dados.</p>
+                                <p className="pl-2 m-0">Importante!<br />Preencha todos os dados.</p>
                             </div>
 
                             <div>
