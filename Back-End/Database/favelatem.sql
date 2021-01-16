@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 11-Jan-2021 às 23:09
+-- Tempo de geração: 16-Jan-2021 às 21:52
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `cadastrobasico` (
   `nome` varchar(255) NOT NULL,
   `sobrenome` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `data_nascimento` date NOT NULL,
   `senha` char(32) NOT NULL,
   `criacao_cadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`iduser`),

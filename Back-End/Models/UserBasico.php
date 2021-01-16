@@ -9,7 +9,6 @@ class UserBasico
     public $senha;
     public $nome;
     public $sobrenome;
-    public $dataNascimento;
 
     //Cria um novo usuário padrão
     public function registerUser()
@@ -20,7 +19,6 @@ class UserBasico
             nome,
             sobrenome,
             email,
-            data_nascimento,
             senha
         ) 
             VALUES 
@@ -28,7 +26,6 @@ class UserBasico
             '$this->nome',
             '$this->sobrenome',
             '$this->email',
-            '$this->dataNascimento',
             '$this->senha'
         )
         ");
