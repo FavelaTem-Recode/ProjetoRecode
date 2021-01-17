@@ -54,9 +54,7 @@ class Servicos
             '$this->imagem_servico'
         )
         ");
-        // var_dump ($stmt);
-        // return $stmt;
-        return $this->fk_lojaprestador;
+        return $stmt;
     }
 
 
@@ -66,8 +64,6 @@ class Servicos
         $stmt = $conn->query("SELECT iduser,idcadastrolojaprestador from cadastrobasico inner join cadastrolojaprestador on iduser = fk_cadastro WHere email = '$this->email' and senha = '$this->senha';");
         $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
         isset($this->fk_lojaprestador['0']['idcadastrolojaprestador']) ? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador'] : $this->fk_lojaprestador = null;
-        // $stmt = $conn->query("SELECT id_servico FROM servicos WHERE fk_servico = '$this->fk_servico';");
-        // $idUser = $stmt->fetch(PDO::FETCH_ASSOC)['idservico'];
         $stmt = $conn->query("DELETE FROM servicos WHERE idservicos = '$this->id' AND fk_lojaprestador = '$this->fk_lojaprestador'");
         return $stmt->rowCount();
     }
@@ -75,7 +71,7 @@ class Servicos
     public static function selectServicos()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT * FROM servicos;");
+        $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

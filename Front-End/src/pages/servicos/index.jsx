@@ -20,15 +20,42 @@ import Home from "../home";
 
 const Servicos = () => {
   const [categorias, setCategorias] = React.useState([]);
+  const [subcategorias, setSubcategorias] = React.useState([]);
+  const [servicos, setServicos] = React.useState([]);
 
   React.useEffect(async () => {
-    const url = "http://recode/FavelaTem/Back-End/selectCategorias.php";
+    const url = "http://projetos/ProjetoRecode/Back-End/selectCategorias.php";
     const busca = fetch(url);
     const resposta = await busca;
-    const dados = await resposta.json()
+    const dados = await resposta.json();
 
     setCategorias(dados);
   }, [])
+
+  React.useEffect(async () => {
+    const url = "http://projetos/ProjetoRecode/Back-End/selectServicos.php";
+    const busca = fetch(url);
+    const resposta = await busca;
+    const dados = await resposta.json();
+    setServicos(dados);
+    console.log(dados)
+
+  }, [])
+
+  async function updateSubcategorias(event) {
+    const id = event.target.value;
+    let idForm = new FormData();
+    idForm.append("id", id);
+
+    const url = "http://projetos/ProjetoRecode/Back-End/selectSubcategorias.php";
+    const busca = fetch(url, {
+      method: "POST",
+      body: idForm
+    });
+    const resposta = await busca;
+    const dados = await resposta.json();
+    setSubcategorias(dados)
+  }
 
   return (
     <div className="page-servicos">
@@ -121,7 +148,7 @@ const Servicos = () => {
               <ul className="mx-2">
 
                 <p>Filtrar</p>
-                <select className="form-select-sm w-100">
+                <select className="form-select-sm w-100" onChange={updateSubcategorias}>
                   <option selected>Categoria</option>
                   {categorias.map((item) => {
                     return (
@@ -133,15 +160,11 @@ const Servicos = () => {
                 </select>
 
                 <select className="form-select-sm mt-2 w-100">
-                  <option selected>Subcategoria</option>
-                  <option value="1">Reforma</option>
-                  <option value="2">Confeitaria</option>
-                  <option value="3">Frete</option>
-                  <option value="4">Diarista</option>
-                  <option value="5">Refeição</option>
-                  <option value="6">Costura</option>
-                  <option value="7">Grafica</option>
-                  <option value="8">Beleza</option>
+                  {subcategorias.map((subcat) => {
+                    return (
+                      <option id={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
+                    )
+                  })}
                 </select>
               </ul>
             </aside>
@@ -161,6 +184,11 @@ const Servicos = () => {
             </div>
 
             <div className="group-servicos flex-wrap justify-content-center">
+              {servicos.map((servico)=>{
+                return(
+                  <CardServicos local={servico.logradouro+", "+servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador}/>
+                )
+              })}
               <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
               <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
               <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />

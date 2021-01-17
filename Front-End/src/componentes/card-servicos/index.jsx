@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from 'react-router-dom'
 
 const CardServicos = (props) => {
   return (
@@ -17,7 +18,10 @@ const CardServicos = (props) => {
       </div>
       <div className="card-footer p-1">
         <p>{props.descricao}</p>
-        <button className="btn btn-block">Ver perfil completo</button>
+        <Link to={{
+          pathname: "/portfolio",
+          search: "?id="+props.id
+        }} className="btn btn-block">Ver perfil completo</Link>
       </div>
     </div>
   );
