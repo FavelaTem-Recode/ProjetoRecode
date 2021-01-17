@@ -77,7 +77,7 @@
 
 .loja .footer{
     background-color:#1CA8C9;
-    height: 130 px;
+    height: 130px;
     display: inline-block;
     justify-content: space-between;
     align-items: center;
@@ -94,7 +94,8 @@
 .loja .alert{
     display: flex;
     align-items: center;
-   justify-content: start;  
+   justify-content: start; 
+   width:50%; 
 }
 
 .loja .alert img{

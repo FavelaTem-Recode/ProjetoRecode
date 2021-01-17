@@ -19,7 +19,7 @@ $prestador->senha = md5($_POST['senha']);
 $prestador->pontuacao = 0;
 $prestador->atividades = 0;
 $prestador->imagem = null;
-$prestador->descricao = "";
+$prestador->descricao = $_POST["descricao"];
 
 if (strlen($prestador->nome_fantasia) >= 1 && strlen($prestador->telefone) >= 8 && strlen($prestador->email) >= 9) {
     $validate = $prestador->registerPrestador();
