@@ -5,6 +5,21 @@ import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 import Alerta from '../../assets/imagens/alert.png';
 
 const Registro = () => {
+    async function cadUser(event) {
+        event.preventDefault()
+        console.log(event);
+
+        const url = "http://projetos/ProjetoRecode/Back-End/registerUser.php";
+        const form = new FormData(event.target);
+        const envio = fetch(url, {
+            method: "POST",
+            body: form
+        })
+        const response = await envio;
+        const res = await response.json();
+        console.log(res);
+    }
+
     return (
 
         <div className='cadastro'>
@@ -16,15 +31,23 @@ const Registro = () => {
             <main className='row d-flex justify-content-center principal m-0'>
                 <div className="col-lg-6">
                     <div className="h3 form bg-white borda-formulario" >
-                        <form action="post">
+                        <form id='cadUser' onSubmit={cadUser}>
                             <div className='formulario'>
                                 <h3>Insira seu dados abaixo</h3>
                                 <hr />
 
-                                <div class="form-group">
-                                    <label for="nome">Nome completo:</label>
-                                    <input type="text" className="form-control" id="nome" placeholder="Digite seu nome completo"
-                                        name="nome" required />
+                                <div className="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="nome">Nome:</label>
+                                        <input type="text" className="form-control" id="nome" placeholder="Digite seu nome"
+                                            name="nome" required />
+                                    </div>
+                                    <div class="form-group col-md-6">
+
+                                        <label for="nome">Sobrenome:</label>
+                                        <input type="text" className="form-control" id="nome" placeholder="Digite seu sobrenome"
+                                            name="sobrenome" required />
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -58,7 +81,7 @@ const Registro = () => {
                             <p className="pl-2 m-0" >Atenção <br /> Preencha todos os dados!</p>
                         </div>
                         <div className="cadastrar btn m-0">
-                            <input type="button" value="Cadastrar" />
+                            <input type="submit" form="cadUser" value="Cadastrar" />
                         </div>
                     </footer>
                 </div>

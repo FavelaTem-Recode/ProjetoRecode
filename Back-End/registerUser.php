@@ -9,7 +9,6 @@ $usuario = new UserBasico;
 $usuario->email = $_POST['email'];
 $usuario->nome = $_POST['nome'];
 $usuario->sobrenome = $_POST['sobrenome'];
-$usuario->dataNascimento = $_POST['datanascimento'];
 $usuario->senha = md5($_POST['senha']);
 
 
