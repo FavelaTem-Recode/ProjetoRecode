@@ -4,6 +4,24 @@ import './stylelogin.css';
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 
 const Login = () => {
+
+    async function logar (event) {
+        event.preventDefault()
+        console.log (event);
+
+        const url = "http://projetos/ProjetoRecode/Back-End/loginUser.php"
+        const form = new FormData (event.target)
+        const envio = fetch (url, {method:"POST", body:form})
+        const response = await envio
+        const res = await response.json()
+        console.log (res); 
+        if (res.status==1) {
+            localStorage.setItem("login", res.body[ 0 ].email)
+            localStorage.setItem("senha", res.body[ 0 ].senha)
+            
+        }else {alert("Não foi possível logar")}
+    }
+
     return (
 
         <div className="login">
@@ -23,14 +41,14 @@ const Login = () => {
                         </a>
                         </div>
                         <hr />
-                        <form className="form-log">
+                        <form className="form-log" onSubmit={logar} id="logar">
                             <div class="form-group">
                                 <label for="email">E-mail:</label>
-                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu e-mail" />
+                                <input type="email" class="form-control" id="email" placeholder="Digite aqui seu e-mail" name="email" />
                             </div>
                             <div class="form-group">
                                 <label for="password">Senha:</label>
-                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" />
+                                <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="senha" />
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" />
@@ -43,7 +61,8 @@ const Login = () => {
                     </div>
                     <footer className="footer d-flex e justify-content-end">
 
-                        <button class="btn btn-auto" type="submit">Entrar</button>
+                        <button class="btn btn-auto" type="submit" form="logar">Entrar</button>
+
 
                     </footer>
                 </div>
