@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 16-Jan-2021 às 21:52
+-- Tempo de geração: 17-Jan-2021 às 01:39
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `cadastrobasico` (
   `criacao_cadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `cadastrolojaprestador` (
   PRIMARY KEY (`idcadastrolojaprestador`),
   UNIQUE KEY `fk_cadastro_UNIQUE` (`fk_cadastro`),
   KEY `fk_cadastro_prestador_idx` (`fk_cadastro`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   PRIMARY KEY (`idcomentario`),
   KEY `fk_comment_loja_idx` (`fk_loja`),
   KEY `fk_comment_user_idx` (`fk_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `cursos` (
   `nome_curso` varchar(100) NOT NULL,
   `pontuacao` int(11) NOT NULL,
   PRIMARY KEY (`idcursos`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE IF NOT EXISTS `perguntas` (
   `valor_pontos` int(11) NOT NULL,
   PRIMARY KEY (`idperguntas`),
   KEY `fk_pergunta_curso_idx` (`fk_curso`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
   `fk_lojaprestador` int(11) NOT NULL,
   PRIMARY KEY (`idportfolio`),
   KEY `fk_portfolio_prestador_idx` (`fk_lojaprestador`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `respostas_padrao` (
   `resposta` varchar(500) NOT NULL,
   PRIMARY KEY (`idrespostas_padrao`),
   KEY `fk_pergunta_respostapadrao_idx` (`fk_pergunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `respostas_usuarios` (
   KEY `fk_prestador_resposta_idx` (`fk_usuario`),
   KEY `fk_resposta_usuario_idx` (`resposta_usuario`),
   KEY `fk_pergunta_resposta_idx` (`fk_pergunta`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   PRIMARY KEY (`idservicos`),
   KEY `fk_servico_prestador_idx` (`fk_lojaprestador`),
   KEY `fk_servico_subcategoria_idx` (`fk_subcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
