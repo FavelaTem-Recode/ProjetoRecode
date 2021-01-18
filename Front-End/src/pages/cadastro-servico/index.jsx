@@ -87,7 +87,7 @@ const Servico = () => {
                                 <select className="form-select-sm mt-2 w-100" name="idsubcategoria">
                                     {subcategorias.map((subcat) => {
                                         return (
-                                            <option id={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
+                                            <option value={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
                                         )
                                     })}
                                 </select>
@@ -129,10 +129,13 @@ const Servico = () => {
                             <label htmlFor='fim'>Até:</label>
                             <input type="time" class="custom-control" name='fimatendimento' id='fim' />
                         </div>
-                        <div class="row mt-2 custom-control">
+                        <div className="form-row">
+                           <div class="form-group mt-2 custom-control ">
                             <label htmlFor="arquivo">Inserir imagem do serviço: </label>
                             <input type="url" name="imagemservico" id="arquivo" />
+                        </div> 
                         </div>
+                        
                     </form>
                 </div>
                 <footer className="w-50 p-3">
