@@ -1,10 +1,11 @@
 import React from 'react';
 import './stylelogin.css';
+import { Link, useHistory } from 'react-router-dom';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 
 const Login = () => {
-
+    const history=useHistory();
     async function logar (event) {
         event.preventDefault()
         console.log (event);
@@ -20,7 +21,7 @@ const Login = () => {
             localStorage.setItem("senha", res.body[ 0 ].senha)
             localStorage.setItem("idprestador", res.body[ 0 ].idcadastrolojaprestador)
             localStorage.setItem("nome", res.body[ 0 ].nome)
-            
+            history.push("/")
         }else {alert("Não foi possível logar")}
     }
 
@@ -28,9 +29,9 @@ const Login = () => {
 
         <div className="login">
             <div class="jumbotron jumbotron-fluid h-25 pt-4">
-                <div class="image">
-                    <img src={Voltar} alt="voltar" />
-                </div>
+                <button class="image">
+                    <img src={Voltar} alt="voltar" onClick={()=>{history.goBack()}}/>
+                </button>
             </div>
 
             <div class="row container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis">
@@ -38,9 +39,9 @@ const Login = () => {
                     <div class="form bg-white w-100 px-3 pt-3">
                         <h3>Seja bem-vindo(a)!</h3>
                         <div class="link">
-                            <a href="#">
+                            <Link to="/registro">
                                 Ainda não tem uma conta?
-                        </a>
+                        </Link>
                         </div>
                         <hr />
                         <form className="form-log" onSubmit={logar} id="logar">

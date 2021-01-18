@@ -30,6 +30,10 @@
   margin-left: 20px;
 }
 
+.contato .image:hover {
+  cursor: pointer;
+}
+
 .contato .form {
   display: block;
   margin: auto;
@@ -87,12 +91,12 @@
 
 .contato .footer {
   background-color: transparent;
-  height: 130 px;
-  display: inline-block;
-  justify-content: space-between;
+  height: 130px;
+  display: flex;
+  justify-content: end;
   align-items: center;
   border-radius: 0px;
-  margin: 0 px;
+  margin: 0px;
   padding: 15px;
   width: 100%;
 }
@@ -128,4 +132,6 @@
   height: 100vh;
   width: 100vw;
   margin:0px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

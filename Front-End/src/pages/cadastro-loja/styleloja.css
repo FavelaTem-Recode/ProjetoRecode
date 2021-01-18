@@ -6,10 +6,15 @@
 .loja .jumbotron{
     background-color: #1CA8C9;
     margin: 0px;
+    min-height: 25vh;
 }
 
 .loja .image{
     margin: 20px 0px 20px 20px;
+}
+
+.loja .image img:hover{
+    cursor: pointer;
 }
 
 .loja hr {
@@ -39,6 +44,7 @@
 
 .loja .form-inteiro {
     margin-top: -32px;
+    height: min-content;
 }
 
 .loja .p {
@@ -118,5 +124,6 @@
     background-repeat: no-repeat;
     margin: 0px;
     background-size: cover; 
+    min-height: 75vh;
 }
 

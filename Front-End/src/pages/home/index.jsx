@@ -4,18 +4,14 @@ import financas from "../../assets/imagens/financas.png";
 import marketing from "../../assets/imagens/mktdigital.png";
 import empreendedorismo from "../../assets/imagens/empreendedorismo2.png";
 import "./style.css";
+import Menu from "../../componentes/Menu";
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
     return (
         <div className="home">
-            <header className="header">
-                <img src={logo} alt="logo" />
-                <nav>
-                    <button ><a href="#qs">Como funciona</a></button>
-                    <button>Login</button>
-                </nav>
-            </header>
+            <Menu />
             <main>
                 <h1>o que você procura?</h1>
                 <div>
@@ -83,11 +79,11 @@ const Home = () => {
                     <h1>Tudo isso, totalmente gratuito!!</h1>
                 </div>
                 <div id="botaocadastrar">
-                    <input class="button" type="button" value="CADASTRAR AGORA"></input>
+                    <Link class="button" to="/registro" type="button">Cadastrar-se agora</Link>
                 </div>
                 <section class="contanerflex4">
                     <div id="logo">
-                        <img src="./imagen/logofavelatem.png" alt=""/>
+                        <img src={logo} alt=""/>
                     </div> 
                     <p id="fraseC">
                     o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gameficação.

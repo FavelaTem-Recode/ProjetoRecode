@@ -30,7 +30,7 @@
     font-size: 12px;
 }
 
-.cardServicos .card-footer a {
+.cardServicos .card-footer button {
     background-color: #FF4D00;
     color: #ffffff;
     font-weight: bolder;

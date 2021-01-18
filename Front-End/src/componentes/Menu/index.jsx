@@ -37,7 +37,7 @@ const Menu = () => {
         //Prestador de servicos logado
         return (
             <>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="apagarUserprestador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -51,7 +51,7 @@ const Menu = () => {
       </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger">Apagar conta</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={()=>{apagarUser()}}>Apagar conta</button>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@ const Menu = () => {
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <Link className="dropdown-item text-white bg-info" to="/servicos">Encontrar um serviço</Link>
                                     <Link className="dropdown-item text-white bg-info" to="/hub">Seu Hub</Link>
-                                    <Link className="dropdown-item text-white bg-danger" data-toggle="modal" data-target="#exampleModal" href="#">Apagar sua conta</Link>
+                                    <Link className="dropdown-item text-white bg-danger" data-toggle="modal" data-target="#apagarUserprestador" href="#">Apagar sua conta</Link>
                                     <Link className="dropdown-item" href="#" onClick={sair}>Sair</Link>
                                 </div>
                             </li>
@@ -91,7 +91,7 @@ const Menu = () => {
         //User básico logado
         return (
             <>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="apagarUserprestador" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -105,7 +105,7 @@ const Menu = () => {
       </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-danger">Apagar conta</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onClick={()=>{apagarUser()}}>Apagar conta</button>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ const Menu = () => {
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <Link className="dropdown-item text-white bg-info" to="/servicos">Encontrar um serviço</Link>
                                     <Link className="dropdown-item text-white bg-info" to="/loja">Publique seu trabalho</Link>
-                                    <Link className="dropdown-item text-white bg-danger" data-toggle="modal" data-target="#exampleModal" href="#" onClick={apagarUser}>Apagar sua conta</Link>
+                                    <Link className="dropdown-item text-white bg-danger" data-toggle="modal" data-target="#apagarUserprestador" href="#" onClick={apagarUser}>Apagar sua conta</Link>
                                     <Link className="dropdown-item" href="#" onClick={sair}>Sair</Link>
                                 </div>
                             </li>

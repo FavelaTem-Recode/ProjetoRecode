@@ -6,6 +6,7 @@ import voltar from "../../assets/imagens/setaesquerda.png";
 import avancar from "../../assets/imagens/setadireita.png";
 import beleza from "../../assets/imagens/belezaaa.jpg";
 import zap from "../../assets/imagens/whatsapp.png";
+import Menu from '../../componentes/Menu';
 
 
 
@@ -20,16 +21,10 @@ const Portifolio = () => {
     return (
         <div className="portfolio">
             <header className="header">
-                <img src={logo} alt="logo" />
-                <nav>
-                    <button><a href="#qs">Como funciona</a></button>
-                    <button>Login</button>
-                </nav>
+                <Menu />
             </header>
             <section class="section1 container-fluid">
-                <div class="voltar">
-                    <h4> Voltar para buscas</h4>
-                </div>
+
                 <div class="tesoura">
                     <img src={tesoura} alt="logo" />
                 </div>

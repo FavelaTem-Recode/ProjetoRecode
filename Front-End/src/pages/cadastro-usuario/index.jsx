@@ -3,8 +3,11 @@ import './style.css';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 import Alerta from '../../assets/imagens/alert.png';
+import { useHistory } from 'react-router-dom';
 
 const Registro = () => {
+
+    const history = useHistory();
     async function cadUser(event) {
         event.preventDefault()
         console.log(event);
@@ -18,13 +21,21 @@ const Registro = () => {
         const response = await envio;
         const res = await response.json();
         console.log(res);
+        if(res.status == 1){
+            alert("Registro bem sucedido, você será redirecionado ao login em 3 segundos.")
+            setTimeout(()=>{
+                history.push("/login")
+            },3000)
+        } else {
+            alert("Algo deu errado, digite um senha com pelo menos 6 caracteres e cheque se as informações estão certas.")
+        }
     }
 
     return (
 
         <div className='cadastro'>
             <header className='jumbotron jumbotron-fluid pt-4 h-25 section-1'>
-                <button><img src={Voltar} alt="botão para voltar" /></button>
+                <button><img src={Voltar} alt="botão para voltar" onClick={()=>{history.goBack()}}/></button>
                 <p>Cadastre-se no Favela Tem e encontre um profissional para sua necessidade.</p>
 
             </header>
@@ -75,7 +86,7 @@ const Registro = () => {
                             </div>
                         </form>
                     </div>
-                    <footer className="footer jumbotron jumbotron-fluid d-flex ">
+                    <footer className="footer jumbotron jumbotron-fluid d-flex align-items-center">
                         <div className='alerta d-flex align-items-center justify-content-start'>
                             <img src={Alerta} alt='atenção' />
                             <p className="pl-2 m-0" >Atenção <br /> Preencha todos os dados!</p>

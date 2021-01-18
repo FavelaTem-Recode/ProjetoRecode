@@ -3,8 +3,10 @@ import './stylecontato.css';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 import Alerta from '../../assets/imagens/alert.png';
+import { useHistory } from 'react-router-dom';
 
 const Contato = () => {
+    const history= useHistory();
     async function regCont(event) {
         event.preventDefault()
         // console.log(event);
@@ -26,7 +28,7 @@ const Contato = () => {
 
               <div class="jumbotron jumbotron-fluid">
                 <div class="image">
-                    <img src={Voltar} alt="voltar" />
+                    <img src={Voltar} alt="voltar" onClick={()=>{history.goBack()}}/>
                 </div>
                 <h3 class="title">Alguma dúvida, comentário ou sugestão?<br /> Conte para gente =D</h3>
             </div>
@@ -51,28 +53,13 @@ const Contato = () => {
                                 <textarea class="form-control" id="textarea" rows="3"placeholder="Deixe sua mensagem" name="msg"></textarea>
                             </div>
                         </form>
-
-                        <div class="portifolio">
-
-
                             <div class="footer">
                                 <footer>
-                                    <div class="alert">
-
-                                        <img src={Alerta} alt="alert" />
-                                        <p>Importante!<br />Preencha todos os dados.</p>
-                                    </div>
-
                                     <div>
                                         <button  class="btn" type="submit" form="regCont">Entrar</button>
                                     </div>
-
                                 </footer>
                             </div>
-
-                        </div>
-
-
                     </div>
 
                 </div>

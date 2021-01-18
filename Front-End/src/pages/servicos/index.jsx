@@ -164,7 +164,7 @@ const Servicos = () => {
                 <select className="form-select-sm mt-2 w-100">
                   {subcategorias.map((subcat) => {
                     return (
-                      <option id={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
+                      <option value={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
                     )
                   })}
                 </select>
@@ -188,7 +188,7 @@ const Servicos = () => {
             <div className="group-servicos flex-wrap justify-content-center">
               {servicos.map((servico)=>{
                 return(
-                  <CardServicos local={servico.logradouro+", "+servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador}/>
+                  <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico}local={servico.logradouro+", "+servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos}/>
                 )
               })}
             </div>

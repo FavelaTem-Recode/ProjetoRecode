@@ -3,8 +3,10 @@ import './styleloja.css';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 import Alerta from '../../assets/imagens/alert.png';
+import { useHistory } from 'react-router-dom';
 
 const Loja = () => {
+    const history = useHistory();
     async function cadloja (event){
         event.preventDefault()
         console.log(event);
@@ -28,7 +30,7 @@ const Loja = () => {
 
             <div class="jumbotron jumbotron-fluid py-5">
                 <div class="image">
-                    <img src={Voltar} alt="voltar" />
+                    <img src={Voltar} alt="voltar" onClick={()=>{history.goBack()}}/>
                 </div>
                 <h3 class="title">Seja um profissional disponível no Favela Tem!</h3>
 
@@ -44,11 +46,11 @@ const Loja = () => {
 
                         <form onSubmit={cadloja} id="cadloja">
                             <label for="nome">Seu nome ou nome fantasia:</label>
-                            <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="Input exemplo" />
+                            <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="João das Couves" />
 
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" class="form-control" name="telefone" placeholder="" />
+                                <input type="text" class="form-control" name="telefone" placeholder="11944445555" />
                             </div>
 
                             <div className="form-row">
@@ -83,7 +85,7 @@ const Loja = () => {
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputCEP">CEP</label>
-                                    <input type="text" name="cep" class="form-control" id="inputCEP" />
+                                    <input type="text" name="cep" class="form-control" id="inputCEP" placeholder="00000000"/>
                                 </div>
                             </div>
                             <div class="form-group">

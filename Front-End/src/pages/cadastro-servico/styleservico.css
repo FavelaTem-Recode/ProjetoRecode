@@ -1,10 +1,10 @@
 
-.header-servico {
+.servico .header-servico {
     background-color: #1CA8C9;
     margin-bottom: 0px ;
 }
 
-.form {
+.servico .form {
     background-color: rgb(255, 255, 255);
     margin: auto;
     width: 50%;
@@ -13,78 +13,78 @@
     margin-bottom: -30px;
 }
 
-.form h3 {
+.servico .form h3 {
     color:  #FF4D00;
 }
 
-.servico .image button {
+.servico .servico .image button {
     background: transparent;
     border: none;
     margin-left: 30px;
 }
 
-.paraisopolis {
+.servico .paraisopolis {
     background-image:url(../../assets/imagens/paraisopolisfoto.png);
     background-size: cover;
 }
 
 
-.checks {
+.servico .checks {
     background-color: rgb(255, 255, 255);
     display: flex;
 }
 
-.atendimento {
+.servico .atendimento {
     width: 50%;
     
 }
 
-.atendimento p {
+.servico .atendimento p {
     margin-bottom: 0px;
     font-size:12pt;
     font-weight: bold;
     color: #FF4D00;
 }
 
-.atendimento label {
+.servico .atendimento label {
     margin:15px;
     font-weight:small ;
 }
 
-.inferior {
+.servico .inferior {
     display:flex;
  
 }
 
-.azul  {
+.servico .azul  {
     justify-content: space-between;
     display: flex;
 }
 
-#alerta img {
+.servico #alerta img {
     margin: 10px 0px 0px 0px;
 }
 
-#alertap {
+.servico #alertap {
     padding: 15px 0px 0px 10px;
 }
 
-#alertap p {
+.servico #alertap p {
     margin: 0px 0px 0px 0px;
     color: white;
 }
 
-.pclaro {
+.servico .pclaro {
     color:rgb(68, 68, 68);
     font-size: initial;
 }
 
-footer {
+.servico footer {
     border-radius: 0px 0px 15px 15px;
     background: #1CA8C9;
 }
 
-.cadserv {
+.servico .cadserv {
     background: #FF4D00;
     color: white;
 }
