@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const Loja = () => {
     const history = useHistory();
-    async function cadloja (event){
+    async function cadloja(event) {
         event.preventDefault()
         console.log(event);
 
@@ -22,15 +22,26 @@ const Loja = () => {
         const response = await envio;
         const res = await response.json();
         console.log(res);
-            
+        if (res.status == 1) {
+            alert("Seu cadastro foi bem sucedido, faça login novamente e terá acesso completo");
+
+            localStorage.removeItem("login");
+            localStorage.removeItem("senha");
+            localStorage.removeItem("idprestador");
+            localStorage.removeItem("nome");
+            history.push("/login")
+        } else {
+            alert("Algo deu errado, cheque se os dados foram inseridos corretamente")
+        }
+
     }
-        return (
+    return (
 
         <div className="loja">
 
             <div class="jumbotron jumbotron-fluid py-5">
                 <div class="image">
-                    <img src={Voltar} alt="voltar" onClick={()=>{history.goBack()}}/>
+                    <img src={Voltar} alt="voltar" onClick={() => { history.goBack() }} />
                 </div>
                 <h3 class="title">Seja um profissional disponível no Favela Tem!</h3>
 
@@ -56,7 +67,7 @@ const Loja = () => {
                             <div className="form-row">
                                 <div class="form-group col-md-9">
                                     <label for="address">Endereço:</label>
-                                    <input type="text" name="rua"class="form-control" id="address" placeholder="Rua do Meio" />
+                                    <input type="text" name="rua" class="form-control" id="address" placeholder="Rua do Meio" />
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="address">Número:</label>
@@ -67,25 +78,25 @@ const Loja = () => {
                             <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputCity">Cidade</label>
-                                    <select name="cidade"class="form-control" id="inputCity" >
-                                    <option value="SP" >São Paulo</option>
+                                    <select name="cidade" class="form-control" id="inputCity" >
+                                        <option value="SP" >São Paulo</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputEstado" >Estado</label>
                                     <select id="inputEstado" name="estado" class="form-control">
-                                        <option value="SP" >São Paulo</option>                                        
+                                        <option value="SP" >São Paulo</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="bairro">Bairro</label>
                                     <select name="bairro" class="form-control" id="bairro" >
-                                    <option value="Paraisópolis" >Paraisópolis</option>
+                                        <option value="Paraisópolis" >Paraisópolis</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputCEP">CEP</label>
-                                    <input type="text" name="cep" class="form-control" id="inputCEP" placeholder="00000000"/>
+                                    <input type="text" name="cep" class="form-control" id="inputCEP" placeholder="00000000" />
                                 </div>
                             </div>
                             <div class="form-group">

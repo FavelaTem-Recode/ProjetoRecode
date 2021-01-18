@@ -6,6 +6,8 @@ import logo from "../../assets/imagens/logofavelatem.png";
 import consultoria from "../../assets/imagens/consultoria.png";
 import marketing from "../../assets/imagens/marketing-digital.png";
 import empreendedorismo from "../../assets/imagens/empreendedorismo.png";
+import Menu from "../../componentes/Menu";
+import { Link } from "react-router-dom";
 
 const Hub = () => {
   return (
@@ -13,15 +15,7 @@ const Hub = () => {
       <div className="container-fluid">
         <div className="section-1">
           <div className="bloco-1">
-            <div className="header">
-              <a href="">
-                <img src={logo} alt="logo" />
-              </a>
-              <nav>
-                <button>Como funciona</button>
-                <button>Login</button>
-              </nav>
-            </div>
+            <Menu />
           </div>
         </div>
         <div className="section-principal">
@@ -45,15 +39,10 @@ const Hub = () => {
                 <p>10</p>
                 <p>anúncios</p>
               </div>
-              <div className="experiencia">
-                <ul>
-                  <li>Nivel</li>
-                  <li>EXP</li>
-                </ul>
-              </div>
               <div className="btns">
-                <button className="btn">Portifólio</button>
-                <button className="btn">Perfil</button>
+                <Link className="btn">Adicionar Portfólio</Link>
+                <Link className="btn" to="/servico">Criar Anúncio</Link>
+                <Link className="btn" to="/updateloja">Atualizar perfil</Link>
               </div>
             </aside>
           </div>

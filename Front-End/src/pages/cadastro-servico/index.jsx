@@ -60,9 +60,9 @@ const Servico = () => {
                     <button><img src={Voltar} alt="voltar" /></button>
                 </div>
             </div>
-            <div class="container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis">
-                <div class="form bg-white w-50 px-4 pt-3">
-                    <h3>Dados do serviço!</h3>
+            <div class="container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis row m-0 p-0">
+                <div class="form bg-white col-md-8 px-3pt-3">
+                    <h3>Dados do serviço:</h3>
                     <hr />
                     <form className="form-log" id="cadastroservico" onSubmit={cadServico}>
                         <div class="form-group">
@@ -71,7 +71,7 @@ const Servico = () => {
                                 name="nome" required />
                         </div>
                         <div className="form-row" >
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="nome">Categorias:</label>
                                 <select className="form-select-sm mt-2 w-100" onChange={updateSubcategorias}>
                                     <option selected>Categoria</option>
@@ -82,7 +82,7 @@ const Servico = () => {
                                     })};
                                 </select>
                             </div>
-                            <div class="form-group">
+                            <div class="form-grou col-md-6">
                                 <label for="nome">Subcategoria:</label>
                                 <select className="form-select-sm mt-2 w-100" name="idsubcategoria">
                                     {subcategorias.map((subcat) => {
@@ -98,25 +98,32 @@ const Servico = () => {
                             <input type="text" class="form-control" id="descricao" placeholder="Digite aqui o que você faz"
                                 name="descricaoservico" required />
                         </div>
-                        <div class="checks">
-                            <div class="atendimento custom-control">
+                        <div class="checks form-row">
+                            <div class="atendimento custom-control custom-checkbox">
                                 <p>Atendimento</p>
-
-                                <input class="custom-control-input" type="checkbox" name="atendimentodomicilio" id="domicilio" />
-                                <label class="custom-control-label" for="domicilio">Domicilio</label>
-
-                                <input class="custom-control-input" type="checkbox" name="atendimentolocal" id="local" />
-                                <label class="custom-control-label" for="local">No local </label>
-
+                                <div className="form-check">
+                                    <input class="custom-control-input" type="checkbox" name="atendimentodomicilio" id="domicilio" />
+                                    <label class="custom-control-label" for="domicilio">Domicilio</label>
+                                </div>
+                                <div className="form-check">
+                                    <input class="custom-control-input" type="checkbox" name="atendimentolocal" id="local" />
+                                    <label class="custom-control-label" for="local">No local </label>
+                                </div>
                             </div>
-                            <div class="atendimento custom-control">
+                            <div class="atendimento custom-control custom-checkbox">
                                 <p >Pagamento</p>
-
-                                <input class="custom-control-input" type="checkbox" name="pagamentodinheiro" id="dinheiro" />
-                                <label class="custom-control-label" for="dinheiro">Dinheiro</label>
-
-                                <input class="custom-control-input" type="checkbox" name="pagamentocartao" id="cartao" />
-                                <label class="custom-control-label" for="cartao">Cartão </label>
+                                <div class="form-check">
+                                    <input class="custom-control-input" type="checkbox" value="" name="pagamentodinheiro" id="dinheiro" />
+                                    <label class="custom-control-label" for="dinheiro">
+                                        Dinheiro
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="custom-control-input" type="checkbox" value="" name="pagamentocartao" id="cartao" />
+                                    <label class="custom-control-label" for="cartao">
+                                        Cartão
+                                    </label>
+                                </div>
 
                             </div>
 
@@ -130,15 +137,15 @@ const Servico = () => {
                             <input type="time" class="custom-control" name='fimatendimento' id='fim' />
                         </div>
                         <div className="form-row">
-                           <div class="form-group mt-2 custom-control ">
-                            <label htmlFor="arquivo">Inserir imagem do serviço: </label>
-                            <input type="url" name="imagemservico" id="arquivo" />
-                        </div> 
+                            <div class="form-group mt-2 custom-control ">
+                                <label htmlFor="arquivo">Inserir imagem do serviço: </label>
+                                <input type="url" name="imagemservico" id="arquivo" />
+                            </div>
                         </div>
-                        
+
                     </form>
                 </div>
-                <footer className="w-50 p-3">
+                <footer className="col-md-8 p-3">
                     <div className="azul">
                         <div className="inferior">
                             <div id="alerta">
