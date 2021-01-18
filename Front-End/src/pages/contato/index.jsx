@@ -10,7 +10,7 @@ const Contato = () => {
     async function regCont(event) {
         event.preventDefault()
         // console.log(event);
-
+ 
         const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerContato.php";
         const form = new FormData(event.target);
         const envio = fetch(url, {
@@ -19,7 +19,13 @@ const Contato = () => {
         })
         const response = await envio;
         const res = await response.json();
-        console.log(res);
+
+        //Verificar resposta e voltar para página anterior
+        if (res.status === 1){
+            history.goBack()
+        }else {
+            alert("Por favor, preencha todos campos para enviar sua mensagem")
+        }
     }
 
     return (
@@ -45,7 +51,7 @@ const Contato = () => {
                             </div>
                             <div class="form-group">
                                 <label for="email">Seu e-mail:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Digite seu e-mail" name="email_contato"/>
+                                <input type="text" class="form-control" id="email" placeholder="Digite seu e-mail " name="email_contato"/>
                             </div>
 
                             <div class="form-group">

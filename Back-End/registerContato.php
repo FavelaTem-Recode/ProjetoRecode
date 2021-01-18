@@ -12,7 +12,9 @@ $contato->msg = $_POST['msg'];
 
 
 
-if (strlen($contato->email_contato) >= 9 && strlen($contato->nome) >1 && strlen($contato->msg) >10) {
+//se não estã validado não esta retornando nenhum valor
+if (strlen($contato->email_contato) >= 9 && strlen($contato->nome) >=1 && strlen($contato->msg) >=3) {
+
 $validate = $contato->registerContato();
 if ($validate == true) {
     print_r(
@@ -32,5 +34,15 @@ if ($validate == true) {
             )
         )
     );
+
 }
+}else {
+    print_r(
+        json_encode(
+            array(
+                'status' => 0,
+                'mensagem' => 'Formato Invalido'
+            )
+        )
+    );
 }

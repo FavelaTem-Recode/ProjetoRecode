@@ -24,7 +24,7 @@ const Servicos = () => {
   const [servicos, setServicos] = React.useState([]);
 
   React.useEffect(async () => {
-    const url = "http://projetos/ProjetoRecode/Back-End/selectCategorias.php";
+    const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectCategorias.php";
     const busca = fetch(url);
     const resposta = await busca;
     const dados = await resposta.json();
@@ -33,7 +33,7 @@ const Servicos = () => {
   }, [])
 
   React.useEffect(async () => {
-    const url = "http://projetos/ProjetoRecode/Back-End/selectServicos.php";
+    const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectServicos.php";
     const busca = fetch(url);
     const resposta = await busca;
     const dados = await resposta.json();
@@ -47,7 +47,7 @@ const Servicos = () => {
     let idForm = new FormData();
     idForm.append("id", id);
 
-    const url = "http://projetos/ProjetoRecode/Back-End/selectSubcategorias.php";
+    const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectSubcategorias.php";
     const busca = fetch(url, {
       method: "POST",
       body: idForm
