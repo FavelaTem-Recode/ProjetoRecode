@@ -46,7 +46,8 @@ if ($validate == true) {
         json_encode(
             array(
                 'status' => 0,
-                'mensagem' => 'Falha na inserção de dados'
+                'mensagem' => 'Falha na inserção de dados',
+                'body' => $servico
             )
         )
     );
