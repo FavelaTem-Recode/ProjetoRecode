@@ -18,6 +18,8 @@ const Login = () => {
         if (res.status==1) {
             localStorage.setItem("login", res.body[ 0 ].email)
             localStorage.setItem("senha", res.body[ 0 ].senha)
+            localStorage.setItem("idprestador", res.body[ 0 ].idcadastrolojaprestador)
+            localStorage.setItem("nome", res.body[ 0 ].nome)
             
         }else {alert("Não foi possível logar")}
     }

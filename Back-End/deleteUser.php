@@ -16,7 +16,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         print_r(
             json_encode(
                 array(
-                    'status' => 'sucesso',
+                    'status' => 1,
                     'mensagem' => 'Conta deletada com sucesso'
                 )
             )
@@ -25,7 +25,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
         print_r(
             json_encode(
                 array(
-                    'status' => 'falha',
+                    'status' => 0,
                     'mensagem' => 'Houve um erro ao deletar esta conta'
                 )
             )

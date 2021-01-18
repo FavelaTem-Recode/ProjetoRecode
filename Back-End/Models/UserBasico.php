@@ -63,7 +63,7 @@ class UserBasico
     public function loginUser()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT iduser, email FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
+        $stmt = $conn->query("SELECT iduser,nome,email,idcadastrolojaprestador FROM cadastrobasico LEFT OUTER JOIN cadastrolojaprestador ON iduser = fk_cadastro WHERE email = '$this->email' AND senha = '$this->senha';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

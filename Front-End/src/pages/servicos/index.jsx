@@ -14,7 +14,7 @@ import camera from "../../assets/imagens/camera-cb.png";
 import diarista from "../../assets/imagens/uso-domestico-cb.png";
 import refeicao from "../../assets/imagens/prato-cb.png";
 import lupa from "../../assets/imagens/analise.png";
-import teste from "../../assets/imagens/maquininha.jpg";
+import Menu from "../../componentes/Menu"
 
 import Home from "../home";
 
@@ -60,7 +60,7 @@ const Servicos = () => {
   return (
     <div className="page-servicos">
       <div className="container-fluid p-0">
-        <div className="section-1">
+        {/* <div className="section-1">
           <div className="bloco-1">
             <div className="header">
               <a href={Home}>
@@ -72,7 +72,9 @@ const Servicos = () => {
               </nav>
             </div>
           </div>
-        </div>
+        </div> */}
+
+        <Menu />
         <div className="section-2 pb-3">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <button
@@ -189,10 +191,6 @@ const Servicos = () => {
                   <CardServicos local={servico.logradouro+", "+servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador}/>
                 )
               })}
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
-              <CardServicos local="Rua X" nome="José Test" imgpessoa={teste} imgcard={teste} descricao="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam nostrum quo nisi rem voluptatem distinctio corrupti laudantium necessitatibus commodi. Cupiditate excepturi voluptatem nam enim eveniet libero iste debitis aliquid explicabo." />
             </div>
           </div>
         </div>

@@ -5,16 +5,25 @@
 
 require "./Models/Servicos.php";
 
+$atendDom;
+isset($_POST['atendimentodomicilio'])?$atendDom = 1:$atendDom = 0;
+$atendLocal;
+isset($_POST['atendimentolocal'])?$atendLocal = 1:$atendLocal = 0;
+$pagDinheiro;
+isset($_POST['pagamentodinheiro'])?$pagDinheiro = 1:$pagDinheiro = 0;
+$pagCartao;
+isset($_POST['pagamentocartao'])?$pagCartao = 1:$pagCartao = 0;
+
 $servico = new Servicos;
 
+$servico->atendimento_domicilio = $atendDom;
+$servico->atendimento_local = $atendLocal;
+$servico->pagamento_dinheiro = $pagDinheiro;
+$servico->pagamento_cartao = $pagCartao;
+$servico->inicio_atendimento = $_POST['inicioatendimento'].":00";
+$servico->fim_atendimento = $_POST['fimatendimento'].":00";
 $servico->fk_subcategoria= $_POST['idsubcategoria'];
 $servico->descricao_servico = $_POST['descricaoservico'];
-$servico->atendimento_domicilio = $_POST['atendimentodomicilio'];
-$servico->atendimento_local = $_POST['atendimentolocal'];
-$servico->pagamento_dinheiro = $_POST['pagamentodinheiro'];
-$servico->pagamento_cartao = $_POST['pagamentocartao'];
-$servico->inicio_atendimento = $_POST['inicioatendimento'];
-$servico->fim_atendimento = $_POST['fimatendimento'];
 $servico->imagem_servico= $_POST['imagemservico'];
 $servico->senha= md5($_POST['senha']);
 $servico->email= $_POST['email'];
