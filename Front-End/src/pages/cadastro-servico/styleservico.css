@@ -1,7 +1,17 @@
+/* .servico .jumbotron {
+    background-color: #1CA8C9;
+    margin: 0px;
+    min-height: 25vh;
+} */
 
 .servico .header-servico {
     background-color: #1CA8C9;
     margin-bottom: 0px ;
+}
+.servico .header-servico .image button {
+    background: transparent;
+    border: none;
+    margin-left: 30px;
 }
 
 .servico .form {
@@ -15,15 +25,19 @@
     color:  #FF4D00;
 }
 
-.servico .servico .image button img{
-    background: transparent;
-    border: none;
-    margin-left: 30px;
+.servico .form hr{
+    background-color: #1CA8C9;
 }
 
 .servico .paraisopolis {
     background-image:url(../../assets/imagens/paraisopolisfoto.png);
     background-size: cover;
+    min-height: 75vh;
+}
+
+label {
+    color:#FF4D00;
+    font-weight: 600;
 }
 
 

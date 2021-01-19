@@ -55,12 +55,12 @@ const Servico = () => {
 
     return (
         <div className="servico">
-            <div class="jumbotron jumbotron-fluid h-25 pt-4 header-servico">
+            <div class="jumbotron jumbotron-fluid h-25 min-height 25vh pt-4 header-servico">
                 <div class="image">
                     <button><img src={Voltar} alt="voltar" /></button>
                 </div>
             </div>
-            <div class="container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis row m-0 p-0">
+            <div class="container-fluid flex-column d-flex h-75 align-items-center 75vh justify-content-top paraisopolis row m-0 p-0">
                 <div class="form bg-white col-md-8 px-3pt-3">
                     <h3>Dados do serviço:</h3>
                     <hr />
@@ -71,7 +71,7 @@ const Servico = () => {
                                 name="nome" required />
                         </div>
                         <div className="form-row" >
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-6 categ">
                                 <label for="nome">Categorias:</label>
                                 <select className="form-select-sm mt-2 w-100" onChange={updateSubcategorias}>
                                     <option selected>Categoria</option>
@@ -84,7 +84,7 @@ const Servico = () => {
                             </div>
                             <div class="form-grou col-md-6">
                                 <label for="nome">Subcategoria:</label>
-                                <select className="form-select-sm mt-2 w-100" name="idsubcategoria">
+                                <select className="form-select-sm mt-2 w-100 sub-cat" name="idsubcategoria">
                                     {subcategorias.map((subcat) => {
                                         return (
                                             <option value={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
@@ -93,7 +93,7 @@ const Servico = () => {
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group descricao">
                             <label for="descricao">Descreva o seu serviço aqui:</label>
                             <input type="text" class="form-control" id="descricao" placeholder="Digite aqui o que você faz"
                                 name="descricaoservico" required />
