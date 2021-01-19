@@ -9,14 +9,21 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
+    const[pesquisa,setPesquisa] = React.useState("")
+    function onChangeHandler(event){
+        setPesquisa(event.target.value)
+    }
     return (
         <div className="home">
             <Menu />
             <main>
                 <h1>o que você procura?</h1>
                 <div>
-                    <input type="text" placeholder="Digite aqui" name="buscar"></input>
-                    <button type="button">Buscar</button>
+                    <input type="text" placeholder="Digite aqui" name="buscar" value={pesquisa} onChange={onChangeHandler}></input>
+                    <Link type="button" to={{
+                        pathname: "/servicos",
+                        search: "?&pesquisa="+pesquisa
+                    }}>Buscar</Link>
                 </div>
             </main>
 

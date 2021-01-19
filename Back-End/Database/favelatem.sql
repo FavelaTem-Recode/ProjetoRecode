@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 18-Jan-2021 às 10:28
+-- Tempo de geração: 19-Jan-2021 às 03:22
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -39,7 +39,15 @@ CREATE TABLE IF NOT EXISTS `cadastrobasico` (
   `criacao_cadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cadastrobasico`
+--
+
+INSERT INTO `cadastrobasico` (`iduser`, `nome`, `sobrenome`, `email`, `senha`, `criacao_cadastro`) VALUES
+(2, 'enzo', 'choque', 'enzo@superchoque.com', '25f9e794323b453885f5181f1b624d0b', '2021-01-18 21:04:29'),
+(3, 'Bola', 'de Fogo', 'enzo@boladefogo.com', '25f9e794323b453885f5181f1b624d0b', '2021-01-18 22:08:52');
 
 -- --------------------------------------------------------
 
@@ -66,7 +74,15 @@ CREATE TABLE IF NOT EXISTS `cadastrolojaprestador` (
   PRIMARY KEY (`idcadastrolojaprestador`),
   UNIQUE KEY `fk_cadastro_UNIQUE` (`fk_cadastro`),
   KEY `fk_cadastro_prestador_idx` (`fk_cadastro`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cadastrolojaprestador`
+--
+
+INSERT INTO `cadastrolojaprestador` (`idcadastrolojaprestador`, `fk_cadastro`, `nome_fantasia`, `telefone`, `cep`, `logradouro`, `numero`, `bairro`, `estado`, `cidade`, `pontuacao`, `atividades`, `imagem`, `descricao_loja`) VALUES
+(2, 2, 'Super Choque, O Eletricista', '11955443323', '0607556', 'Rua do Raio', '125', 'Paraisópolis', 'SP', 'SP', 0, 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwcpv4qkRw3LMWn4tKb6IC4kxsh2uzOvO9Q&usqp=CAU', 'Faço instalações elétricas residenciais, prediais e industriais, seguindo a NBR 5410 e utilizando os melhores materiais disponíveis.'),
+(3, 3, 'Bola de Fogo, O Bombeiro', '11955221144', '01234550', 'Rua do Posto', '1002', 'Paraisópolis', 'SP', 'SP', 0, 0, 'https://upload.wikimedia.org/wikipedia/en/1/15/Hotstreak.jpg', 'Estou de prontidão para apagar qualquer incêndio.');
 
 -- --------------------------------------------------------
 
@@ -121,12 +137,13 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 
 DROP TABLE IF EXISTS `contato`;
 CREATE TABLE IF NOT EXISTS `contato` (
-  `id_comentario` int(11) NOT NULL,
+  `id_comentario` int(11) NOT NULL AUTO_INCREMENT,
   `email_contato` varchar(29) CHARACTER SET utf8mb4 DEFAULT NULL,
   `nome` varchar(100) CHARACTER SET utf8mb4 DEFAULT NULL,
   `msg` varchar(300) CHARACTER SET utf8mb4 DEFAULT NULL,
-  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_comentario`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `contato`
@@ -247,7 +264,15 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   PRIMARY KEY (`idservicos`),
   KEY `fk_servico_prestador_idx` (`fk_lojaprestador`),
   KEY `fk_servico_subcategoria_idx` (`fk_subcategoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `servicos`
+--
+
+INSERT INTO `servicos` (`idservicos`, `fk_lojaprestador`, `fk_subcategoria`, `descricao_servico`, `atendimento_domicilio`, `atendimento_local`, `pagamento_dinheiro`, `pagamento_cartao`, `inicio_atendimento`, `fim_atendimento`, `imagem_servico`) VALUES
+(1, 2, 24, 'Instalação de DR para evitar choques', 1, 0, 1, 1, '07:00:00', '22:00:00', 'https://www.sabereletrica.com.br/wp-content/uploads/2015/08/Disjuntor-DR.jpg?ssl=1'),
+(2, 3, 41, 'Apago qualquer tipo de incêndio', 1, 0, 1, 1, '00:00:00', '00:00:00', 'https://i1.wp.com/gestaodesegurancaprivada.com.br/wp-content/uploads/CORPO-DE-BOMBEIRO-MILITAR.jpg?fit=650%2C350&ssl=1');
 
 -- --------------------------------------------------------
 

@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom'
 const CardServicos = (props) => {
   const history = useHistory();
   function changePage(id) {
-    history.push(`/portifolio?id=${id}`)
+    history.push(`/portifolio?&id=${id}`)
   }
 
   return (

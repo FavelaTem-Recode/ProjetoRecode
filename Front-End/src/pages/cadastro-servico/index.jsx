@@ -3,8 +3,10 @@ import './styleservico.css';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 import Alerta from '../../assets/imagens/alert.png';
+import { useHistory } from 'react-router-dom';
 
 const Servico = () => {
+    const history = useHistory();
     const [categorias, setCategorias] = React.useState([]);
     const [subcategorias, setSubcategorias] = React.useState([]);
 
@@ -41,9 +43,6 @@ const Servico = () => {
         form.append('email', localStorage.getItem('login'));
         form.append('senha', localStorage.getItem('senha'));
 
-        // for (var value of form.values()) {
-        //     console.log(value);
-        //  }
         const envio = fetch(url, {
             method: "POST",
             body: form
@@ -55,13 +54,13 @@ const Servico = () => {
 
     return (
         <div className="servico">
-            <div class="jumbotron jumbotron-fluid h-25 min-height 25vh pt-4 header-servico">
+            <div class="jumbotron jumbotron-fluid h-25 min-height pt-4 header-servico">
                 <div class="image">
-                    <button><img src={Voltar} alt="voltar" /></button>
+                    <button><img src={Voltar} alt="voltar" onClick={()=>{history.goBack()}} /></button>
                 </div>
             </div>
-            <div class="container-fluid flex-column d-flex h-75 align-items-center 75vh justify-content-top paraisopolis row m-0 p-0">
-                <div class="form bg-white col-md-8 px-3pt-3">
+            <div class="container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis row m-0 p-0">
+                <div class="form bg-white col-md-8 px-3 pt-3 mb-0">
                     <h3>Dados do serviço:</h3>
                     <hr />
                     <form className="form-log" id="cadastroservico" onSubmit={cadServico}>
@@ -137,16 +136,16 @@ const Servico = () => {
                             <input type="time" class="custom-control" name='fimatendimento' id='fim' />
                         </div>
                         <div className="form-row">
-                            <div class="form-group mt-2 custom-control ">
+                            <div class="form-group mt-2 col-sm-12 custom-control">
                                 <label htmlFor="arquivo">Inserir imagem do serviço: </label>
-                                <input type="url" name="imagemservico" id="arquivo" />
+                                <input type="url" name="imagemservico" id="arquivo" class="form-control" />
                             </div>
                         </div>
 
                     </form>
                 </div>
                 <footer className="col-md-8 p-3">
-                    <div className="azul">
+                    <div className="azul d-flex space-between align-items-center">
                         <div className="inferior">
                             <div id="alerta">
                                 <img src={Alerta} alt="voltar" />

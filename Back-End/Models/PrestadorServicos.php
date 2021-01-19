@@ -83,7 +83,7 @@ class PrestadorServicos
     public function selectPrestador()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,telefone,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,cadastrolojaprestador.imagem,descricao_loja,idportfolio,portfolio.imagem,descricao FROM cadastrolojaprestador LEFT OUTER JOIN favelatem.portfolio on cadastrolojaprestador.idcadastrolojaprestador = portfolio.fk_lojaprestador WHERE idcadastrolojaprestador = '$this->id';");
+        $stmt = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,telefone,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,imagem,descricao_loja,email FROM cadastrolojaprestador INNER JOIN cadastrobasico ON iduser = fk_cadastro WHERE idcadastrolojaprestador = '$this->id';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
