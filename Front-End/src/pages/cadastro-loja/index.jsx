@@ -100,7 +100,7 @@ const Loja = () => {
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="textarea">Descreva seu trabalho em geral,públicos que atende, etc:</label>
+                                <label for="textarea">Descreva seu trabalho em geral, públicos que atende, etc:</label>
                                 <textarea class="form-control" id="textarea" rows="3" name="descricao"></textarea>
                             </div>
                         </form>
