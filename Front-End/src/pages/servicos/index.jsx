@@ -6,13 +6,15 @@ import CardServicos from "../../componentes/card-servicos";
 
 import logo from "../../assets/imagens/logofavelatem.png";
 import reformas from "../../assets/imagens/parede-de-tijolos.png";
-import confeitaria from "../../assets/imagens/bolo-de-aniversario.png";
+import assistencia from "../../assets/imagens/lasca.png";
 import beleza from "../../assets/imagens/maquiagem.png";
-import costura from "../../assets/imagens/maquina-de-costura-cb.png";
-import frete from "../../assets/imagens/caminhao-cb.png";
+import costura from "../../assets/imagens/maquina-de-costura.png";
+import auto from "../../assets/imagens/servico-automotivo.png";
 import camera from "../../assets/imagens/camera-cb.png";
-import diarista from "../../assets/imagens/uso-domestico-cb.png";
+import consultoria from "../../assets/imagens/servicos-de-consultoria.png";
 import refeicao from "../../assets/imagens/prato-cb.png";
+import caixa from "../../assets/imagens/caixa-de-ferramentas.png";
+import saude from "../../assets/imagens/batimento-cardiaco.png";
 import lupa from "../../assets/imagens/analise.png";
 import Menu from "../../componentes/Menu"
 
@@ -60,21 +62,7 @@ const Servicos = () => {
   return (
     <div className="page-servicos">
       <div className="container-fluid p-0">
-        {/* <div className="section-1">
-          <div className="bloco-1">
-            <div className="header">
-              <a href={Home}>
-                <img src={logo} alt="logo" />
-              </a>
-              <nav>
-                <button>Como funciona</button>
-                <button>Login</button>
-              </nav>
-            </div>
-          </div>
-        </div> */}
-
-        <Menu />
+       <Menu />
         <div className="section-2 pb-3">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <button
@@ -93,15 +81,15 @@ const Servicos = () => {
 
                 <li class="nav-item">
                   <button>
-                    <img src={reformas} alt="" />
-                    <p>Reforma</p>
+                    <img src={camera} alt="" />
+                    <p>Arte</p>
                   </button>
                 </li>
 
                 <li class="nav-item">
                   <button>
-                    <img src={confeitaria} alt="" />
-                    <p>Confeitaria</p>
+                    <img src={assistencia} alt="" />
+                    <p>Assitência Técnica</p>
                   </button>
                 </li>
                 <li class="nav-item">
@@ -112,32 +100,44 @@ const Servicos = () => {
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={costura} alt="" />
-                    <p>Costura</p>
-                  </button>
-                </li>
-                <li class="nav-item">
-                  <button>
-                    <img src={camera} alt="" />
-                    <p>Fotografia</p>
-                  </button>
-                </li>
-                <li class="nav-item">
-                  <button>
-                    <img src={diarista} alt="" />
-                    <p>Diarista</p>
+                    <img src={consultoria} alt="" />
+                    <p>Consultoria</p>
                   </button>
                 </li>
                 <li class="nav-item">
                   <button>
                     <img src={refeicao} alt="" />
-                    <p>Refeição</p>
+                    <p>Alimentação</p>
                   </button>
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={frete} alt="" />
-                    <p>Frete</p>
+                    <img src={costura} alt="" />
+                    <p>Moda</p>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button>
+                    <img src={reformas} alt="" />
+                    <p>Reformas e Reparos</p>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button>
+                    <img src={saude} alt="" />
+                    <p>Saúde e Bem estar</p>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button>
+                    <img src={auto} alt="" />
+                    <p>Serviços Automotivos</p>
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button>
+                    <img src={caixa} alt="" />
+                    <p>Serviços Gerais</p>
                   </button>
                 </li>
               </ul>
