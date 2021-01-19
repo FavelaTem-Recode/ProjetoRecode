@@ -46,14 +46,21 @@ class Portfolio
         return $stmt->rowCount();
     }
 
-    //OBS: Funcao retorna meus portfolios, o portfolio visto por todos é o do join de prestadores
-    public function selectPortfolios()
+    public function selectMyPortfolios()
     {
         $conn = Connection::getConnection();
         $stmt = $conn->query("SELECT iduser,idcadastrolojaprestador from cadastrobasico inner join cadastrolojaprestador on iduser = fk_cadastro WHere email = '$this->email' and senha = '$this->senha';");
         $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
         isset($this->fk_lojaprestador['0']['idcadastrolojaprestador'])? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador']:$this->fk_lojaprestador = null;
 
+        $stmt = $conn->query("SELECT * FROM portfolio WHERE fk_lojaprestador = '$this->fk_lojaprestador';");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+    }
+
+    public function selectPortfoliosById()
+    {
+        $conn = Connection::getConnection();
         $stmt = $conn->query("SELECT * FROM portfolio WHERE fk_lojaprestador = '$this->fk_lojaprestador';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
         

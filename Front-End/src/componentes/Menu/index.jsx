@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../assets/imagens/logofavelatem.png';
 
+
 const Menu = () => {
     let history = useHistory();
     function sair() {

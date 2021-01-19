@@ -72,8 +72,6 @@
 
 .portfolio .one {
     border-radius: 10px;
-    margin:20px;
-    align-items: center;  
     border: 2px solid #1CA8C9;
 }
 
@@ -108,9 +106,18 @@
     margin-top: 30px;
 }
 
-.portfolio .quarto {
-    height: auto;
+.portfolio .carousel {
     border: 2px solid rgb(243, 147, 69);
+}
+
+.portfolio .carousel-item::after {
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background:rgba(0,0,0,0.5);
 }
 
 .portfolio .um1 {
@@ -119,7 +126,6 @@
 }
 
 .portfolio .dois2 {
-    
     display: flex;
     justify-content: space-between;
     align-items: center;

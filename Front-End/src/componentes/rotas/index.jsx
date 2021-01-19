@@ -10,6 +10,7 @@ import Servico from '../../pages/cadastro-servico/';
 import Loja from '../../pages/cadastro-loja/';
 import Portifolio from '../../pages/portifolio';
 import UpdateLoja from '../../pages/update-loja';
+import Cadportifolio from '../../pages/cadastro-portifolio';
 
 function Rotas () {
     return(
@@ -25,6 +26,7 @@ function Rotas () {
             <Route exact path='/loja' component={Loja}/>
             <Route exact path='/portifolio' component={Portifolio}/>
             <Route exact path='/updateloja' component={UpdateLoja}/>
+            <Route exact path='/cadportifolio' component={Cadportifolio}/>
             
         </Switch>
     )

@@ -24,6 +24,23 @@ const Servicos = () => {
   const [categorias, setCategorias] = React.useState([]);
   const [subcategorias, setSubcategorias] = React.useState([]);
   const [servicos, setServicos] = React.useState([]);
+  const [filtro, setFiltro] = React.useState({subcateg: "Todos"});
+
+  function getInfo() {
+    const queryString = window.location.href;
+    const urlParams = new URLSearchParams(queryString);
+    const pesquisa = urlParams.get('pesquisa');
+    return pesquisa;
+  }
+
+  function limparFiltro(){
+    setFiltro({subcateg: "Todos"});
+  }
+
+  function onChangeHandler(event){
+    setFiltro(event.target.value)
+    setFiltro({subcateg: event.target.value})
+  }
 
   React.useEffect(async () => {
     const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectCategorias.php";
@@ -161,13 +178,15 @@ const Servicos = () => {
 
                 </select>
 
-                <select className="form-select-sm mt-2 w-100">
+                <select className="form-select-sm mt-2 w-100" onChange={onChangeHandler}>
+                <option selected>Subcategoria</option>
                   {subcategorias.map((subcat) => {
                     return (
                       <option value={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
                     )
                   })}
                 </select>
+                <div className="btn btn-block mt-2 cleanFilter" onClick={limparFiltro}>Limpar filtro</div>
               </ul>
             </aside>
           </div>
@@ -186,9 +205,9 @@ const Servicos = () => {
             </div>
 
             <div className="group-servicos flex-wrap justify-content-center">
-              {servicos.map((servico)=>{
-                return(
-                  <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico}local={servico.logradouro+", "+servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos}/>
+              {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg || filtro.subcateg==="Todos").map((servico) => {
+                return (
+                  <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} />
                 )
               })}
             </div>
