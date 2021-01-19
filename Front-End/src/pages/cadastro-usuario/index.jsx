@@ -12,7 +12,7 @@ const Registro = () => {
         event.preventDefault()
         console.log(event);
 
-        const url = "http://projetos/ProjetoRecode/Back-End/registerUser.php";
+        const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerUser.php";
         const form = new FormData(event.target);
         const envio = fetch(url, {
             method: "POST",

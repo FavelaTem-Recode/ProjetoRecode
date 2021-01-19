@@ -10,7 +10,7 @@ const Login = () => {
         event.preventDefault()
         console.log (event);
 
-        const url = "http://projetos/ProjetoRecode/Back-End/loginUser.php"
+        const url = "http://localhost/projetos/ProjetoRecode/Back-End/loginUser.php"
         const form = new FormData (event.target)
         const envio = fetch (url, {method:"POST", body:form})
         const response = await envio

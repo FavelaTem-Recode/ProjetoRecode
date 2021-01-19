@@ -11,7 +11,7 @@ const Loja = () => {
         event.preventDefault()
         console.log(event);
 
-        const url = "http://projetos/ProjetoRecode/Back-End/registerPrestador.php";
+        const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerPrestador.php";
         const form = new FormData(event.target);
         form.append('email', localStorage.getItem('login'))
         form.append('senha', localStorage.getItem('senha'))
