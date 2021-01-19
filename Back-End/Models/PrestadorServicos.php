@@ -98,6 +98,13 @@ class PrestadorServicos
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function selectCategoriasPrestador()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT nome_subcategoria FROM subcategorias INNER JOIN servicos on idsubcategorias = fk_subcategoria INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador WHERE idcadastrolojaprestador = '$this->id' GROUP BY nome_subcategoria;");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     //checked
     public function updatePrestador()
     {

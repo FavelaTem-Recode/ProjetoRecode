@@ -11,7 +11,7 @@ $portfolio->email = $_POST['email'];
 
 if (strlen($portfolio->email) >= 9) {
 
-    $validate = $portfolio->selectPortfolios();
+    $validate = $portfolio->selectMyPortfolios();
     print_r(
         json_encode(
             array(

@@ -18,6 +18,7 @@ class Servicos
     public $email;
     public $senha;
     public $idcateg;
+    public $busca;
 
     public function registerServicos()
     {
@@ -72,6 +73,13 @@ class Servicos
     {
         $conn = Connection::getConnection();
         $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador;");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function selectServicosBySearch()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador WHERE descricao_servico LIKE '%$this->busca%' OR nome_fantasia LIKE '%$this->busca%' OR descricao_loja LIKE '%$this->busca%';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

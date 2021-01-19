@@ -6,12 +6,16 @@ import voltar from "../../assets/imagens/setaesquerda.png";
 import avancar from "../../assets/imagens/setadireita.png";
 import beleza from "../../assets/imagens/belezaaa.jpg";
 import zap from "../../assets/imagens/whatsapp.png";
+import carrosselVazio from '../../assets/imagens/portfolio-vazio.jpg';
 import Menu from '../../componentes/Menu';
 
 
 
 const Portifolio = () => {
     const [dados, setDados] = React.useState([])
+    const [portfolio, setPortfolio] = React.useState([]);
+    const [categs,setCategs] = React.useState([]);
+
     function showForm() {
         var comentario = document.getElementById('toShow');
         console.log(comentario);
@@ -28,11 +32,31 @@ const Portifolio = () => {
 
     React.useEffect(async () => {
         const id = getInfo();
-        const url = `http://localhost/projetos/ProjetoRecode/Back-End/selectPrestador?id=${id}.php`;
+        const url = `http://localhost/projetos/ProjetoRecode/Back-End/selectPrestador.php?id=${id}`;
         const envio = fetch(url);
         const resposta = await envio;
         const res = await resposta.json()
         setDados(res)
+        console.log(res)
+    }, [])
+
+    React.useEffect(async () => {
+        const id = getInfo();
+        const url = `http://projetos/ProjetoRecode/Back-End/selectPortfoliosById.php?id=${id}`;
+        const envio = fetch(url);
+        const resposta = await envio;
+        const res = await resposta.json()
+        setPortfolio(res)
+        console.log(res)
+    }, [])
+
+    React.useEffect(async () => {
+        const id = getInfo();
+        const url = `http://projetos/ProjetoRecode/Back-End/selectCategoriasPrestador.php?id=${id}`;
+        const envio = fetch(url);
+        const resposta = await envio;
+        const res = await resposta.json()
+        setCategs(res)
         console.log(res)
     }, [])
 
@@ -60,8 +84,8 @@ const Portifolio = () => {
                             <div class="one col-md-4 col-sm-6 p-0">
                                 <h4 class="topo"> Nosso endereço </h4>
                                 <div className="corpo">
-                                    <p>{dados[0].logradouro+", "+dados[0].numero}</p>
-                                    <p>{dados[0].cidade+", "+dados[0].bairro}</p>
+                                    <p>{dados[0].logradouro + ", " + dados[0].numero}</p>
+                                    <p>{dados[0].cidade + ", " + dados[0].bairro}</p>
                                 </div>
 
                             </div>
@@ -74,9 +98,13 @@ const Portifolio = () => {
                             </div>
                         </div>
                         <div class="terceiro container d-flex justify-content-center">
-                            {/*divs para receber categorias */}
                             <div class="two my-2 mx-1">
-                                <p class="p-servico">Categorias dos servicos aqui</p>
+                                {categs.map((categ)=>{
+                                    return(
+                                        <p class="p-servico">{categ.nome_subcategoria}</p>
+                                    )
+                                })}
+                                
                             </div>
                         </div>
                     </div>
@@ -87,33 +115,33 @@ const Portifolio = () => {
                     </div>
 
                     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        </ol>
+
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src={beleza} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>First slide label</h5>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+                            {portfolio.length > 0 ? portfolio.map((port) => {
+                                if (port === portfolio[0]) {
+                                    return (
+                                        <div class="carousel-item active">
+                                            <img src={port.imagem} class="d-block w-100 img-fluid" alt="..." />
+                                            <div class="carousel-caption d-none d-md-block">
+                                                <p>{port.descricao}</p>
+                                            </div>
+                                        </div>)
+                                } else {
+                                    return (<div class="carousel-item">
+                                        <img src={port.imagem} class="d-block w-100 img-fluid" alt="..." />
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <p>{port.descricao}</p>
+                                        </div>
+                                    </div>)
+                                }
+                            }) :  <div class="carousel-item active">
+                                    <img src={carrosselVazio} class="d-block w-100 img-fluid" alt="..." />
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <p>Ainda não há serviços aqui</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src={beleza} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Second slide label</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src={beleza} class="d-block w-100" alt="..." />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>Third slide label</h5>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                </div>
-                            </div>
+                            }
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -158,7 +186,7 @@ const Portifolio = () => {
             </div>
         )
     } else {
-        return(<h1>Buscando Dados</h1>)
+        return (<h1>Buscando dados, ou o ID do prestador não foi inserido</h1>)
     }
 }
 export default Portifolio;
