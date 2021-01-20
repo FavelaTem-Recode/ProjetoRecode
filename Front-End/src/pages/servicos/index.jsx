@@ -12,7 +12,7 @@ import costura from "../../assets/imagens/maquina-de-costura.png";
 import auto from "../../assets/imagens/servico-automotivo.png";
 import camera from "../../assets/imagens/camera-cb.png";
 import consultoria from "../../assets/imagens/servicos-de-consultoria.png";
-import refeicao from "../../assets/imagens/prato-cb.png";
+import alimentacao from "../../assets/imagens/prato-cb.png";
 import caixa from "../../assets/imagens/caixa-de-ferramentas.png";
 import saude from "../../assets/imagens/batimento-cardiaco.png";
 import lupa from "../../assets/imagens/analise.png";
@@ -123,7 +123,7 @@ const Servicos = () => {
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={refeicao} alt="" />
+                    <img src={alimentacao} alt="" />
                     <p>Alimentação</p>
                   </button>
                 </li>
