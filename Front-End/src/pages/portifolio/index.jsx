@@ -14,7 +14,7 @@ import Menu from '../../componentes/Menu';
 const Portifolio = () => {
     const [dados, setDados] = React.useState([])
     const [portfolio, setPortfolio] = React.useState([]);
-    const [categs,setCategs] = React.useState([]);
+    const [categs, setCategs] = React.useState([]);
 
     function showForm() {
         var comentario = document.getElementById('toShow');
@@ -98,14 +98,16 @@ const Portifolio = () => {
                             </div>
                         </div>
                         <div class="terceiro container d-flex justify-content-center">
-                            <div class="two my-2 mx-1">
-                                {categs.map((categ)=>{
-                                    return(
+
+                            {categs.map((categ) => {
+                                return (
+                                    <div class="two my-2 mx-1">
                                         <p class="p-servico">{categ.nome_subcategoria}</p>
-                                    )
-                                })}
-                                
-                            </div>
+                                    </div>
+                                )
+                            })}
+
+
                         </div>
                     </div>
                 </section>
@@ -135,7 +137,7 @@ const Portifolio = () => {
                                         </div>
                                     </div>)
                                 }
-                            }) :  <div class="carousel-item active">
+                            }) : <div class="carousel-item active">
                                     <img src={carrosselVazio} class="d-block w-100 img-fluid" alt="..." />
                                     <div class="carousel-caption d-none d-md-block">
                                         <p>Ainda não há serviços aqui</p>

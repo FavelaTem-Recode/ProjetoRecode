@@ -36,8 +36,7 @@ const Servico = () => {
 
     async function cadServico(event) {
         event.preventDefault();
-        console.log(event);
-
+        
         const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerServicos.php";
         const form = new FormData(event.target);
         form.append('email', localStorage.getItem('login'));
@@ -49,7 +48,10 @@ const Servico = () => {
         });
         const response = await envio;
         const res = await response.json();
-        console.log(res);
+        if(res.status == 1){
+            alert("Serviço cadastrado com sucesso.");   
+            history.push("/hub");
+        }
     }
 
     return (

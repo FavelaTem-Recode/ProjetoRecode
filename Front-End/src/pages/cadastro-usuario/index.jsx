@@ -22,10 +22,8 @@ const Registro = () => {
         const res = await response.json();
         console.log(res);
         if(res.status == 1){
-            alert("Registro bem sucedido, você será redirecionado ao login em 3 segundos.")
-            setTimeout(()=>{
+            alert("Registro bem sucedido, você será redirecionado ao login.");
                 history.push("/login")
-            },3000)
         } else {
             alert("Algo deu errado, digite um senha com pelo menos 6 caracteres e cheque se as informações estão certas.")
         }

@@ -24,8 +24,10 @@ const Servicos = () => {
   const [categorias, setCategorias] = React.useState([]);
   const [subcategorias, setSubcategorias] = React.useState([]);
   const [servicos, setServicos] = React.useState([]);
-  const [filtro, setFiltro] = React.useState({subcateg: "Todos"});
+  const [pesquisa, setPesquisa] = React.useState([""]);
+  const [filtro, setFiltro] = React.useState({ subcateg: "Todos" });
 
+  //Retorna o valor passado na url vindo de home
   function getInfo() {
     const queryString = window.location.href;
     const urlParams = new URLSearchParams(queryString);
@@ -33,15 +35,32 @@ const Servicos = () => {
     return pesquisa;
   }
 
-  function limparFiltro(){
-    setFiltro({subcateg: "Todos"});
+  //Pega o valor de pesquisa(atualizado pelo input) e atualiza a página com os dados
+  async function search() {
+    const param = pesquisa;
+    const url = `http://localhost/projetos/ProjetoRecode/Back-End/selectServicosBySearch.php?busca=${param}`;
+    const busca = fetch(url);
+    const resposta = await busca;
+    const dados = await resposta.json();
+    setServicos(dados)
   }
 
-  function onChangeHandler(event){
+  //Coloca o valor de pesquisa igual o que for digitado no input
+  function changeStatePesquisa(event) {
+    setPesquisa(event.target.value)
+  }
+
+  function limparFiltro() {
+    setFiltro({ subcateg: "Todos" });
+  }
+
+  function filtrar(event) {
     setFiltro(event.target.value)
-    setFiltro({subcateg: event.target.value})
+    setFiltro({ subcateg: event.target.value })
   }
 
+
+  //Busca categorias
   React.useEffect(async () => {
     const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectCategorias.php";
     const busca = fetch(url);
@@ -51,16 +70,23 @@ const Servicos = () => {
     setCategorias(dados);
   }, [])
 
+    //Busca serviços
   React.useEffect(async () => {
     const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectServicos.php";
     const busca = fetch(url);
     const resposta = await busca;
     const dados = await resposta.json();
     setServicos(dados);
-    console.log(dados)
-
   }, [])
 
+    //Caso tenha sido passado o valor de pesquisa em home, atualiza o input de pesquisa com o que foi digitado
+  React.useEffect(() => {
+    if (getInfo != null) {
+      setPesquisa(getInfo());
+    }
+  }, [])
+
+  //Pega o valor da categ selecionada e passa como parâmetro para retornar as subcategorias relacionadas
   async function updateSubcategorias(event) {
     const id = event.target.value;
     let idForm = new FormData();
@@ -79,7 +105,7 @@ const Servicos = () => {
   return (
     <div className="page-servicos">
       <div className="container-fluid p-0">
-       <Menu />
+        <Menu />
         <div className="section-2 pb-3">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <button
@@ -106,7 +132,7 @@ const Servicos = () => {
                 <li class="nav-item">
                   <button>
                     <img src={assistencia} alt="" />
-                    <p>Assitência Técnica</p>
+                    <p>Assistência Técnica</p>
                   </button>
                 </li>
                 <li class="nav-item">
@@ -178,8 +204,8 @@ const Servicos = () => {
 
                 </select>
 
-                <select className="form-select-sm mt-2 w-100" onChange={onChangeHandler}>
-                <option selected>Subcategoria</option>
+                <select className="form-select-sm mt-2 w-100" onChange={filtrar}>
+                  <option selected>Subcategoria</option>
                   {subcategorias.map((subcat) => {
                     return (
                       <option value={subcat.idsubcategorias}>{subcat.nome_subcategoria}</option>
@@ -197,15 +223,17 @@ const Servicos = () => {
                   type="text"
                   class="form-control-sm w-75"
                   placeholder="O que você esta procurando?"
+                  value={pesquisa}
+                  onChange={changeStatePesquisa}
                 ></input>
-                <button className="btn btn-light">
+                <button className="btn btn-light" onClick={search}>
                   <img src={lupa} />
                 </button>
               </div>
             </div>
 
             <div className="group-servicos flex-wrap justify-content-center">
-              {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg || filtro.subcateg==="Todos").map((servico) => {
+              {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg || filtro.subcateg === "Todos").map((servico) => {
                 return (
                   <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} />
                 )

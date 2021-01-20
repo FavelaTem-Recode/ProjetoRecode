@@ -6,7 +6,7 @@ header("Content-type: application/json"); //Indicação de arquivo JSON
 require "./Models/Servicos.php";
 
 $servicos = new Servicos;
-$servicos->busca = $_POST['busca'];
+$servicos->busca = $_GET['busca'];
 
 $validate = $servicos->selectServicosBySearch();
 

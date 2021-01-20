@@ -59,7 +59,7 @@ const Hub = () => {
                 </div>
                 <div className="btns">
                   <Link className="btn" to={`/portifolio?&id=${dados[0].idcadastrolojaprestador}`}>Meu perfil</Link>
-                  <Link className="btn">Adicionar Portfólio</Link>
+                  <Link className="btn" to="/cadportifolio">Adicionar Portfólio</Link>
                   <Link className="btn" to="/servico">Criar Anúncio</Link>
                   <Link className="btn" to="/updateloja">Atualizar perfil</Link>
                 </div>

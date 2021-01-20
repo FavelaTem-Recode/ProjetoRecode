@@ -52,7 +52,7 @@ const CardServicos = (props) => {
         </div>
 
         <div className="card-body p-0">
-          <img src={props.imgcard} alt="rggege" />
+          <img src={props.imgcard} alt="Serviço sem imagem" />
         </div>
         <div className="card-footer p-1">
           <p>{props.descricao}</p>
