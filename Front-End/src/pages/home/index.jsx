@@ -93,7 +93,7 @@ const Home = () => {
                         <img src={logo} alt=""/>
                     </div> 
                     <p id="fraseC">
-                    o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gameficação.
+                    o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gamificação.
                     </p>
                     <div>
                         <img src="" alt=""/>

@@ -44,6 +44,7 @@
   text-transform: uppercase;
   color: rgba(255, 77, 0, 1);
   font-size: 180%;
+ 
 }
 
 .home main div {
@@ -138,6 +139,7 @@
   font-size: 340%;
   color: rgba(255, 77, 0, 1);
   margin: 12px 20px 20px 0px;
+  
 }
 
 .home #frase h2 {
