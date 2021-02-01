@@ -70,7 +70,7 @@ const Servicos = () => {
     setCategorias(dados);
   }, [])
 
-    //Busca serviços
+  //Busca serviços
   React.useEffect(async () => {
     const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectServicos.php";
     const busca = fetch(url);
@@ -79,7 +79,7 @@ const Servicos = () => {
     setServicos(dados);
   }, [])
 
-    //Caso tenha sido passado o valor de pesquisa em home, atualiza o input de pesquisa com o que foi digitado
+  //Caso tenha sido passado o valor de pesquisa em home, atualiza o input de pesquisa com o que foi digitado
   React.useEffect(() => {
     if (getInfo != null) {
       setPesquisa(getInfo());
@@ -143,8 +143,8 @@ const Servicos = () => {
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={consultoria} alt="" />
-                    <p>Consultoria</p>
+                    <img src={caixa} alt="" />
+                    <p>Serviços Gerais</p>
                   </button>
                 </li>
                 <li class="nav-item">
@@ -161,28 +161,17 @@ const Servicos = () => {
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={reformas} alt="" />
-                    <p>Reformas e Reparos</p>
-                  </button>
-                </li>
-                <li class="nav-item">
-                  <button>
                     <img src={saude} alt="" />
-                    <p>Saúde e Bem estar</p>
+                    <p>Saúde e bem-estar</p>
                   </button>
                 </li>
                 <li class="nav-item">
                   <button>
-                    <img src={auto} alt="" />
-                    <p>Serviços Automotivos</p>
+                    <img src={consultoria} alt="" />
+                    <p>Outros</p>
                   </button>
                 </li>
-                <li class="nav-item">
-                  <button>
-                    <img src={caixa} alt="" />
-                    <p>Serviços Gerais</p>
-                  </button>
-                </li>
+
               </ul>
             </div>
           </nav>

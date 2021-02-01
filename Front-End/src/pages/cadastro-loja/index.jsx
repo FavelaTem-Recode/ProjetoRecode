@@ -57,21 +57,21 @@ const Loja = () => {
 
                         <form onSubmit={cadloja} id="cadloja">
                             <label for="nome">Seu nome ou nome fantasia:</label>
-                            <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="João das Couves" />
+                            <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="Seu nome aqui" />
 
                             <div class="form-group">
                                 <label for="telefone">Telefone:</label>
-                                <input type="text" class="form-control" name="telefone" placeholder="11944445555" />
+                                <input type="text" class="form-control" name="telefone" placeholder="Seu telefone aqui" />
                             </div>
 
                             <div className="form-row">
                                 <div class="form-group col-md-9">
                                     <label for="address">Endereço:</label>
-                                    <input type="text" name="rua" class="form-control" id="address" placeholder="Rua do Meio" />
+                                    <input type="text" name="rua" class="form-control" id="address" placeholder="Sua rua" />
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="address">Número:</label>
-                                    <input type="text" name="numero" class="form-control" id="address" placeholder="1000" />
+                                    <input type="text" name="numero" class="form-control" id="address" placeholder="Número da sua casa" />
                                 </div>
                             </div>
 
@@ -101,7 +101,7 @@ const Loja = () => {
                             </div>
                             <div class="form-group">
                                 <label for="textarea">Descreva seu trabalho em geral, públicos que atende, etc:</label>
-                                <textarea class="form-control" id="textarea" rows="3" name="descricao"></textarea>
+                                <textarea class="form-control" id="textarea" rows="3" name="descricao" placeholder="Insira aqui uma descrição"></textarea>
                             </div>
                         </form>
                     </div>
