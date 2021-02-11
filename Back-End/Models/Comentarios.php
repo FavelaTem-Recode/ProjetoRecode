@@ -67,4 +67,11 @@ class Comentarios
         );
         return $stmt->rowCount();
     }
+
+    public function selectComments()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT * FROM comentarios where fk_loja = '$this->fk_loja'");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
