@@ -1,7 +1,5 @@
 import React from "react";
-
 import "./stylehub.css";
-
 
 import consultoria from "../../assets/imagens/consultoria.png";
 import marketing from "../../assets/imagens/marketing-digital.png";
@@ -10,8 +8,12 @@ import Menu from "../../componentes/Menu";
 import { Link } from "react-router-dom";
 import Apoiadores from "../../componentes/patrocinadores";
 
+import $ from 'jquery';
+
 const Hub = () => {
-  const [dados, setDados] = React.useState([])
+  const [dados, setDados] = React.useState([]);
+  const [pesquisa, setPesquisa] = React.useState(false);
+
   React.useEffect(async () => {
     const url = "http://projetos/ProjetoRecode/Back-End/selectPrestadorByLogin.php";
     const form = new FormData();
@@ -24,9 +26,30 @@ const Hub = () => {
     const response = await envio;
     const res = await response.json();
     setDados(res)
-    console.log(res)
-
   }, [])
+
+  React.useEffect(() => {
+    async function checkAvaliacao() {
+      const url = "http://projetos/ProjetoRecode/Back-End/checkPesquisa.php";
+      const form = new FormData();
+      form.append('email', localStorage.getItem('login'))
+      form.append('senha', localStorage.getItem('senha'))
+      const envio = fetch(url, {
+        method: "POST",
+        body: form
+      })
+      const response = await envio;
+      const res = await response.json();
+      setPesquisa(res);
+    };
+    checkAvaliacao();
+  }, [])
+
+  React.useEffect(() => {
+    if (pesquisa.pesquisa === true) {
+      window.$('#exampleModal').modal('show');
+    }
+  }, [pesquisa])
 
   if (dados[0] != null) {
     return (
@@ -63,60 +86,182 @@ const Hub = () => {
                   <Link className="btn" to="/cadportifolio">Adicionar Portfólio</Link>
                   <Link className="btn" to="/servico">Criar Anúncio</Link>
                   <Link className="btn" to="/updateloja">Atualizar perfil</Link>
+                  <button className="btn btn-large" data-toggle="modal" data-target="#exampleModal">Abrir modal</button>
                 </div>
               </aside>
             </div>
             <div className="conteudo">
-              <div className="cursos">
-               <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src={consultoria} className="d-block w-100" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Consultoria</h5>
-                      <p>Um curso completo com dicas para melhor administrar seu
-                          negócio.</p>
+              <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Pesquisa de satisfação</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={marketing} className="d-block w-100" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Marketing Digital</h5>
-                      <p>Descubra como seu negócio pode evoluir com nosso curso
-                          de Marketing.</p>
+                    <div class="modal-body">
+                      <form id="form-pesquisa">
+                        <div class="form-group">
+                          <label for="pergunta1">O FavelaTem ajudou a melhorar seu negócio?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <label class="form-check-label" for="defaultCheck1">
+                              Sim
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Não
+                              </label>
+                          </div>
+                          <input type="text" name="idpergunta[]" value="1" hidden />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="pergunta1">Após a divulgação no FavelaTem sua clientela aumentou?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <label class="form-check-label" for="defaultCheck1">
+                              Sim
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Não
+                              </label>
+                          </div>
+                          <input type="text" name="idpergunta[]" value="2" hidden />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="pergunta1">Após a divulgação do seu serviço no FavelaTem seu rendimento mensal aumentou?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <label class="form-check-label" for="defaultCheck1">
+                              Sim
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Não
+                              </label>
+                          </div>
+                          <input type="text" name="idpergunta[]" value="3" hidden />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="pergunta1">Se aumentou, quanto foi aproximadamente?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <label class="form-check-label" for="defaultCheck1">
+                              Menos de 10%
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Mais de 10%
+                              </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Mais de 30%
+                              </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Mais de 50%
+                              </label>
+                          </div>
+                          <input type="text" name="idpergunta[]" value="4" hidden />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="pergunta1">Você indicaria o FavelaTem?</label>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <label class="form-check-label" for="defaultCheck1">
+                              Sim
+                            </label>
+                          </div>
+                          <div class="form-check">
+                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <label class="form-check-label" for="defaultCheck2">
+                              Não
+                              </label>
+                          </div>
+                          <input type="text" name="idpergunta[]" value="5" hidden />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="comentario">Faça um comentário:</label>
+                          <textarea name="pergunta[]" className="form-control" id="comentario" rows="3"></textarea>
+                          <input type="text" name="idpergunta[]" value="6" hidden />
+                        </div>
+                      </form>
                     </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src={empreendedorismo} className="d-block w-100" alt="..." />
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Empreendedorismo</h5>
-                      <p>Otimas dicas e sugestões para seu negócio evoluir!</p>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">Enviar</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                   </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div> 
-
+              </div>
+              <div className="cursos">
+                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src={consultoria} className="d-block w-100" alt="..." />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Consultoria</h5>
+                        <p>Um curso completo com dicas para melhor administrar seu
+                          negócio.</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src={marketing} className="d-block w-100" alt="..." />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Marketing Digital</h5>
+                        <p>Descubra como seu negócio pode evoluir com nosso curso
+                          de Marketing.</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src={empreendedorismo} className="d-block w-100" alt="..." />
+                      <div class="carousel-caption d-none d-md-block">
+                        <h5>Empreendedorismo</h5>
+                        <p>Otimas dicas e sugestões para seu negócio evoluir!</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
               </div>
 
-              <div  style={{margin: 50}}>
+              <div style={{ margin: 50 }}>
                 {/* <h1>
                   Sua Empresa aqui! Sendo vista por mais de 400 Mil Pessoas.
               </h1> */}
                 <p>Apio: </p>
-                <Apoiadores  />
+                <Apoiadores />
               </div>
             </div>
           </div>

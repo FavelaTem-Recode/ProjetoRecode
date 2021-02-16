@@ -78,7 +78,7 @@ const Registro = () => {
 
 
                                 <div class="form-group">
-                                    <input type="checkbox" className="checkbox" name="checkbox" id="checkbox" />
+                                    <input type="checkbox" className="checkbox" name="checkbox" id="checkbox" required/>
                                     <label for="checkbox" className="form-check-label">Li e concordo com os termos de uso e a Política de Privacidade!</label>
                                 </div>
                             </div>

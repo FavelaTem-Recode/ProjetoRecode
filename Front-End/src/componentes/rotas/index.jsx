@@ -13,6 +13,7 @@ import UpdateLoja from '../../pages/update-loja';
 import Cadportifolio from '../../pages/cadastro-portifolio';
 import Admin from '../../pages/admin';
 import Curso from '../../pages/cursos/curso-individual';
+import Adminlogin from '../../pages/adminlogin';
 
 function Rotas () {
     return(
@@ -31,6 +32,7 @@ function Rotas () {
             <Route exact path='/cadportifolio' component={Cadportifolio}/>
             <Route exact path='/admin' component={Admin}/>
             <Route exact path='/curso' component={Curso}/>
+            <Route exact path='/adminlogin' component={Adminlogin}/>
             
         </Switch>
     )

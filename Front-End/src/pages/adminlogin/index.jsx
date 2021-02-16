@@ -1,28 +1,28 @@
 import React from 'react';
-import './stylelogin.css';
 import { Link, useHistory } from 'react-router-dom';
 
 import Voltar from '../../assets/imagens/icons8-voltar-26.png';
 
-const Login = () => {
+const Adminlogin = () => {
     const history=useHistory();
     async function logar (event) {
         event.preventDefault()
         console.log (event);
 
-        const url = "http://localhost/projetos/ProjetoRecode/Back-End/loginUser.php"
+        const url = "http://localhost/projetos/ProjetoRecode/Back-End/loginAdmin.php"
         const form = new FormData (event.target)
         const envio = fetch (url, {method:"POST", body:form})
         const response = await envio
         const res = await response.json()
         console.log (res); 
         if (res.status==1) {
-            localStorage.setItem("login", res.body[ 0 ].email)
-            localStorage.setItem("senha", res.body[ 0 ].senha)
+            localStorage.setItem("login", res.body[0].email)
+            localStorage.setItem("senha", res.body[0].senha)
             localStorage.setItem("idprestador", res.body[ 0 ].idcadastrolojaprestador)
-            localStorage.setItem("idadmin", res.body[ 0 ].idcadastroadmin)
-            localStorage.setItem("nome", res.body[ 0 ].nome)
-            history.push("/")
+            localStorage.setItem("idadmin", res.body[0].idcadastroadmin)
+            localStorage.setItem("nome", res.body[0].nome)
+            localStorage.setItem("imagem", res.body[0].imagem)
+            history.push("/admin")
         }else {alert("Não foi possível logar")}
     }
 
@@ -38,11 +38,9 @@ const Login = () => {
             <div class="row container-fluid flex-column d-flex h-75 align-items-center justify-content-top paraisopolis">
                 <div className='col-sm-8'>
                     <div class="form bg-white w-100 px-3 pt-3">
-                        <h3>Seja bem-vindo(a)!</h3>
+                        <h3>Entre como administrador</h3>
                         <div class="link">
-                            <Link to="/registro">
-                                Ainda não tem uma conta?
-                        </Link>
+                                Ainda não tem uma conta? Converse com o DBA e crie uma.
                         </div>
                         <hr />
                         <form className="form-log" onSubmit={logar} id="logar">
@@ -55,8 +53,8 @@ const Login = () => {
                                 <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="senha" />
                             </div>
                             <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                                <label class="form-check-label" for="exampleCheck1">Lembrar sua senha</label>
+                                <input type="checkbox" class="form-check-input" id="senha" />
+                                <label class="form-check-label" for="senha">Lembrar sua senha</label>
                             </div>
                         </form>
                         <div class="link">
@@ -76,4 +74,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Adminlogin;

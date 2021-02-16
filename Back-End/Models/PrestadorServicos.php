@@ -24,14 +24,18 @@ class PrestadorServicos
     //checked
     public function registerPrestador()
     {
-        //Pega o id do usuário do BD de acordo com a senha e email passado, caso não retorne nada, insere null
-        $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT iduser FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
-        $this->fk_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        isset($this->fk_usuario['0']['iduser']) ? $this->fk_usuario = $this->fk_usuario['0']['iduser'] : $this->fk_usuario = null;
-        //----------------------------->
+        try {
+            $conn = Connection::getConnection();
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            //Transaction faz várias queries e consegue cancelar tudo, se alguma falhar
+            $conn->beginTransaction();
+            //Pega o id do usuário do BD de acordo com a senha e email passado, caso não retorne nada, insere null
+            $stmt = $conn->query("SELECT iduser FROM cadastrobasico WHERE email = '$this->email' AND senha = '$this->senha';");
+            $this->fk_usuario = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            isset($this->fk_usuario['0']['iduser']) ? $this->fk_usuario = $this->fk_usuario['0']['iduser'] : $this->fk_usuario = null;
+            //----------------------------->
 
-        $stmt = $conn->query("INSERT INTO cadastrolojaprestador
+            $stmt = $conn->query("INSERT INTO cadastrolojaprestador
         (
             nome_fantasia,
             fk_cadastro,
@@ -65,7 +69,22 @@ class PrestadorServicos
         )
         ");
 
-        return $stmt;
+            //Seta o atributo id com o ID inserido no banco
+            $this->id = $conn->lastInsertId();
+
+            //Para cada pergunta, insere uma resposta vazia no banco com a data de ser respondida depois de 3 meses do cadastro
+            $stmt = $conn->query("SELECT idavaliacaoMonitoramento FROM avaliacao_monitoramento;");
+
+            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $retorno) {
+                $idPergunta = $retorno['idavaliacaoMonitoramento'];
+                $stmt = $conn->query("INSERT INTO respostas_avaliacao(resposta,id_prestador,id_pergunta,proxima_avaliacao) VALUES ('','$this->id','$idPergunta',timestampadd(month,3,now()));");
+            }
+            $conn->commit();
+            return true;
+        } catch (Exception $e) {
+            $conn->rollBack();
+            return false;
+        }
     }
 
     //ckecked
@@ -93,7 +112,7 @@ class PrestadorServicos
         $stmt = $conn->query("SELECT iduser,idcadastrolojaprestador FROM cadastrobasico INNER JOIN cadastrolojaprestador ON iduser = fk_cadastro WHERE email = '$this->email' AND senha = '$this->senha';");
         $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
         isset($this->fk_lojaprestador['0']['idcadastrolojaprestador']) ? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador'] : $this->fk_lojaprestador = null;
-        
+
         $stmt = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,telefone,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,cadastrolojaprestador.imagem,descricao_loja FROM cadastrolojaprestador WHERE idcadastrolojaprestador = '$this->fk_lojaprestador';");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -127,4 +146,25 @@ class PrestadorServicos
         WHERE fk_cadastro = '$this->fk_usuario';");
         return $stmt->rowCount();
     }
+
+    public function checkPesquisa()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT iduser,idcadastrolojaprestador FROM cadastrobasico INNER JOIN cadastrolojaprestador ON iduser = fk_cadastro WHERE email = '$this->email' AND senha = '$this->senha';");
+        $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        isset($this->fk_lojaprestador['0']['idcadastrolojaprestador']) ? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador'] : $this->fk_lojaprestador = null;
+
+        $stmt = $conn->query("SELECT now() > proxima_avaliacao as deveAtualizar FROM respostas_avaliacao WHERE id_prestador = '$this->fk_lojaprestador';");
+
+        foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $retorno)
+        {
+          if($retorno['deveAtualizar'] == 1){
+            return Array('pesquisa'=> true);
+          }
+        }
+        return Array('pesquisa'=> false);
+    }
 }
+
+//Query conceitual para fazer update do tempo de responder a pesquisa
+//update cadastrobasico set delecao_cadastro = timestampadd(month,3,delecao_cadastro) where iduser = 3;
