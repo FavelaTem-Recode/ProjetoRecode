@@ -29,7 +29,7 @@ const Marketing = () => {
 
 
                     <input type="radio" name="Per2-res" id="" className="mr-1" />
-                    <label htmlFor="Per2-res" className='mr-3'>Quando você gastou para produzir o produto</label>
+                    <label htmlFor="Per2-res" className='mr-3'>Quanto você gastou para produzir o produto</label>
 
 
                     <h4>3 - O quarto P do marketing significa promoção ou seja:</h4>

@@ -1,12 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import Menu from "../../componentes/Menu";
+import Apoio from "../../componentes/Apoio";
+
 import "./stylehub.css";
 
-import consultoria from "../../assets/imagens/consultoria.png";
-import marketing from "../../assets/imagens/marketing-digital.png";
-import empreendedorismo from "../../assets/imagens/empreendedorismo.png";
-import Menu from "../../componentes/Menu";
-import { Link } from "react-router-dom";
-import Apoiadores from "../../componentes/patrocinadores";
 
 import $ from 'jquery';
 
@@ -50,6 +49,16 @@ const Hub = () => {
       window.$('#exampleModal').modal('show');
     }
   }, [pesquisa])
+
+  const [cursos, setCursos] = React.useState([])
+  React.useEffect(async () => {
+    const url = 'http://projetos/ProjetoRecode/Back-End/selectAllCursos.php';
+    const envio = fetch(url)
+    const response = await envio;;
+    const res = await response.json()
+    setCursos(res);    
+
+  });
 
   if (dados[0] != null) {
     return (
@@ -221,29 +230,35 @@ const Hub = () => {
                     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                   </ol>
                   <div class="carousel-inner">
-                    <div class="carousel-item active">
-                      <img src={consultoria} className="d-block w-100" alt="..." />
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>Consultoria</h5>
-                        <p>Um curso completo com dicas para melhor administrar seu
-                          negócio.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src={marketing} className="d-block w-100" alt="..." />
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>Marketing Digital</h5>
-                        <p>Descubra como seu negócio pode evoluir com nosso curso
-                          de Marketing.</p>
-                      </div>
-                    </div>
-                    <div class="carousel-item">
-                      <img src={empreendedorismo} className="d-block w-100" alt="..." />
-                      <div class="carousel-caption d-none d-md-block">
-                        <h5>Empreendedorismo</h5>
-                        <p>Otimas dicas e sugestões para seu negócio evoluir!</p>
-                      </div>
-                    </div>
+                    {cursos.map((itemCurso) => {
+                      if (itemCurso === cursos[0]) {
+                        return (
+                          <div class="carousel-item active">
+                            <img src={itemCurso.imagem_curso} className="d-block w-100" alt="..." />
+                            <div class="carousel-caption d-none d-md-block">
+                              <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
+                                <h5>{itemCurso.nome_curso}</h5>
+                              </Link>                              
+                              <p>{itemCurso.descricao}</p>
+                            </div>
+                          </div>
+                        )
+                      } else {
+                        return (
+                          <div class="carousel-item ">
+                            <img src={itemCurso.imagem_curso} className="d-block w-100" alt="..." />
+                            <div class="carousel-caption d-none d-md-block">
+                              <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
+                                <h5>{itemCurso.nome_curso}</h5>
+                              </Link>
+                              <p>{itemCurso.descricao}</p>
+                            </div>
+                          </div>
+                        )
+                      }
+                    })
+                  }
+                   
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -254,14 +269,13 @@ const Hub = () => {
                     <span class="sr-only">Next</span>
                   </a>
                 </div>
+
               </div>
 
               <div style={{ margin: 50 }}>
-                {/* <h1>
-                  Sua Empresa aqui! Sendo vista por mais de 400 Mil Pessoas.
-              </h1> */}
+
                 <p>Apio: </p>
-                <Apoiadores />
+                <Apoio />
               </div>
             </div>
           </div>

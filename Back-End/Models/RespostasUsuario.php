@@ -5,7 +5,6 @@ require 'Connection.php';
 class RespostasUsuario
 {
 
-
     public $idrespostas;
     public $fk_usuario;
     public $fk_pergunta;

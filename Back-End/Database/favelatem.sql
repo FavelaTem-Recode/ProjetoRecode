@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 19-Jan-2021 às 03:22
+-- Tempo de geração: 16-Fev-2021 às 23:41
 -- Versão do servidor: 5.7.31
 -- versão do PHP: 7.3.21
 
@@ -26,6 +26,55 @@ USE `favelatem`;
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `avaliacao_monitoramento`
+--
+
+DROP TABLE IF EXISTS `avaliacao_monitoramento`;
+CREATE TABLE IF NOT EXISTS `avaliacao_monitoramento` (
+  `idavaliacaoMonitoramento` int(11) NOT NULL AUTO_INCREMENT,
+  `pergunta` varchar(255) NOT NULL,
+  PRIMARY KEY (`idavaliacaoMonitoramento`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `avaliacao_monitoramento`
+--
+
+INSERT INTO `avaliacao_monitoramento` (`idavaliacaoMonitoramento`, `pergunta`) VALUES
+(1, 'O FavelaTem ajudou a melhorar seu negócio?'),
+(2, 'Após a divulgação no FavelaTem sua clientela aumentou?'),
+(3, 'Após a divulgação do seu serviço no FavelaTem seu rendimento mensal aumentou?'),
+(4, 'Se aumentou, quanto foi aproximadamente?'),
+(5, 'Você indicaria o FavelaTem?'),
+(6, 'Comentários');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `cadastroadmin`
+--
+
+DROP TABLE IF EXISTS `cadastroadmin`;
+CREATE TABLE IF NOT EXISTS `cadastroadmin` (
+  `idcadastroadmin` int(11) NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) NOT NULL,
+  `senha` char(32) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `imagem` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`idcadastroadmin`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cadastroadmin`
+--
+
+INSERT INTO `cadastroadmin` (`idcadastroadmin`, `email`, `senha`, `nome`, `imagem`) VALUES
+(1, 'enzo@teste.com', 'e10adc3949ba59abbe56e057f20f883e', 'Enzo', 'https://raymanpc.com/wiki/script-en/images/1/15/Admin.png');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `cadastrobasico`
 --
 
@@ -37,17 +86,21 @@ CREATE TABLE IF NOT EXISTS `cadastrobasico` (
   `email` varchar(100) NOT NULL,
   `senha` char(32) NOT NULL,
   `criacao_cadastro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `delecao_cadastro` datetime DEFAULT NULL,
   PRIMARY KEY (`iduser`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cadastrobasico`
 --
 
-INSERT INTO `cadastrobasico` (`iduser`, `nome`, `sobrenome`, `email`, `senha`, `criacao_cadastro`) VALUES
-(2, 'enzo', 'choque', 'enzo@superchoque.com', '25f9e794323b453885f5181f1b624d0b', '2021-01-18 21:04:29'),
-(3, 'Bola', 'de Fogo', 'enzo@boladefogo.com', '25f9e794323b453885f5181f1b624d0b', '2021-01-18 22:08:52');
+INSERT INTO `cadastrobasico` (`iduser`, `nome`, `sobrenome`, `email`, `senha`, `criacao_cadastro`, `delecao_cadastro`) VALUES
+(1, 'Enzo', 'Soares', 'enzo@teste.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-02-11 00:50:41', NULL),
+(2, 'Zeca', 'Zee', 'ze@teste.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-02-11 00:51:34', NULL),
+(3, 'apagado', 'apagado', 'apagado', 'apagado', '2021-02-13 22:22:34', '2023-08-13 22:30:32'),
+(4, 'João', 'Silva', 'john@john.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-02-14 02:28:23', NULL),
+(5, 'Enzo', 'Tester', 'enzo@superchoque.com', 'e10adc3949ba59abbe56e057f20f883e', '2021-02-15 03:42:15', NULL);
 
 -- --------------------------------------------------------
 
@@ -71,18 +124,21 @@ CREATE TABLE IF NOT EXISTS `cadastrolojaprestador` (
   `atividades` int(3) NOT NULL,
   `imagem` varchar(255) DEFAULT NULL,
   `descricao_loja` text,
+  `criacao_cadastro` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `delecao_cadastro` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`idcadastrolojaprestador`),
   UNIQUE KEY `fk_cadastro_UNIQUE` (`fk_cadastro`),
   KEY `fk_cadastro_prestador_idx` (`fk_cadastro`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cadastrolojaprestador`
 --
 
-INSERT INTO `cadastrolojaprestador` (`idcadastrolojaprestador`, `fk_cadastro`, `nome_fantasia`, `telefone`, `cep`, `logradouro`, `numero`, `bairro`, `estado`, `cidade`, `pontuacao`, `atividades`, `imagem`, `descricao_loja`) VALUES
-(2, 2, 'Super Choque, O Eletricista', '11955443323', '0607556', 'Rua do Raio', '125', 'Paraisópolis', 'SP', 'SP', 0, 0, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUwcpv4qkRw3LMWn4tKb6IC4kxsh2uzOvO9Q&usqp=CAU', 'Faço instalações elétricas residenciais, prediais e industriais, seguindo a NBR 5410 e utilizando os melhores materiais disponíveis.'),
-(3, 3, 'Bola de Fogo, O Bombeiro', '11955221144', '01234550', 'Rua do Posto', '1002', 'Paraisópolis', 'SP', 'SP', 0, 0, 'https://upload.wikimedia.org/wikipedia/en/1/15/Hotstreak.jpg', 'Estou de prontidão para apagar qualquer incêndio.');
+INSERT INTO `cadastrolojaprestador` (`idcadastrolojaprestador`, `fk_cadastro`, `nome_fantasia`, `telefone`, `cep`, `logradouro`, `numero`, `bairro`, `estado`, `cidade`, `pontuacao`, `atividades`, `imagem`, `descricao_loja`, `criacao_cadastro`, `delecao_cadastro`) VALUES
+(1, 2, 'Zeca do Z', '1199999999', '05214201', 'Rua X', '215', 'Paraisópolis', 'SP', 'SP', 0, 0, '', 'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz', '2021-01-01 03:50:41', NULL),
+(2, 4, 'João do Pão', '11970707070', '06072200', 'Rua Alfa', '224', 'Paraisópolis', 'SP', 'SP', 0, 0, '', 'Faço pão', '2021-01-01 03:50:41', NULL),
+(16, 5, 'Super Choque, o Eletricista', '23151651651', '00000000', 'Rua do teste', '254', 'Teste', 'SP', 'SAMPA', 0, 0, '', 'Fazemos instalações elétricas residenciais, prediais e industriais, sempre buscando atender a NBR 5410 e usando os materiais de melhor qualidade.', '2021-02-15 07:54:17', NULL);
 
 -- --------------------------------------------------------
 
@@ -127,7 +183,15 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
   PRIMARY KEY (`idcomentario`),
   KEY `fk_comment_loja_idx` (`fk_loja`),
   KEY `fk_comment_user_idx` (`fk_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `comentarios`
+--
+
+INSERT INTO `comentarios` (`idcomentario`, `comentario`, `fk_user`, `fk_loja`, `criacao_comment`) VALUES
+(1, 'TESTEAND', 1, 1, '2021-02-11 00:53:35'),
+(2, 'TesterZtoZ', 2, 1, '2021-02-11 00:53:35');
 
 -- --------------------------------------------------------
 
@@ -143,22 +207,7 @@ CREATE TABLE IF NOT EXISTS `contato` (
   `msg` varchar(300) CHARACTER SET utf8mb4 DEFAULT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_comentario`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `contato`
---
-
-INSERT INTO `contato` (`id_comentario`, `email_contato`, `nome`, `msg`, `data`) VALUES
-(1, 'danielacapassi83@gmail.com', 'Daniela', 'Teste da página de contato', '2021-01-17 10:44:41'),
-(2, 'daniela@daniela.com', 'Daniela', 'Testando página de contatos', '2021-01-17 13:07:42'),
-(3, 'daniela@daniela.com', 'Daniela', 'Testando página de contatos', '2021-01-17 13:14:38'),
-(4, 'maisum@dani.com', 'Daniela', 'Testando página de contatos', '2021-01-17 13:14:59'),
-(5, 'maisum@dani.com', 'Daniela', 'Testando página de contatos', '2021-01-17 13:29:39'),
-(6, 'emailteste@dani.com', 'Daniiiiiiiiiiiiiiii', 'Testando página de contatos de novooooo', '2021-01-17 22:03:33'),
-(7, 'outroemail@dani.com', 'Daniiiiiiiiiiiiiiii', 'Testando página de contatos de novooooo', '2021-01-17 22:13:11'),
-(8, 'mail@dani.com', 'Daniiiiiiiiiiiiiiii', 'Testando página de contatos de novooooo', '2021-01-17 22:29:04'),
-(9, 'danielacapassi83@gmail.com', 'Daniela Capassi Moreira', 'vvvvvmmmmmmmmmmmmmmmmmmmmmmm', '2021-01-17 22:40:27');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -170,9 +219,19 @@ DROP TABLE IF EXISTS `cursos`;
 CREATE TABLE IF NOT EXISTS `cursos` (
   `idcursos` int(11) NOT NULL AUTO_INCREMENT,
   `nome_curso` varchar(100) NOT NULL,
-  `pontuacao` int(11) NOT NULL,
+  `descricao` varchar(255) NOT NULL,
+  `imagem_curso` varchar(255) NOT NULL,
   PRIMARY KEY (`idcursos`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cursos`
+--
+
+INSERT INTO `cursos` (`idcursos`, `nome_curso`, `descricao`, `imagem_curso`) VALUES
+(3, 'Empreendedorismo', 'Otimas dicas e sugestões para seu negócio evoluir!', 'http://localhost:3000/static/media/empreendedorismo.71592253.png'),
+(4, 'Marketing Digital', 'Descubra como seu negócio pode evoluir com nosso curso de marketing', 'http://localhost:3000/static/media/marketing-digital.66091998.png'),
+(5, 'Administração', 'Um curso completo com dicas para melhor administrar seu negócio.', 'http://localhost:3000/static/media/consultoria.530e200b.png');
 
 -- --------------------------------------------------------
 
@@ -184,12 +243,27 @@ DROP TABLE IF EXISTS `perguntas`;
 CREATE TABLE IF NOT EXISTS `perguntas` (
   `idperguntas` int(11) NOT NULL AUTO_INCREMENT,
   `fk_curso` int(11) NOT NULL,
-  `conteudo` text NOT NULL,
+  `conteudo` text,
   `pegunta` varchar(255) NOT NULL,
   `valor_pontos` int(11) NOT NULL,
   PRIMARY KEY (`idperguntas`),
   KEY `fk_pergunta_curso_idx` (`fk_curso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `perguntas`
+--
+
+INSERT INTO `perguntas` (`idperguntas`, `fk_curso`, `conteudo`, `pegunta`, `valor_pontos`) VALUES
+(13, 3, 'https://www.youtube.com/embed/qXRYQl60lgw', '1 - Empreendedorismo é o esforço de  criar, idealizar,', 50),
+(14, 3, '', '2 - Para empreender é preciso ficar atento aos seguintes pontos:', 50),
+(15, 3, '', '3 - Algumas características ajudam a pessoa empreendedora. São elas:', 50),
+(16, 4, 'https://www.youtube.com/embed/rTxPwy4mKKw', '1 - Os quatro P do Marketing são: ', 60),
+(17, 4, '', '2 - Preço é:', 60),
+(18, 4, '', '3 - O quarto P do marketing significa promoção ou seja:', 60),
+(19, 5, 'https://www.youtube.com/embed/8Jx033mbv6M', '1 - Margem de lucro é basicamente o que você recebe pela venda do produto retirando mão de obra, produção, embalagem e tudo o que você precisou investir para produzir o produto para o seu cliente?', 70),
+(20, 5, '', '2 - Conta de água, luz e telefone, são custos fixos ou variáveis?', 70),
+(21, 5, '', '3 - Não é importante analisar o mercado e seus concorrentes na hora de precificar. Essa afirmação é Falsa ou verdadeira?', 70);
 
 -- --------------------------------------------------------
 
@@ -210,6 +284,36 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `respostas_avaliacao`
+--
+
+DROP TABLE IF EXISTS `respostas_avaliacao`;
+CREATE TABLE IF NOT EXISTS `respostas_avaliacao` (
+  `idrespostas_avaliacao` int(11) NOT NULL AUTO_INCREMENT,
+  `resposta` varchar(255) NOT NULL,
+  `id_prestador` int(11) NOT NULL,
+  `id_pergunta` int(11) NOT NULL,
+  `proxima_avaliacao` timestamp NOT NULL,
+  PRIMARY KEY (`idrespostas_avaliacao`),
+  KEY `fk_resposta_pergunta_avaliacao_idx` (`id_pergunta`),
+  KEY `fk_resposta_prestador_avaliacao_idx` (`id_prestador`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `respostas_avaliacao`
+--
+
+INSERT INTO `respostas_avaliacao` (`idrespostas_avaliacao`, `resposta`, `id_prestador`, `id_pergunta`, `proxima_avaliacao`) VALUES
+(8, '', 16, 1, '2021-05-15 07:54:17'),
+(9, '', 16, 2, '2021-05-15 07:54:17'),
+(10, '', 16, 3, '2021-05-15 07:54:17'),
+(11, '', 16, 4, '2021-01-15 07:54:17'),
+(12, '', 16, 5, '2021-05-15 07:54:17'),
+(13, '', 16, 6, '2021-05-15 07:54:17');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `respostas_padrao`
 --
 
@@ -221,7 +325,47 @@ CREATE TABLE IF NOT EXISTS `respostas_padrao` (
   `resposta` varchar(500) NOT NULL,
   PRIMARY KEY (`idrespostas_padrao`),
   KEY `fk_pergunta_respostapadrao_idx` (`fk_pergunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `respostas_padrao`
+--
+
+INSERT INTO `respostas_padrao` (`idrespostas_padrao`, `fk_pergunta`, `veracidade`, `resposta`) VALUES
+(1, 2, 1, '1'),
+(2, 2, 0, '0'),
+(3, 2, 0, '0'),
+(4, 2, 0, '0'),
+(5, 3, 1, 'a'),
+(6, 3, 0, 'v'),
+(7, 3, 0, 'c'),
+(8, 3, 0, 's'),
+(9, 4, 1, 'r'),
+(10, 4, 0, 'w'),
+(11, 4, 0, 't'),
+(12, 4, 0, 'g'),
+(13, 5, 1, 'b'),
+(14, 5, 0, 'h'),
+(15, 5, 0, 'j'),
+(16, 5, 0, 'k'),
+(23, 13, 1, 'Verdadeiro'),
+(24, 13, 0, 'Falso'),
+(25, 14, 1, 'Responsabilidade, compensação, Risco de falha.'),
+(26, 14, 0, 'Acordar cedo, trabalhar aos finais de semana e gastar pouco.'),
+(27, 15, 1, 'Acordar cedo, trabalhar aos finais de semana e gastar pouco.'),
+(28, 15, 0, 'Cautela,  atenção e intuição.'),
+(29, 16, 1, 'Produto, Preço, Praça e Promoção'),
+(30, 16, 0, 'Pensar, Planejar, Pesquisar e Produzir'),
+(31, 17, 1, 'Quanto o produto vai custar para o cliente'),
+(32, 17, 0, 'Quanto você gastou para produzir o produto'),
+(33, 18, 0, 'Descontos que você dá para o seu cliente.'),
+(34, 18, 1, 'Como você promove ou divulga sua marca.'),
+(35, 19, 1, 'Verdadeiro'),
+(36, 19, 0, 'Falso'),
+(37, 20, 1, 'Fixos'),
+(38, 20, 0, 'Variáveis'),
+(39, 21, 0, 'Verdadeira'),
+(40, 21, 1, 'Falsa');
 
 -- --------------------------------------------------------
 
@@ -240,7 +384,7 @@ CREATE TABLE IF NOT EXISTS `respostas_usuarios` (
   KEY `fk_prestador_resposta_idx` (`fk_usuario`),
   KEY `fk_resposta_usuario_idx` (`resposta_usuario`),
   KEY `fk_pergunta_resposta_idx` (`fk_pergunta`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -264,15 +408,17 @@ CREATE TABLE IF NOT EXISTS `servicos` (
   PRIMARY KEY (`idservicos`),
   KEY `fk_servico_prestador_idx` (`fk_lojaprestador`),
   KEY `fk_servico_subcategoria_idx` (`fk_subcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `servicos`
 --
 
 INSERT INTO `servicos` (`idservicos`, `fk_lojaprestador`, `fk_subcategoria`, `descricao_servico`, `atendimento_domicilio`, `atendimento_local`, `pagamento_dinheiro`, `pagamento_cartao`, `inicio_atendimento`, `fim_atendimento`, `imagem_servico`) VALUES
-(1, 2, 24, 'Instalação de DR para evitar choques', 1, 0, 1, 1, '07:00:00', '22:00:00', 'https://www.sabereletrica.com.br/wp-content/uploads/2015/08/Disjuntor-DR.jpg?ssl=1'),
-(2, 3, 41, 'Apago qualquer tipo de incêndio', 1, 0, 1, 1, '00:00:00', '00:00:00', 'https://i1.wp.com/gestaodesegurancaprivada.com.br/wp-content/uploads/CORPO-DE-BOMBEIRO-MILITAR.jpg?fit=650%2C350&ssl=1');
+(1, 1, 25, 'FAÇO TESTEEEEEEEEE', 1, 1, 1, 1, '11:11:00', '11:11:00', 'http://www.egewgegwetgwe4tg.com/aaewfwea'),
+(2, 1, 25, 'FAÇO TESTEEEEEEEEE', 1, 1, 1, 1, '11:11:00', '11:11:00', 'http://www.egewgegwetgwe4tg.com/aaewfwea'),
+(3, 1, 25, 'FAÇO TESTEEEEEEEEE', 1, 1, 1, 1, '11:11:00', '11:11:00', 'http://www.egewgegwetgwe4tg.com/aaewfwea'),
+(4, 1, 25, 'FAÇO TESTEEEEEEEEE', 1, 1, 1, 1, '11:11:00', '11:11:00', 'http://www.egewgegwetgwe4tg.com/aaewfwea');
 
 -- --------------------------------------------------------
 
@@ -357,6 +503,13 @@ ALTER TABLE `perguntas`
 --
 ALTER TABLE `portfolio`
   ADD CONSTRAINT `fk_portfolio_prestador` FOREIGN KEY (`fk_lojaprestador`) REFERENCES `cadastrolojaprestador` (`idcadastrolojaprestador`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Limitadores para a tabela `respostas_avaliacao`
+--
+ALTER TABLE `respostas_avaliacao`
+  ADD CONSTRAINT `fk_resposta_pergunta_avaliacao` FOREIGN KEY (`id_pergunta`) REFERENCES `avaliacao_monitoramento` (`idavaliacaoMonitoramento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_resposta_prestador_avaliacao` FOREIGN KEY (`id_prestador`) REFERENCES `cadastrolojaprestador` (`idcadastrolojaprestador`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Limitadores para a tabela `respostas_padrao`

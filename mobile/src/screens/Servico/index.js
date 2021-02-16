@@ -2,20 +2,20 @@ import React from 'react';
 import { View, Text, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
 
 import Fundo from '../../../assets/paraisopolisfoto.png';
-import CardServicos from "../../componentes/card-servicos";
-import Logo from "../../assets/imagens/logofavelatem.png";
-import Reformas from "../../assets/imagens/parede-de-tijolos.png";
-import Assistencia from "../../assets/imagens/lasca.png";
-import Beleza from "../../assets/imagens/maquiagem.png";
-import Costura from "../../assets/imagens/maquina-de-costura.png";
-import Auto from "../../assets/imagens/servico-automotivo.png";
-import Camera from "../../assets/imagens/camera-cb.png";
-import Consultoria from "../../assets/imagens/servicos-de-consultoria.png";
-import Alimentacao from "../../assets/imagens/prato-cb.png";
-import Caixa from "../../assets/imagens/caixa-de-ferramentas.png";
-import Saude from "../../assets/imagens/batimento-cardiaco.png";
-import Lupa from "../../assets/imagens/analise.png";
-import Menu from "../../componentes/Menu"
+import CardServicos from '../../../assets/card-servicos';
+import Logo from  '../../../assets/logofavelatem.png';
+import Reformas from '../../../assets/parede-de-tijolos.png';
+import Assistencia from '../../../assets/assets/lasca.png';
+import Beleza from '../../../assets/maquiagem.png';
+import Costura from '../../../assets/maquina-de-costura.png';
+import Auto from '../../../assets/servico-automotivo.png';
+import Camera from '../../../assets/camera-cb.png';
+import Consultoria from '../../../assets/servicos-de-consultoria.png';
+import Alimentacao from '../../../assets/prato-cb.png';
+import Caixa from '../../../assets/caixa-de-ferramentas.png';
+import Saude from '../../../assets/batimento-cardiaco.png';
+import Lupa from '../../../assets/analise.png';
+import Menu from '../../../assets/Menu';
 
 
 import styles from './styles';

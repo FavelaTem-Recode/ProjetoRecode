@@ -159,7 +159,7 @@ const Menu = () => {
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Como funciona?</Link>
+                            <HashLink className="nav-link" to="/#comofunciona">Como funciona?</HashLink>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/contato">Alguma dúvida ou sugestão?</Link>
