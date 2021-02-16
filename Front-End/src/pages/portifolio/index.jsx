@@ -15,6 +15,7 @@ const Portifolio = () => {
     const [dados, setDados] = React.useState([])
     const [portfolio, setPortfolio] = React.useState([]);
     const [categs, setCategs] = React.useState([]);
+    const [comments, setComments] = React.useState([]);
 
     function showForm() {
         var comentario = document.getElementById('toShow');
@@ -60,8 +61,42 @@ const Portifolio = () => {
         console.log(res)
     }, [])
 
+    React.useEffect(async () => {
+        const id = getInfo();
+        const url = `http://projetos/ProjetoRecode/Back-End/selectComments.php?id=${id}`;
+        const envio = fetch(url);
+        const resposta = await envio;
+        const res = await resposta.json()
+        setComments(res)
+        console.log(res)
+    }, [])
+
+    async function comentar(event) {
+        event.preventDefault();
+        const id = getInfo();
+        const url = "http://projetos/ProjetoRecode/Back-End/insertComment.php";
+        const form = new FormData(event.target);
+        form.append('email', localStorage.getItem('login'));
+        form.append('senha', localStorage.getItem('senha'));
+        form.append('idloja', id);
+
+        const envio = fetch(url, {
+            method: "POST",
+            body: form
+        });
+        const response = await envio;
+        const res = await response.json();
+        if (res.status == 1) {
+            alert("Comentário inserido com sucesso.");
+            // history.push("/hub");
+        } else {
+            alert("Algo deu errado");
+        }
+    }
+
 
     if (dados[0] != null) {
+
         return (
 
             <div className="portfolio">
@@ -106,7 +141,6 @@ const Portifolio = () => {
                                     </div>
                                 )
                             })}
-
 
                         </div>
                     </div>
@@ -156,16 +190,24 @@ const Portifolio = () => {
                     </div>
                 </div>
 
-
                 <section class="section3 container py-2">
                     <div id="comenttitulo">
                         <h2>Comentários</h2>
-                        <div class="coment">
-                            <p> Nome de quem comentou </p>
-                            <p> Data e hora </p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget placerat massa, ut tincidunt eros. Pellentesque ac lorem ipsum. Vestibulum dapibus pretium nisl in vehicula. Nulla ut justo commodo, lobortis purus in, ultricies eros. Duis sodales, magna blandit dapibus iaculis, augue orci dignissim sem, at luctus eros diam vitae ligula. Donec sit amet dui ultricies, vehicula libero ut, ultrices nunc. Fusce laoreet hendrerit magna, sed rutrum neque egestas nec.</p>
-                        </div>
+                        {comments.length > 0 ? comments.map((coment) => {
+                            return (
+
+                                <div class="coment">
+                                    <p>{coment.nome}</p>
+                                    <p>{coment.criacao_comment}</p>
+                                    <p>{coment.comentario}</p>
+                                </div>
+
+                            )
+                        }
+                        ) : console.log("algo")
+                        }
                     </div>
+
                     <div class="test2">
                         <button type="button" onClick={showForm}>+Comentarios</button>
                     </div>
@@ -175,15 +217,15 @@ const Portifolio = () => {
                         <p>Comentarios:</p>
                         <div class="coment">
                             <p>nome da loja </p>
-                            <textarea id="w3review" name="comentario" placeholder="Digite aqui seu comentário!" rows="4" cols="50" className="w-100"></textarea>
-                            <div class="test2">
+                            <form onSubmit={comentar} id="comentario">
+                                <textarea type="text" id="" name='comentario' placeholder="Digite aqui seu comentário!" rows="4" cols="50" className="w-100" />
 
-                                <button type="submit">Enviar comentario</button>
-                            </div>
+                                <div class="test2">
+                                    <button type="submit" form="comentario">Enviar comentario</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
-
                 </section>
             </div>
         )

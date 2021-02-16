@@ -71,7 +71,7 @@ class Comentarios
     public function selectComments()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT * FROM comentarios where fk_loja = '$this->fk_loja'");
+        $stmt = $conn->query("SELECT idcomentario,comentario,fk_user,fk_loja,criacao_comment,nome FROM comentarios INNER JOIN cadastrobasico ON fk_user = iduser WHERE fk_loja = '$this->fk_loja'");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
