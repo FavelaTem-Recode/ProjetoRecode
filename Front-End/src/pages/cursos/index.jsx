@@ -1,17 +1,12 @@
 import React from "react";
 
-import "./stylehub.css";
+import "./style.css";
 
-
-import consultoria from "../../assets/imagens/consultoria.png";
-import marketing from "../../assets/imagens/marketing-digital.png";
-import empreendedorismo from "../../assets/imagens/empreendedorismo.png";
 import Menu from "../../componentes/Menu";
 import { Link } from "react-router-dom";
-import Apoiadores from "../../componentes/patrocinadores";
-import Empreendedorismo from "./Empreendedorismo";
-import Marketing from "./Marketing";
-import Consultoria from './Consultoria';
+import Apoio from "../../componentes/Apoio";
+
+import Cursos from "../../componentes/Cursos";
 
 const Hub = () => {
     const [dados, setDados] = React.useState([])
@@ -31,9 +26,16 @@ const Hub = () => {
 
     }, [])
 
+    function getInfo() {
+        const queryString = window.location.href;
+        const urlParams = new URLSearchParams(queryString);
+        const id = urlParams.get('id');
+        return id;
+    }
+   
     if (dados[0] != null) {
         return (
-            <div className="hub">
+            <div className="curso">
                 <div className="container-fluid">
                     <div className="section-1">
                         <div className="bloco-1">
@@ -72,22 +74,17 @@ const Hub = () => {
                         <div className="conteudo">
                             <div className="cursos">
                                 <div className="container-fluid my-3">
-                                    <Empreendedorismo />
 
-                                    {/* <Marketing />  */}
-
-                                    {/* <Consultoria /> */}
+                                    <Cursos id={getInfo()} />                               
 
                                 </div>
 
                             </div>
 
                             <div style={{ margin: 50 }}>
-                                {/* <h1>
-                  Sua Empresa aqui! Sendo vista por mais de 400 Mil Pessoas.
-              </h1> */}
+                                
                                 <p>Apio: </p>
-                                <Apoiadores />
+                                <Apoio />
                             </div>
                         </div>
                     </div>
