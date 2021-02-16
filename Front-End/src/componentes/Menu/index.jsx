@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Logo from '../../assets/imagens/logofavelatem.png';
+import { HashLink } from 'react-router-hash-link';
 
 
 const Menu = () => {
@@ -68,7 +69,8 @@ const Menu = () => {
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Como funciona?</Link>
+                               {/* <Link className="nav-link" to="/">Como funciona?</Link> */}
+                               <HashLink className="nav-link" to="/#comofunciona">Como funciona?</HashLink>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/contato">Alguma dúvida ou sugestão?</Link>
@@ -122,7 +124,8 @@ const Menu = () => {
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
-                                <Link className="nav-link" to="/">Como funciona?</Link>
+                                  {/* <Link className="nav-link" to="/">Como funciona?</Link> */}
+                                  <HashLink className="nav-link" to="/#comofunciona">Como funciona?</HashLink>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/contato">Alguma dúvida ou sugestão?</Link>
@@ -188,7 +191,8 @@ const Menu = () => {
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Como funciona?</Link>
+                        {/* <Link className="nav-link" to="/">Como funciona?</Link> */}
+                        <HashLink className="nav-link" to="/#comofunciona">Como funciona?</HashLink>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/contato">Alguma dúvida ou sugestão?</Link>

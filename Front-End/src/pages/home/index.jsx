@@ -66,7 +66,7 @@ const Home = () => {
                 </div>
             </section>
             <section>
-                <div>
+            <div id="comofunciona">
                     <h2  id="item5">Favela tem é uma plataforma de pubicidade de serviços dos moradores de paraisópolis. <a href name="qs"></a> </h2>
                 </div>
             </section>
