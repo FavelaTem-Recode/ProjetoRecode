@@ -216,7 +216,7 @@ const Portifolio = () => {
                     <div id="toShow" hidden>
                         <p>Comentarios:</p>
                         <div class="coment">
-                            <p>nome da loja </p>
+                            <p>Escreva seu comentário abaixo: </p>
                             <form onSubmit={comentar} id="comentario">
                                 <textarea type="text" id="" name='comentario' placeholder="Digite aqui seu comentário!" rows="4" cols="50" className="w-100" />
 

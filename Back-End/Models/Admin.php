@@ -54,7 +54,7 @@ class Admin
     public static function selectChurn()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT(SELECT count(*) FROM cadastrobasico inner join cadastrolojaprestador on fk_cadastro = iduser WHERE cadastrolojaprestador.delecao_cadastro >= timestampadd(month,-1,now()))as saidaClientes,(SELECT count(*) FROM cadastrobasico inner join cadastrolojaprestador on fk_cadastro = iduser WHERE cadastrolojaprestador.criacao_cadastro <= timestampadd(month,-1,now()) and cadastrolojaprestador.delecao_cadastro >= timestampadd(month,-1,now()) or cadastrolojaprestador.delecao_cadastro IS NULL) as clientelaInicial;");
+        $stmt = $conn->query("SELECT(SELECT count(*) FROM cadastrobasico inner join cadastrolojaprestador on fk_cadastro = iduser WHERE cadastrolojaprestador.delecao_cadastro >= timestampadd(month,-1,now()) AND cadastrolojaprestador.criacao_cadastro <=timestampadd(month,-1,now()))as saidaClientes,(SELECT count(*) FROM cadastrobasico inner join cadastrolojaprestador on fk_cadastro = iduser WHERE cadastrolojaprestador.criacao_cadastro <= timestampadd(month,-1,now()) and cadastrolojaprestador.delecao_cadastro >= timestampadd(month,-1,now()) or cadastrolojaprestador.delecao_cadastro IS NULL) as clientelaInicial;");
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

@@ -66,11 +66,6 @@ const Servico = () => {
                     <h3>Dados do serviço:</h3>
                     <hr />
                     <form className="form-log" id="cadastroservico" onSubmit={cadServico}>
-                        <div class="form-group">
-                            <label for="nome">Nome do serviço:</label>
-                            <input type="text" class="form-control" id="nome" placeholder="Digite o nome do seu serviço"
-                                name="nome" required />
-                        </div>
                         <div className="form-row" >
                             <div class="form-group col-md-6 categ">
                                 <label for="nome">Categorias:</label>

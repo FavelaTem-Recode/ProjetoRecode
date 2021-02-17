@@ -12,7 +12,7 @@ if (isset($_POST['email']) && isset($_POST['senha'])) {
     $usuario->senha = md5($_POST['senha']);
 
     $validate = $usuario->deleteUser();
-    if ($validate === 1) {
+    if ($validate === true) {
         print_r(
             json_encode(
                 array(

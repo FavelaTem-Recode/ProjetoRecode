@@ -30,7 +30,7 @@ const Menu = () => {
         const dados = await resposta.json();
         if (dados.status == 1) {
             alert("Conta deletada com sucesso");
-            setTimeout(() => { sair() }, 3000)
+            sair();
         } else {
             alert("Houve algum erro, por favor tente mais tarde");
         }

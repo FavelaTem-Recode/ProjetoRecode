@@ -31,7 +31,8 @@
 }
 
 .portfolio .tesoura img {
-    position: relative;
+    width: 100px;
+    height: 100px;
 }
 
 .portfolio .segundo {

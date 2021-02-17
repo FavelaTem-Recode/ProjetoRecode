@@ -54,11 +54,37 @@ const Hub = () => {
   React.useEffect(async () => {
     const url = 'http://projetos/ProjetoRecode/Back-End/selectAllCursos.php';
     const envio = fetch(url)
-    const response = await envio;;
+    const response = await envio;
     const res = await response.json()
-    setCursos(res);    
+    setCursos(res);
 
   });
+
+  async function responderPesquisa(event) {
+    event.preventDefault();
+    const url = "http://projetos/ProjetoRecode/Back-End/responderAvaliacao.php"
+    const form = new FormData(event.target);
+    form.append('email', localStorage.getItem('login'));
+    form.append('senha', localStorage.getItem('senha'));
+
+    const envio = fetch(url, {
+      method: "POST",
+      body: form
+    });
+    const response = await envio;
+    const res = await response.json();
+
+    console.log(res)
+
+    const resultado = res.every((e) => e === 1);
+
+    if (resultado) {
+      alert("Obrigado por contribuir com a melhoria do FavelaTem.");
+      window.$('#exampleModal').modal('hide');
+    } else {
+      alert("Algo deu errado ao enviar a pesquisa, sentimos muito.");
+    }
+  }
 
   if (dados[0] != null) {
     return (
@@ -95,7 +121,6 @@ const Hub = () => {
                   <Link className="btn" to="/cadportifolio">Adicionar Portfólio</Link>
                   <Link className="btn" to="/servico">Criar Anúncio</Link>
                   <Link className="btn" to="/updateloja">Atualizar perfil</Link>
-                  <button className="btn btn-large" data-toggle="modal" data-target="#exampleModal">Abrir modal</button>
                 </div>
               </aside>
             </div>
@@ -110,113 +135,113 @@ const Hub = () => {
                       </button>
                     </div>
                     <div class="modal-body">
-                      <form id="form-pesquisa">
+                      <form id="form-pesquisa" onSubmit={responderPesquisa}>
                         <div class="form-group">
                           <label for="pergunta1">O FavelaTem ajudou a melhorar seu negócio?</label>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[0][]" value="1" id="simAjudou" />
                             <label class="form-check-label" for="defaultCheck1">
                               Sim
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[0][]" value="0" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Não
                               </label>
                           </div>
-                          <input type="text" name="idpergunta[]" value="1" hidden />
+                          <input type="text" name="resposta[0][1]" value="1" hidden />
                         </div>
 
                         <div class="form-group">
                           <label for="pergunta1">Após a divulgação no FavelaTem sua clientela aumentou?</label>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[1][]" value="1" id="simAjudou" />
                             <label class="form-check-label" for="defaultCheck1">
                               Sim
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[1][]" value="0" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Não
                               </label>
                           </div>
-                          <input type="text" name="idpergunta[]" value="2" hidden />
+                          <input type="text" name="resposta[1][1]" value="2" hidden />
                         </div>
 
                         <div class="form-group">
                           <label for="pergunta1">Após a divulgação do seu serviço no FavelaTem seu rendimento mensal aumentou?</label>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[2][]" value="1" id="simAjudou" />
                             <label class="form-check-label" for="defaultCheck1">
                               Sim
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[2][]" value="0" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Não
                               </label>
                           </div>
-                          <input type="text" name="idpergunta[]" value="3" hidden />
+                          <input type="text" name="resposta[2][1]" value="3" hidden />
                         </div>
 
                         <div class="form-group">
                           <label for="pergunta1">Se aumentou, quanto foi aproximadamente?</label>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[3][]" value="10-" id="simAjudou" />
                             <label class="form-check-label" for="defaultCheck1">
                               Menos de 10%
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[3][]" value="10+" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Mais de 10%
                               </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[3][]" value="30+" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Mais de 30%
                               </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[3][]" value="50+" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Mais de 50%
                               </label>
                           </div>
-                          <input type="text" name="idpergunta[]" value="4" hidden />
+                          <input type="text" name="resposta[3][1]" value="4" hidden />
                         </div>
 
                         <div class="form-group">
                           <label for="pergunta1">Você indicaria o FavelaTem?</label>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="1" id="simAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[4][]" value="1" id="simAjudou" />
                             <label class="form-check-label" for="defaultCheck1">
                               Sim
                             </label>
                           </div>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="pergunta[]" value="0" id="naoAjudou" />
+                            <input class="form-check-input" type="radio" name="resposta[4][]" value="0" id="naoAjudou" />
                             <label class="form-check-label" for="defaultCheck2">
                               Não
                               </label>
                           </div>
-                          <input type="text" name="idpergunta[]" value="5" hidden />
+                          <input type="text" name="resposta[4][1]" value="5" hidden />
                         </div>
 
                         <div class="form-group">
                           <label for="comentario">Faça um comentário:</label>
-                          <textarea name="pergunta[]" className="form-control" id="comentario" rows="3"></textarea>
-                          <input type="text" name="idpergunta[]" value="6" hidden />
+                          <textarea name="resposta[5][]" className="form-control" id="comentario" rows="3"></textarea>
+                          <input type="text" name="resposta[5][1]" value="6" hidden />
                         </div>
                       </form>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">Enviar</button>
+                      <button type="submit" class="btn btn-primary" form="form-pesquisa">Enviar</button>
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
                     </div>
                   </div>
@@ -238,7 +263,7 @@ const Hub = () => {
                             <div class="carousel-caption d-none d-md-block">
                               <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
                                 <h5>{itemCurso.nome_curso}</h5>
-                              </Link>                              
+                              </Link>
                               <p>{itemCurso.descricao}</p>
                             </div>
                           </div>
@@ -257,8 +282,8 @@ const Hub = () => {
                         )
                       }
                     })
-                  }
-                   
+                    }
+
                   </div>
                   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
