@@ -1,16 +1,21 @@
+  
 import React from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { 
+  View, 
+  Text, 
+  StatusBar, 
+} from 'react-native';
 
-import Login from './src/screens/Login';
+
+import Routes from './src/routes';
 
 
 function App() {
   return (
     <View>
-      <StatusBar/>
+      <StatusBar />
 
-    <Login />
-      
+      <Routes />
     </View>
   )
 }

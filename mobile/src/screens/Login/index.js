@@ -1,45 +1,67 @@
 import React from 'react';
-import { View, Text, ImageBackground, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, ImageBackground, TextInput, TouchableOpacity, Alert, Platform } from 'react-native';
 
 import Fundo from '../../../assets/paraisopolisfoto.png';
-import Logo from '../../../assets/logofavelatem.png';
 
 import styles from './styles';
 
-function Login() {
-    return(
-    <View style={styles.caixa}>
+const apiUsuario = {
+    id: 1,
+    email: "favelatem@teste.com",
+    senha: "123"
+}
 
-        <ImageBackground source={Fundo} style={styles.fundo}>
+function Login({navigation}) {
 
-        {/* < Imagem Logo = { exigir ( '../../../assets/logofavelatem.png' ) } />   */}
+    function autenticacao() {
+        // fetch("")
+        if (apiUsuario.email === usuario && apiUsuario.senha === senha) {
+            navigation.navigate("Home");
+        }else {
+            Alert.alert("Usuario inválido", "É necessário informar um usuário válido.")
+        }
+     
+    }
 
-        
-            <View>
+    const [usuario, setUsuario] = React.useState("");
+    const [senha, setSenha] = React.useState("");
 
-                 <Text style={styles.titulo}>Seja bem-vindo(a)!</Text>
+    return (
+        <View style={styles.caixa}>
+            <ImageBackground source={Fundo} style={styles.fundo}>
 
-            </View>
+                <View>
+                    <Text style={styles.titulo}>Login</Text>
+                </View>
 
-            <View style={styles.inputs}>
+                <View style={styles.inputs}>
 
-                <TextInput placeholder="Digite o e-mail..." style={styles.input}/>  
-            
-                <TextInput placeholder="Digite sua senha..." style={styles.input} 
-                secureTextEntry={true}/> 
+                    <TextInput 
+                        placeholder="Digite o email..." 
+                        style={styles.input}
+                        value={usuario}
+                        onChangeText={(text) => setUsuario(text)}
+                    />
 
-                <TouchableOpacity style={styles.btn}>
-                    <Text style={styles.texto}>Entrar</Text>
-                </TouchableOpacity>
-            
-            </View>
-            
-        </ImageBackground>
+                    <TextInput 
+                        placeholder="Digite o senha..." 
+                        style={styles.input} 
+                        secureTextEntry={true}
+                        value={senha}
+                        onChangeText={(text) => setSenha(text)}
+                    />
 
-    </View>
+                    <TouchableOpacity style={styles.btn} onPress={autenticacao}>
+                        <Text style={styles.texto}>Entrar</Text>
+                    </TouchableOpacity>
 
+                </View>
+                
+            </ImageBackground>
 
+        </View>
     )
 }
+
 
 export default Login;
