@@ -36,7 +36,7 @@ const Hub = () => {
     if (dados[0] != null) {
         return (
             <div className="curso">
-                <div className="container-fluid">
+                <div className="container-fluid m-0 p-0">
                     <div className="section-1">
                         <div className="bloco-1">
                             <Menu />
@@ -73,7 +73,7 @@ const Hub = () => {
                         </div>
                         <div className="conteudo">
                             <div className="cursos">
-                                <div className="container-fluid my-3">
+                                <div className="container-fluid d-flex align-items-center">
 
                                     <Cursos id={getInfo()} />                               
 
@@ -83,7 +83,7 @@ const Hub = () => {
 
                             <div style={{ margin: 50 }}>
                                 
-                                <p>Apio: </p>
+                                <h3>Apoio: </h3>
                                 <Apoio />
                             </div>
                         </div>

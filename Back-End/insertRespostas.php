@@ -5,31 +5,54 @@ header("Content-type: application/json"); //Indicação de arquivo JSON
 
 require "./Models/RespostasUsuario.php";
 
-$resposta = new RespostasUsuario;
-$resposta->email = $_POST['email'];
-$resposta->resposta_usuario = $_POST['resposta'];
-$resposta->fk_pergunta = $_POST['idpergunta'];
-$resposta->senha = md5($_POST['senha']);
+function arrCompleto()
+{
+    foreach ($_POST['resposta'] as $envio) {
+        if (!isset($envio[0]) || !isset($envio[1])) {
+            return false;
+        }
+    }
+    return true;
+}
 
+if (arrCompleto()) {
+    $devolucao = [];
+    if (isset($_POST['resposta']) && isset($_POST['email']) && isset($_POST['senha'])) {
+        foreach ($_POST['resposta'] as $envio) {
+            $respostaUser = $envio[0];
+            $perguntaUser = $envio[1];
 
-$validate = $resposta->insertRespostas();
+            $resposta = new RespostasUsuario;
+            $resposta->email = $_POST['email'];
+            $resposta->resposta_usuario = $respostaUser;
+            $resposta->fk_pergunta = $perguntaUser;
+            $resposta->senha = md5($_POST['senha']);
 
-if ($validate == true) {
-    print_r(
-        json_encode(
-            array(
-                'status' => 1,
-                'mensagem' => 'Dados inseridos com sucesso',
-                'body'=> $validate        
+            $insert = $resposta->insertRespostas();
+            array_push($devolucao, $insert);
+        }
+
+        print_r(
+            json_encode(
+                $devolucao
             )
-        )
-    );
+        );
+    } else {
+        print_r(
+            json_encode(
+                array(
+                    "status" => 0,
+                    "erro" => "Algum parâmetro está faltando"
+                )
+            )
+        );
+    }
 } else {
     print_r(
         json_encode(
             array(
-                'status' => 0,
-                'mensagem' => 'Falha na inserção de dados'
+                "status" => 0,
+                "erro" => "É necessário o envio do formulário completo"
             )
         )
     );
