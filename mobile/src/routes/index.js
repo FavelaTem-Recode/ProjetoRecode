@@ -10,17 +10,17 @@ import Home from '../screens/Home';
 import Servico from '../screens/Servico';
 
 const Rotas = {
-    Login: {
-        nome: "Login",
-        screen: Login
+    Home: {
+        nome: "Home",
+        screen: Home
     },
     Cursos: {
         nome: "Cursos",
         screen: Cursos
     },
-    Home: {
-        nome: "Home",
-        screen: Home
+    Login: {
+        nome: "Login",
+        screen: Login
     },
     Servico: {
         nome: "Servico",

@@ -2,11 +2,21 @@ import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
+    height: 100,
+    width: 300,
+    
+  },
+  containerCursos: {
+    display:"flex",
+    justifyContent:"space-between",
     width: "100%",
+    height: 300,
+    flexDirection: "row",
+  },
+  containerCard:{
+    display: "flex",
     justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#1ca8c9",
+    alignItems:"center",
   },
   titulo: {
     color: "white",
@@ -21,14 +31,20 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   imagem: {
-    width: "95%",
-    height: "30%",
     marginTop: 40,
-    padding: 20,
+    padding: 10,
     borderRadius: 6,
-    marginTop: 50,
-    marginLeft: 35,
-    marginRight: 30,
+    marginTop: 20,
+    marginLeft: 20,
+  },
+  imagemCurso: {
+    width: "50%",
+    height: "50%",
+    marginTop: 40,
+    padding: 10,
+    borderRadius: 6,
+    marginTop: 20,
+    marginLeft: 20,
   },
   btn: {
     backgroundColor: "#ff8C00",

@@ -4,8 +4,8 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    // justifyContent: "center",
+    // alignItems: "center",
     backgroundColor: "#1ca8c9",
   },
   titulo: {
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   imagem: {
-    width: "95%",
-    height: "30%",
+    // width: 170,
+    // height: 50,
     marginTop: 40,
     padding: 20,
     borderRadius: 6,
