@@ -8,6 +8,7 @@ import Login from '../screens/Login';
 import Cursos from '../screens/Cursos';
 import Home from '../screens/Home';
 import Servico from '../screens/Servico';
+import Hub from "../screens/Hub"; 
 
 const Rotas = {
     Home: {
@@ -25,6 +26,10 @@ const Rotas = {
     Servico: {
         nome: "Servico",
         screen: Servico
+    },
+    Hub: {
+        nome:"Hub",
+        screen: Hub
     }
 }
 
