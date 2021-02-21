@@ -1,52 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
 
-// const styles = StyleSheet.create({
-//   container: {
-//     height: "100%",
-//     width: "100%",
-//     justifyContent: "center",
-//     alignItems: "center",
-//     backgroundColor: "#1ca8c9",
-//   },
-//   titulo: {
-//     color: "white",
-//     fontSize: 32,
-//     textAlign: "center",
-//     marginTop: 50,
-//   },
-//   introducao: {
-//     color: "black",
-//     fontSize: 25,
-//     textAlign: "center",
-//     marginTop: 50,
-//   },
-//   imagem: {
-//     width: "95%",
-//     height: "30%",
-//     marginTop: 40,
-//     padding: 20,
-//     borderRadius: 6,
-//     marginTop: 50,
-//     marginLeft: 35,
-//     marginRight: 30,
-//   },
-//   btn: {
-//     backgroundColor: "#ff8C00",
-//     marginTop: 100,
-//     marginBottom: 20,
-//     padding: 10,
-//     borderRadius: 6,
-//     width: 200,
-//     height: 50,
-//   },
-//   texto: {
-//     fontSize: 20,
-//     color: "white",
-//     textAlign: "center",
-//   },
-// });
-
-// export default styles;
 
 const styles = StyleSheet.create({
   caixa: {
@@ -58,9 +11,6 @@ const styles = StyleSheet.create({
     fundo: {
     width: "100%",
     height: "100%",
-    // justifyContent: 'center',
-    // alignItems: 'center'
-    
 },
   label: {
           color: "black",
@@ -97,43 +47,6 @@ label3: {
     marginTop: 12,
     borderRadius: 8,
   },
-
-  // btnCad: {
-  //   backgroundColor: "#6f42c1",
-  //   marginTop: 12,
-  //   padding: 10,
-  //   borderRadius: 4,
-  //   width: "40%",
-    
-    
-  // },
-  // btnLim: {
-  //   backgroundColor: "#6f42c1",
-  //   marginTop: 12,
-  //   padding: 10,
-  //   borderRadius: 4,
-  //   width: "50%",
-    
-  // },
-  // btns:{
-  //   display: "flex",
-  //   flexDirection: 'row-reverse',
-  //   justifyContent: 'space-between',
-  //   alignItems: "center",
-  // },
-  // texto: {
-  //   fontSize: 18,
-  //   color: "white",
-  //   textAlign: "center",
-  // },
-  // textArea: {
-  //   height: 150,
-  //   backgroundColor: "white",
-  //   width: "100%",
-  //   padding: 8,
-  //   marginTop: 12,
-  //   borderRadius: 8,
-  // },
 img: {
     width: 230,
     height: 250,
@@ -145,16 +58,8 @@ img: {
     height: 100,
     borderRadius: 10,
   },
-  // area: {
-  //   display: "flex",
-  //   flexDirection: "row",
-  //   justifyContent: 'space-between',
-  //   alignItems: "center",
-  // }, 
+
   abertura: {
-    // display: "flex",
-    // flexDirection: 'column',
-    // justifyContent: 'space-around',
     alignItems: "center",
     marginBottom: 20,
     marginTop: 20,
@@ -168,9 +73,7 @@ img: {
     backgroundColor: "#e6aa65"
   },
   container_normal: {
-    // flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: "center",
     alignItems: "center",
     marginTop: 10,
     marginBottom: 10,
@@ -194,6 +97,18 @@ img: {
     justifyContent: "center",
   
   },
+  btn1: {
+    backgroundColor: "#ff8C00",
+    marginTop: 10,
+    marginBottom: 10,
+    marginLeft: 136,
+    padding: 10,
+    borderRadius: 6,
+    width: 90,
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   texto: {
     fontSize: 16,
     color: "white",
@@ -207,19 +122,6 @@ img: {
     marginBottom: 20,
     fontWeight: "bold",
   },
-  // introducao: {
-  //   color: "black",
-  //   fontSize: 25,
-  //   textAlign: "center",
-  //   marginTop: 50,
-  //   marginBottom: 30,
-  // },
-  // containercursos: {
-  //   alignItems: "center",
-  //   justifyContent: "center",
-  //   backgroundColor:"green",
-  
-  // }
 });
 
 export default styles;

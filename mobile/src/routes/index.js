@@ -9,6 +9,7 @@ import Cursos from '../screens/Cursos';
 import Home from '../screens/Home';
 import Servico from '../screens/Servico';
 import Hub from "../screens/Hub"; 
+import Portifolio from "../screens/Portifolio";
 
 const Rotas = {
     Home: {
@@ -30,6 +31,10 @@ const Rotas = {
     Hub: {
         nome:"Hub",
         screen: Hub
+    },
+    Portifolio: {
+        nome:"Portifolio",
+        screen: Portifolio
     }
 }
 

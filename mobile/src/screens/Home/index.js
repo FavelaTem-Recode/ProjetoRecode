@@ -15,6 +15,9 @@ function Home({ navigation }) {
   function servico() {
     navigation.navigate("Servico");
   }
+  function cursos() {
+    navigation.navigate("Cursos");
+  }
   return (
     <ScrollView style={styles.caixa}>
       <View style={styles.abertura}>
@@ -26,7 +29,7 @@ function Home({ navigation }) {
 
       <View style={styles.inputs}>
         <TextInput placeholder="O que você procura?" style={styles.input} />
-        <TouchableOpacity style={styles.btn} onPress={servico}>
+        <TouchableOpacity style={styles.btn1} onPress={servico}>
           <Text style={styles.texto}> Buscar</Text>
         </TouchableOpacity>
       </View>
@@ -38,7 +41,7 @@ function Home({ navigation }) {
             source={require("../../../assets/mocaboloroxo.jpg")}
           />
           <Text style={styles.label2}>
-            64 Clientes compartilharam suas experiências aqui
+            64 Clientes compartilharam suas experiências
           </Text>
           <Text style={styles.label2}>42 profissionais registrados</Text>
           <Text style={styles.label2}> Dezenas de possibilidades</Text>
@@ -102,8 +105,8 @@ function Home({ navigation }) {
           <Text style={styles.label3}>Tudo isso, totalmente Gratuito!!!</Text>
         </View>
 
-        <TouchableOpacity style={styles.btn} onPress={servico}>
-          <Text style={styles.texto}> Serviços</Text>
+        <TouchableOpacity style={styles.btn} onPress={cursos}>
+          <Text style={styles.texto}> Cursos</Text>
         </TouchableOpacity>
       </View>
 
