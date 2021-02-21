@@ -15,8 +15,8 @@ function Home({ navigation }) {
   function servico() {
     navigation.navigate("Servico");
   }
-  function cursos() {
-    navigation.navigate("Cursos");
+  function cadastro() {
+    navigation.navigate("FormularioCadastro");
   }
   return (
     <ScrollView style={styles.caixa}>
@@ -105,8 +105,8 @@ function Home({ navigation }) {
           <Text style={styles.label3}>Tudo isso, totalmente Gratuito!!!</Text>
         </View>
 
-        <TouchableOpacity style={styles.btn} onPress={cursos}>
-          <Text style={styles.texto}> Cursos</Text>
+        <TouchableOpacity style={styles.btn} onPress={cadastro}>
+          <Text style={styles.texto}> Cadastrar</Text>
         </TouchableOpacity>
       </View>
 
