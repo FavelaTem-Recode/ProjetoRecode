@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Image, View} from "react-native";
 import { Avatar, Button, Card, Title, Paragraph, } from 'react-native-paper';
 
-const LeftContent = props => <Avatar.Icon {...props} icon="video" />
+const LeftContent = props => <Avatar.Icon {...props} icon="video"/>
 
 const CardCurso = () => (
   <Card  style={{backgroundColor:"#1ca8c9",}}>

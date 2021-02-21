@@ -26,36 +26,37 @@ function Cursos({ navigation }) {
     <ScrollView style={{backgroundColor:"#1ca8c9", height:"100%"}} >
 
       <TouchableOpacity style={{display:"flex", flexDirection:"row"}} onPress={home}>
-         <Image
-          style={styles.imagem}
+
+        <Image style={styles.imagem}
           source={require("../../../assets/logofavelatem.png")} />
-        {/* <BtnMenu />           */}
-      </TouchableOpacity>  
 
-    <View style={styles.containerCursos}>
-      <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
-         <Image style={styles.imagemCurso} source={require("../../../assets/financas.png")} />
-        <Title style={{fontSize:14, fontWeight:"900"}}>Empreededorismo</Title>
-      </View>
+      </TouchableOpacity> 
 
-      <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
-        <Image style={styles.imagemCurso} source={require("../../../assets/mktdigital.png")} />
-        <Title style={{fontSize:14, fontWeight:"900"}}>Marketing</Title>
-      </View>
+      <BtnMenu navigation={navigation} />
 
-      <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
-        <Image style={styles.imagemCurso} source={require("../../../assets/consultoria.png")} />
-        <Title style={{fontSize:14, fontWeight:"900"}}>Administração</Title>
-      </View>    
-      
-    </View> 
+      <View style={styles.containerCursos}>        
+
+        <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
+          <Image style={styles.imagemCurso} source={require("../../../assets/financas.png")} />
+          <Title style={{fontSize:14, fontWeight:"900"}}>Empreededorismo</Title>
+        </View>
+
+        <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
+          <Image style={styles.imagemCurso} source={require("../../../assets/mktdigital.png")} />
+          <Title style={{fontSize:14, fontWeight:"900"}}>Marketing</Title>
+        </View>
+
+        <View style={{display:"flex", alignItems:"center", marginLeft: 15, marginRight: 15,}}>
+          <Image style={styles.imagemCurso} source={require("../../../assets/consultoria.png")} />
+          <Title style={{fontSize:14, fontWeight:"900"}}>Administração</Title>
+        </View>    
+        
+      </View> 
 
       <CardCurso />
 
-
-
       <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between" }}>
-        
+          
         <TouchableOpacity style={styles.btn} onPress={home}>
           <Text style={styles.texto}>Home</Text>
         </TouchableOpacity>
@@ -67,12 +68,11 @@ function Cursos({ navigation }) {
         <TouchableOpacity style={styles.btn} onPress={login}>
           <Text style={styles.texto}>Login</Text>
         </TouchableOpacity>
-        
-      </View>
-        
+          
+      </View>        
 
-      </ScrollView>
-    );
-  }
+    </ScrollView>
+  );
+}
   
   export default Cursos;
