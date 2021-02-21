@@ -65,8 +65,8 @@ function Cursos({ navigation }) {
           <Text style={styles.texto}>Serviços</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={login}>
-          <Text style={styles.texto}>Login</Text>
+        <TouchableOpacity style={styles.btn} onPress={hub}>
+          <Text style={styles.texto}>Hub</Text>
         </TouchableOpacity>
           
       </View>        
