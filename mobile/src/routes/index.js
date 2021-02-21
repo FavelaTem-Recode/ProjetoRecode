@@ -35,7 +35,11 @@ const Rotas = {
     Portifolio: {
         nome:"Portifolio",
         screen: Portifolio
-    }
+    },
+    // Cadastro: {
+    //     nome:"Cadastro",
+    //     screen: Cadastro
+    // }
 }
 
 // Criar as rotas

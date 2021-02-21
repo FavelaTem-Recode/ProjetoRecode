@@ -2,9 +2,9 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Title } from 'react-native-paper';
-import BtnMenu from '../../Components/Menu';
-import MenuUsuario from '../../Components/MenuUsuario/Index';
-import CardCurso from '../../screens/Cursos/Card/';
+// import BtnMenu from '../../Components/Menu';
+// import MenuUsuario from '../../Components/MenuUsuario/Index';
+// import CardCurso from '../../screens/Cursos/Card/';
 
 import styles from "./styles";
 

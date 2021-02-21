@@ -12,18 +12,30 @@ import styles from "./styles";
 
 
 function Home({ navigation }) {
+  function home() {
+    navigation.navigate("Home");
+  }
   function servico() {
     navigation.navigate("Servico");
   }
+  function login() {
+    navigation.navigate("Login");
+  }
   function cursos() {
-    navigation.navigate("Cursos");
+    navigation.navigate("Cadastro");
   }
   return (
     <ScrollView style={styles.caixa}>
+       
+       <TouchableOpacity style={{display:"flex", flexDirection:"row", marginTop:10, marginLeft:10}} onPress={home}>
+        <Image 
+          source={require("../../../assets/logofavelatem.png")} />
+      </TouchableOpacity> 
+
       <View style={styles.abertura}>
-        <Text style={styles.titulo}>FAVELA TEM</Text>
+        {/* <Text style={styles.titulo}>FAVELA TEM</Text> */}
         <Text style={styles.label}>
-          Plataforma de publicidade de serviços dos moradores de Paraisópolis
+         A Plataforma de publicidade de serviços dos moradores de Paraisópolis
         </Text>
       </View>
 
@@ -106,7 +118,10 @@ function Home({ navigation }) {
         </View>
 
         <TouchableOpacity style={styles.btn} onPress={cursos}>
-          <Text style={styles.texto}> Cursos</Text>
+          <Text style={styles.texto}>Cadastro</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={login}>
+          <Text style={styles.texto}>Login</Text>
         </TouchableOpacity>
       </View>
 

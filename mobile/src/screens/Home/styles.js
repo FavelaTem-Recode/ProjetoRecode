@@ -17,6 +17,9 @@ const styles = StyleSheet.create({
           fontSize: 20,
           textAlign: "center",
           marginTop: 5,
+          color: "#fff",
+          fontWeight: "bold",
+          fontStyle:"italic"
         
   },
   label2: {

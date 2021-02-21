@@ -2,8 +2,8 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { Title } from 'react-native-paper';
-import BtnMenu from '../../Components/Menu';
-import CardCurso from './Card';
+// import BtnMenu from '../../Components/Menu';
+import CardCurso from '../../Components/CardCursos/';
 
 import styles from "./styles";
 
@@ -32,7 +32,7 @@ function Cursos({ navigation }) {
 
       </TouchableOpacity> 
 
-      <BtnMenu navigation={navigation} />
+      {/* <BtnMenu navigation={navigation} /> */}
 
       <View style={styles.containerCursos}>        
 

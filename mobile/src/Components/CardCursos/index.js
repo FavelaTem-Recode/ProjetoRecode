@@ -12,7 +12,7 @@ const CardCurso = () => (
       <Paragraph>Video orientação</Paragraph>
     </Card.Content>
     <View style={{display:"flex", alignItems:"center"}}>
-        <Image source={require("../../../../assets/pich.jpeg")} style={{width:350, height:250,}} />
+        <Image source={require("../../../assets/pitch.jpeg")} style={{width:350, height:250,}} />
     </View>    
     
   </Card>
