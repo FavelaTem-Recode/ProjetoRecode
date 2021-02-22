@@ -259,7 +259,7 @@ const Hub = () => {
                       if (itemCurso === cursos[0]) {
                         return (
                           <div class="carousel-item active">
-                            <img src={itemCurso.imagem_curso} className="d-block w-100" alt="..." />
+                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." />
                             <div class="carousel-caption d-none d-md-block">
                               <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
                                 <h5>{itemCurso.nome_curso}</h5>
@@ -271,7 +271,7 @@ const Hub = () => {
                       } else {
                         return (
                           <div class="carousel-item ">
-                            <img src={itemCurso.imagem_curso} className="d-block w-100" alt="..." />
+                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." />
                             <div class="carousel-caption d-none d-md-block">
                               <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
                                 <h5>{itemCurso.nome_curso}</h5>

@@ -1,14 +1,8 @@
 import React from "react";
 import "./style.css";
-import logo from "../../assets/imagens/logofavelatem.png";
-import tesoura from "../../assets/imagens/tesoura.png";
-import voltar from "../../assets/imagens/setaesquerda.png";
-import avancar from "../../assets/imagens/setadireita.png";
-import beleza from "../../assets/imagens/belezaaa.jpg";
-import zap from "../../assets/imagens/whatsapp.png";
 import carrosselVazio from '../../assets/imagens/portfolio-vazio.jpg';
 import Menu from '../../componentes/Menu';
-
+import ImagemPlaceholder from '../../assets/imagens/image-placeholder.png';
 
 
 const Portifolio = () => {
@@ -19,7 +13,6 @@ const Portifolio = () => {
 
     function showForm() {
         var comentario = document.getElementById('toShow');
-        console.log(comentario);
         comentario.hidden = !comentario.hidden;
 
     }
@@ -38,7 +31,6 @@ const Portifolio = () => {
         const resposta = await envio;
         const res = await resposta.json()
         setDados(res)
-        console.log(res)
     }, [])
 
     React.useEffect(async () => {
@@ -48,7 +40,6 @@ const Portifolio = () => {
         const resposta = await envio;
         const res = await resposta.json()
         setPortfolio(res)
-        console.log(res)
     }, [])
 
     React.useEffect(async () => {
@@ -58,7 +49,6 @@ const Portifolio = () => {
         const resposta = await envio;
         const res = await resposta.json()
         setCategs(res)
-        console.log(res)
     }, [])
 
     React.useEffect(async () => {
@@ -68,7 +58,6 @@ const Portifolio = () => {
         const resposta = await envio;
         const res = await resposta.json()
         setComments(res)
-        console.log(res)
     }, [])
 
     async function comentar(event) {
@@ -158,14 +147,14 @@ const Portifolio = () => {
                                 if (port === portfolio[0]) {
                                     return (
                                         <div class="carousel-item active">
-                                            <img src={port.imagem} class="d-block w-100 img-fluid" alt="..." />
+                                            <img src={port.imagem} onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} class="d-block w-100 img-fluid" alt="..." />
                                             <div class="carousel-caption d-none d-md-block">
                                                 <p>{port.descricao}</p>
                                             </div>
                                         </div>)
                                 } else {
                                     return (<div class="carousel-item">
-                                        <img src={port.imagem} class="d-block w-100 img-fluid" alt="..." />
+                                        <img src={port.imagem} onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} class="d-block w-100 img-fluid" alt="..." />
                                         <div class="carousel-caption d-none d-md-block">
                                             <p>{port.descricao}</p>
                                         </div>
