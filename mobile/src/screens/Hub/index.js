@@ -15,15 +15,15 @@ function Hub({ navigation }) {
    function servico() {
      navigation.navigate("Servico");
   }
-  function login() {
-    navigation.navigate("Login");
+  function cursos() {
+    navigation.navigate("Cursos");
   }
   function hub() {
     navigation.navigate("Hub");
   }
 
   return (
-    <ScrollView style={{backgroundColor:"#1ca8c9", height:"100%"}} >
+    <ScrollView style={{backgroundColor:"#fff", height:"100%"}} >
 
       <TouchableOpacity style={{display:"flex", flexDirection:"row"}} onPress={home}>
          <Image
@@ -34,10 +34,10 @@ function Hub({ navigation }) {
 
       <View style={{display:"flex", alignItems:"center", marginLeft: 5, marginRight: 10, marginTop:25}}>
         <Image style={styles.imagemCurso} source={require("../../../assets/pedreiro.png")} />
-        <Text style={{fontSize:15, fontWeight:"bolder", fontStyle:"italic", color: "white"}}>Rafael</Text>
+        <Text style={{fontSize:18, fontWeight:"bolder", fontStyle:"italic", color: "#ff8c00"}}>Rafael</Text>
       </View>      
 
-     <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between", marginTop:20}}>
+     <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around", marginTop:20}}>
         
         <TouchableOpacity style={styles.btnUser} >
           <Text style={styles.textoUser}>Meu Perfil</Text>
@@ -48,7 +48,7 @@ function Hub({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between" }}>      
+      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around" }}>      
 
         <TouchableOpacity style={styles.btnUser} >
           <Text style={styles.textoUser}>Anúncios</Text>
@@ -58,6 +58,12 @@ function Hub({ navigation }) {
           <Text style={styles.textoUser}>Atualizar Perfil</Text>
         </TouchableOpacity>
         
+      </View>
+
+      <View style={{alignItems:"center"}}>
+      <TouchableOpacity style={styles.btn} onPress={cursos}>
+          <Text style={styles.texto}>Cursos</Text>
+        </TouchableOpacity>
       </View>
 
     <View style={styles.containerCursos}>      
@@ -80,7 +86,7 @@ function Hub({ navigation }) {
     </View>  
 
     
-    <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between" }}>
+    <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around" }}>
       
       <View style={styles.atividades}>
         <Text style={styles.textoAtividades}>Pontos</Text>
@@ -92,13 +98,13 @@ function Hub({ navigation }) {
       </View>
       <View style={styles.atividades}>
         <Text style={styles.textoAtividades}>Anúncios</Text>
-        <Text> 2 </Text>
+        <Text> 0 </Text>
       </View>
       
 
     </View>  
 
-     <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between" }}>
+     <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around" }}>
         
         <TouchableOpacity style={styles.btn} onPress={home}>
           <Text style={styles.texto}>Home</Text>
@@ -108,9 +114,9 @@ function Hub({ navigation }) {
           <Text style={styles.texto}>Serviços</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.btn} onPress={hub}>
-          <Text style={styles.texto}>Login</Text>
-        </TouchableOpacity>
+        <TouchableOpacity style={styles.btn} onPress={home}>
+          <Text style={styles.texto}>Sair</Text>
+        </TouchableOpacity>      
         
       </View>
         

@@ -90,8 +90,7 @@ img: {
   },
   btn: {
     backgroundColor: "#ff8C00",
-    marginTop: 10,
-    marginBottom: 10,
+    margin: 5,
     padding: 10,
     borderRadius: 6,
     width: 90,

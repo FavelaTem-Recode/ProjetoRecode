@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ImageBackground, TextInput, TouchableOpacity, Alert, Platform } from 'react-native';
+import { View, Text, ImageBackground, TextInput, TouchableOpacity, Alert, Platform, Image} from 'react-native';
 
 import Fundo from '../../../assets/paraisopolisfoto.png';
 
@@ -7,8 +7,8 @@ import styles from './styles';
 
 const apiUsuario = {
     id: 1,
-    email: "favelatem@teste.com",
-    senha: "123"
+    email: "rafael@favelatem.com",
+    senha: "123456"
 }
 
 function Login({navigation}) {
@@ -16,20 +16,33 @@ function Login({navigation}) {
     function autenticacao() {
         // fetch("")
         if (apiUsuario.email === usuario && apiUsuario.senha === senha) {
-            navigation.navigate("Home");
+            navigation.navigate("Hub");
         }else {
             Alert.alert("Usuario inválido", "É necessário informar um usuário válido.")
         }
      
     }
+    function home() {
+        navigation.navigate("Home");
+      }
 
     const [usuario, setUsuario] = React.useState("");
     const [senha, setSenha] = React.useState("");
 
     return (
         <View style={styles.caixa}>
-            <ImageBackground source={Fundo} style={styles.fundo}>
 
+            
+
+        <ImageBackground source={Fundo} style={styles.fundo}   >
+
+            <TouchableOpacity style={{display:"flex", flexDirection:"row"}} onPress={home}>
+                    <Image style={styles.imagemLogo}
+                    source={require("../../../assets/logofavelatem.png")} />                   
+            </TouchableOpacity>
+
+
+            
                 <View>
                     <Text style={styles.titulo}>Login</Text>
                 </View>
@@ -56,8 +69,14 @@ function Login({navigation}) {
                     </TouchableOpacity>
 
                 </View>
+
+                                 
                 
-            </ImageBackground>
+            
+                
+        </ImageBackground>
+
+            
 
         </View>
     )

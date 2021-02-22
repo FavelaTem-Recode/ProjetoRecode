@@ -23,7 +23,7 @@ function Cursos({ navigation }) {
   }
 
   return (
-    <ScrollView style={{backgroundColor:"#1ca8c9", height:"100%"}} >
+    <ScrollView style={{backgroundColor:"#fff", height:"100%"}} >
 
       <TouchableOpacity style={{display:"flex", flexDirection:"row"}} onPress={home}>
 
@@ -55,7 +55,7 @@ function Cursos({ navigation }) {
 
       <CardCurso />
 
-      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-between" }}>
+      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around" }}>
           
         <TouchableOpacity style={styles.btn} onPress={home}>
           <Text style={styles.texto}>Home</Text>

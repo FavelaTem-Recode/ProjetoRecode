@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   imagemCurso: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     borderRadius: 30,
   },
   btn: {
@@ -50,16 +50,16 @@ const styles = StyleSheet.create({
     height: 40,
   },
   btnUser: {
-    backgroundColor: "#fff",    
+    backgroundColor: "#1ca8c9",    
     padding: 10,
     margin: 20,
     borderRadius: 6,
-    width: 100,
+    width: 120,
     height: 40,
   },
   textoUser: {
-    fontSize: 10,
-    color:"#1ca8c9",
+    fontSize: 13,
+    color:"#fff",
     textAlign: "center",
     fontWeight: "bold"
   },

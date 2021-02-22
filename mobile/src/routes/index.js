@@ -10,6 +10,7 @@ import Home from '../screens/Home';
 import Servico from '../screens/Servico';
 import Hub from "../screens/Hub"; 
 import Portifolio from "../screens/Portifolio";
+import FormularioCadastro from "../screens/FormularioCadastro";
 
 const Rotas = {
     Home: {
@@ -40,6 +41,11 @@ const Rotas = {
     //     nome:"Cadastro",
     //     screen: Cadastro
     // }
+
+FormularioCadastro: {
+    nome:"FormularioCadastro",
+    screen: FormularioCadastro
+},
 }
 
 // Criar as rotas

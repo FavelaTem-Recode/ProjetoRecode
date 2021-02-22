@@ -12,8 +12,22 @@ function Portifolio({ navigation }) {
     function home() {
         navigation.navigate("Home");
     }
+    function servico() {
+        navigation.navigate("Servico");
+    }
     return (
         <ScrollView style={styles.caixa}>
+
+        <TouchableOpacity style={{display:"flex", flexDirection:"row"}} onPress={home}>
+         <Image
+          style={{marginTop: 40,
+            padding: 10,
+            borderRadius: 6,
+            marginTop: 20,
+            marginLeft: 20,}}
+          source={require("../../../assets/logofavelatem.png")} />       
+        </TouchableOpacity> 
+
             <View style={styles.abertura}>
                 <Text style={styles.titulo}> PORTIFÓLIO</Text>
             </View>
@@ -41,7 +55,7 @@ function Portifolio({ navigation }) {
             </View>
 
    
-            <Card style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor:"#1ca8c9"}}>
+            <Card style={{ display: "flex", alignItems: "center", justifyContent: "center", backgroundColor:"#fff"}}>
                 <View style={{
                     display: "flex", flexDirection: "row", justifyContent: "space-between",
                 }}
@@ -80,13 +94,13 @@ function Portifolio({ navigation }) {
                     source={require("../../../assets/sublimebolo.jpeg")}
                 />
             </View>
-            <View>
+            <View style={{backgroundColor: "#e6aa65", marginTop:10, padding: 10}}>
 
                 <Text style={styles.labels}>Deixe seu Comentário</Text>
                 <TextInput
                     style={styles.textArea}
                     // underlineColorAndroid="transparent"
-                    placeholder="Digite sua mensagem"
+                   
                     //   placeholderTextColor="black"
                     numberOfLines={20}
                     multiline={true}
@@ -115,12 +129,22 @@ function Portifolio({ navigation }) {
                 Joana Prado - 15/01/21
         </Text>
             </Card>
+            
 
+        <View style={{display:"flex", flexDirection: "row", justifyContent:"space-around"}}>
             <View style={styles.container}>
                 <TouchableOpacity style={styles.btn} onPress={home}>
                     <Text style={styles.texto}>Home</Text>
                 </TouchableOpacity>
             </View>
+
+            <View style={styles.container}>
+                <TouchableOpacity style={styles.btn} onPress={servico}>
+                    <Text style={styles.texto}>Serviços</Text>
+                </TouchableOpacity>
+            </View>
+        </View> 
+            
 
 
             <View>
@@ -139,4 +163,3 @@ function Portifolio({ navigation }) {
 }
 
 export default Portifolio;
-

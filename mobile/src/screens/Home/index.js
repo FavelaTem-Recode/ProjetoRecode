@@ -24,6 +24,9 @@ function Home({ navigation }) {
   function cursos() {
     navigation.navigate("Cadastro");
   }
+  function cadastrar() {
+    navigation.navigate("FormularioCadastro");
+  }
   return (
     <ScrollView style={styles.caixa}>
        
@@ -116,13 +119,19 @@ function Home({ navigation }) {
         <View style={styles.container}>
           <Text style={styles.label3}>Tudo isso, totalmente Gratuito!!!</Text>
         </View>
+        
+        <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
 
-        <TouchableOpacity style={styles.btn} onPress={cursos}>
-          <Text style={styles.texto}>Cadastro</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.btn} onPress={login}>
-          <Text style={styles.texto}>Login</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.btn} onPress={cadastrar}>
+            <Text style={styles.texto}>Cadastro</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.btn} onPress={login}>
+            <Text style={styles.texto}>Login</Text>
+          </TouchableOpacity>
+
+        </View>       
+
       </View>
 
       <View style={styles.container_normal}>
@@ -144,4 +153,3 @@ function Home({ navigation }) {
 }
 
 export default Home;
-

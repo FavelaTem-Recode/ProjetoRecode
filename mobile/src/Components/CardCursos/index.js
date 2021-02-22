@@ -5,7 +5,7 @@ import { Avatar, Button, Card, Title, Paragraph, } from 'react-native-paper';
 const LeftContent = props => <Avatar.Icon {...props} icon="video"/>
 
 const CardCurso = () => (
-  <Card  style={{backgroundColor:"#1ca8c9",}}>
+  <Card  style={{backgroundColor:"#fff",}}>
     <Card.Title title="Quem somos" subtitle="Nosso objetivo" left={LeftContent} />
     <Card.Content>
       <Title>Video</Title>

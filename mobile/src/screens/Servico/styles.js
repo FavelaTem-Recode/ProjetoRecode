@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     width: 100,
     height: 30,
-    alignItems:"center"
+    justifyContent:"center"
+    
   },
   texto: {
     fontSize: 15,

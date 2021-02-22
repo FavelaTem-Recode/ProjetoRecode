@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   caixa: {
     height: "100%",
     width: "100%",
-    backgroundColor: "#1ca8c9",
+    backgroundColor: "#fff",
   },
   container0: {
     marginBottom: 0,
@@ -133,6 +133,7 @@ const styles = StyleSheet.create({
     marginLeft:80,
   },
   textoCard3: {
+    color: "#fff",
     padding: 5,
     color: "black",
     fontWeight: "bold",
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     marginLeft:13,
   },
   tituloCard: {
-    color: "#1ca8c9",
+    color: "#fff",
     fontSize: 15,
     marginTop: 1,
     marginBottom: 5,
@@ -153,7 +154,7 @@ const styles = StyleSheet.create({
   },
   tituloCard1: {
     fontWeight: "bold",
-    color: "#1ca8c9",
+    color: "#fff",
     fontSize: 20,
     marginTop: 1,
     marginBottom: 5,
@@ -163,7 +164,7 @@ const styles = StyleSheet.create({
     marginLeft:15,
   },
   tituloCard3: {
-    color: "black",
+    color: "#fff",
     fontSize: 16,
     marginTop: 1,
     marginBottom: 5,
@@ -199,6 +200,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   labelComentarios: {
+    color:"#fff",
     fontWeight: "bold",
     fontSize: 18,
     padding: 5,
@@ -207,8 +209,8 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   textArea: {
-    backgroundColor: "white",
-    width: "95%",
+    backgroundColor: "#fff",
+    // width: "95%",
     borderRadius: 8,
     height: 100,
     marginRight: 10,
