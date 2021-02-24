@@ -5,4 +5,4 @@ header("Content-type: application/json"); //Indicação de arquivo JSON
 
 require "./Models/Admin.php";
 
-print_r(json_encode(Admin::selectMediaAnuncios()));
+print_r(json_encode(Admin::selectDadosMonitoramento()));

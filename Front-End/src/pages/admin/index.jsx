@@ -7,53 +7,24 @@ import Menu from "../../componentes/Menu";
 import { Link } from "react-router-dom";
 
 const Admin = () => {
-    const [proporcaoUsers, setProporcaoUsers] = React.useState({ total: 0, prestadores: 0, usersBasicos: 0 });
-    const [mediaAnuncios, setMediaAnuncios] = React.useState(0);
-    const [mediaCursosFeitos, setMediaCursosFeitos] = React.useState({ qntsAcertos: 0, qntdPerguntas: 0 });
-    const [churn, setChurn] = React.useState({ saidaClientes: 0, clientelaInicial: 0 });
-    useEffect(() => {
-        async function graficoProporcao() {
-            const url = "http://projetos/ProjetoRecode/Back-End/selectProporcaoUsers.php";
-            const busca = fetch(url);
-            const retorno = await busca;
-            const dados = await retorno.json();
-            setProporcaoUsers({ total: dados[0].todosCadastros, prestadores: dados[0].prestadores, usersBasicos: dados[0].todosCadastros - dados[0].prestadores });
-        }
-        graficoProporcao();
-    }, [])
+    const [dados, setDados] = React.useState({
+        churn: [""], proporcao: [""],
+        cursosFeitos: { qntsAcertos: 0, qntdPerguntas: 0 },
+        mediaAnuncios: [{ qntdServicos: 0, qntdPrestadores: 0 }],
+        recomendacoes: [{ recomendacoesPositivas: 0, total: 0 }],
+        aumentoRenda: [{total: 0, aumentaram: 0}]
+    });
 
     useEffect(() => {
-        async function getChurn() {
-            const url = "http://projetos/ProjetoRecode/Back-End/selectChurn.php";
+        async function getDadosMonitoramento() {
+            const url = "http://projetos/ProjetoRecode/Back-End/selectDadosMonitoramento.php";
             const busca = fetch(url);
             const retorno = await busca;
             const dados = await retorno.json();
-            setChurn({ saidaClientes: dados[0].saidaClientes, clientelaInicial: dados[0].clientelaInicial });
+            setDados(dados);
+            console.log(dados)
         }
-        getChurn();
-    }, [])
-
-    useEffect(() => {
-        async function getMediaAnuncios() {
-            const url = "http://projetos/ProjetoRecode/Back-End/selectMediaAnuncios.php";
-            const busca = fetch(url);
-            const retorno = await busca;
-            const dados = await retorno.json();
-            const media = (dados[0].qntdServicos) / (dados[0].qntdPrestadores);
-            setMediaAnuncios(media);
-        }
-        getMediaAnuncios();
-    }, [])
-
-    useEffect(() => {
-        async function getCursosFeitos() {
-            const url = "http://projetos/ProjetoRecode/Back-End/selectCursosFeitos.php";
-            const busca = fetch(url);
-            const retorno = await busca;
-            const dados = await retorno.json();
-            setMediaCursosFeitos(dados);
-        }
-        getCursosFeitos();
+        getDadosMonitoramento();
     }, [])
 
     useEffect(() => {
@@ -64,7 +35,7 @@ const Admin = () => {
                 labels: ['Usuários Básicos', 'Prestadores de serviços'],
                 datasets: [{
                     label: '',
-                    data: [proporcaoUsers.usersBasicos, proporcaoUsers.prestadores],
+                    data: [dados.proporcao[0].todosCadastros - dados.proporcao[0].prestadores, dados.proporcao[0].prestadores],
                     backgroundColor: [
                         'rgba(255, 77, 0, 0.3)',
                         'rgba(28, 168, 201, 0.3)'
@@ -79,10 +50,9 @@ const Admin = () => {
                 }]
             }
         });
-    }, [proporcaoUsers])
+    }, [dados])
 
     useEffect(() => {
-        console.log(churn.clientelaInicial)
         var ctx = document.getElementById('churn').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'doughnut',
@@ -90,7 +60,7 @@ const Admin = () => {
                 labels: ['Prestadores que continuaram', 'Prestadores que saíram'],
                 datasets: [{
                     label: '',
-                    data: [(churn.clientelaInicial - churn.saidaClientes), churn.saidaClientes],
+                    data: [(dados.churn[0].clientelaInicial - dados.churn[0].saidaClientes), dados.churn[0].saidaClientes],
                     backgroundColor: [
                         'rgba(28, 168, 201, 0.3)',
                         'rgba(255, 77, 0, 0.3)'
@@ -103,7 +73,7 @@ const Admin = () => {
                 }]
             }
         });
-    }, [churn])
+    }, [dados])
 
 
     return (
@@ -115,7 +85,7 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="section-principal row">
-                    <div className="section-user col-md-2">
+                    <div className="section-user col-lg-2 col-md-3">
                         <aside className="inf-user">
                             <div className="foto-user">
                                 <img src={localStorage.getItem("imagem")} className="rounded-circle" alt="foto usuario" />
@@ -133,7 +103,7 @@ const Admin = () => {
 
                         </aside>
                     </div>
-                    <div className="col-md-8 p-0 d-flex flex-wrap">
+                    <div className="col-lg-8 col-md-6 p-0 d-flex flex-wrap">
                         <div className="parentCanvas">
                             <canvas id="proporcao" width="100" height="100"></canvas>
                         </div>
@@ -142,25 +112,34 @@ const Admin = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-2">
+                    <div className="col-lg-2 col-md-3">
                         <div className="dadoNumero">
-                            <h1>{proporcaoUsers.total}</h1>
+                            <h1>{dados.proporcao[0].todosCadastros}</h1>
                             <small>Usuários Totais</small>
                         </div>
 
                         <div className="dadoNumero">
-                            <h1>{(mediaAnuncios).toFixed(2)}</h1>
+                            <h1>{(dados.mediaAnuncios[0].qntdServicos / dados.mediaAnuncios[0].qntdPrestadores).toFixed(2)}</h1>
                             <small>Anúncios/Prestador</small>
                         </div>
 
                         <div className="dadoNumero">
-                            <h1>{(mediaCursosFeitos.qntsAcertos / proporcaoUsers.prestadores * 100).toFixed(2)}%</h1>
+                            <h1>{(dados.cursosFeitos.qntsAcertos / dados.proporcao[0].prestadores * 100).toFixed(2)}%</h1>
                             <small>Terminaram todo o curso</small>
                         </div>
 
                         <div className="dadoNumero">
-                            <h1>{(churn.saidaClientes / churn.clientelaInicial * 100).toFixed(2)}%</h1>
+                            <h1>{(dados.churn[0].saidaClientes / dados.churn[0].clientelaInicial * 100).toFixed(2)}%</h1>
                             <small>Rotatividade de prestadores</small>
+                        </div>
+
+                        <div className="dadoNumero">
+                            <h1>{(dados.recomendacoes[0].recomendacoesPositivas / dados.recomendacoes[0].total * 100).toFixed(2)}%</h1>
+                            <small>Recomendam a plataforma</small>
+                        </div>
+                        <div className="dadoNumero">
+                            <h1>{(dados.aumentoRenda[0].aumentaram / dados.aumentoRenda[0].total * 100).toFixed(2)}%</h1>
+                            <small>Viram aumento na renda</small>
                         </div>
                     </div>
                 </div>

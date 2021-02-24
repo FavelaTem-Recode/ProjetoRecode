@@ -113,8 +113,20 @@ class PrestadorServicos
         $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
         isset($this->fk_lojaprestador['0']['idcadastrolojaprestador']) ? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador'] : $this->fk_lojaprestador = null;
 
-        $stmt = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,telefone,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,cadastrolojaprestador.imagem,descricao_loja FROM cadastrolojaprestador WHERE idcadastrolojaprestador = '$this->fk_lojaprestador';");
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        //dad0s -=agina hub
+        $stmt2 = $conn->query("SELECT idcadastrolojaprestador,nome_fantasia,telefone,cep,logradouro,numero,bairro,estado,cidade,pontuacao,atividades,cadastrolojaprestador.imagem,descricao_loja FROM cadastrolojaprestador WHERE idcadastrolojaprestador = '$this->fk_lojaprestador';");
+        $dadosPrestador = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt3 = $conn->query("SELECT sum(valor_pontos) as pontuacao FROM respostas_usuarios inner join respostas_padrao on resposta_usuario = idrespostas_padrao inner join perguntas on respostas_usuarios.fk_pergunta = idperguntas where fk_usuario = '$this->fk_lojaprestador' and veracidade = 1;");
+        $pontuacao = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt4 = $conn->query("SELECT(SELECT count(*) FROM favelatem.respostas_usuarios where fk_usuario = '$this->fk_lojaprestador') as respostasUser, (SELECT count(*) from favelatem.perguntas) as perguntasTotal;");
+        $perguntas = $stmt4->fetchAll(PDO::FETCH_ASSOC);
+
+        $stmt5 = $conn->query("SELECT count(*) FROM favelatem.servicos WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
+        $anuncios = $stmt5->fetchAll(PDO::FETCH_ASSOC);
+
+        return $dadosPrestador;
     }
 
     public function selectCategoriasPrestador()
