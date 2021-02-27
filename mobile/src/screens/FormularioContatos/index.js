@@ -6,10 +6,10 @@ import styles from './styles';
 
 
 
-function Cadastro({navigation}) {
+function Contatos({navigation}) {
 
-    function login() {   
-        navigation.navigate("Login");    
+    function home() {   
+        navigation.navigate("Home");    
     }
     function home() {   
         navigation.navigate("Home");    
@@ -25,21 +25,20 @@ function Cadastro({navigation}) {
                     source={require("../../../assets/logofavelatem.png")} />
                 </TouchableOpacity>
 
-                <View>
-                    <Text style={styles.titulo}>CADASTRO</Text>
-                </View>
+        
+        <Text style={styles.label}>
+         Alguma dúvida, comentário ou sugestão?
+        </Text>
+        <Text style={styles.label2}>
+        Conte para gente!
+        </Text>
+     
 
                 <View style={styles.container0}>
             
                 <Text style={styles.labelcadastro}>Nome:</Text>
                         <TextInput
                     placeholder="Digite seu nome"
-                    style={styles.inputcadastro}
-                    />
-
-                <Text style={styles.labelcadastro}>Sobrenome:</Text>
-                    <TextInput
-                    placeholder="Digite seu sobrenome"
                     style={styles.inputcadastro}
                     />
             
@@ -50,24 +49,22 @@ function Cadastro({navigation}) {
                         
                     />
 
-              <Text style={styles.labelcadastro}>Senha:</Text>
-                    <TextInput 
-                        placeholder="Digite sua senha" 
-                        style={styles.inputcadastro} 
-                        secureTextEntry={true}
-                        
+                    {/* <View style={{backgroundColor: "#e6aa65", marginTop:10, padding: 10}}> */}
+
+                    <Text style={styles.labelcadastro}>Deixe sua mensagem:</Text>
+                    <TextInput
+                        style={styles.textArea}
+                        // underlineColorAndroid="transparent"
+                    
+                        //   placeholderTextColor="black"
+                        placeholder="Mensagem..." 
+                        numberOfLines={20}  
+                        multiline={true}
                     />
 
-                 <Text style={styles.labelcadastro}>Confirme sua senha:</Text>
-                    <TextInput 
-                        placeholder="Confirme sua senha" 
-                        style={styles.inputcadastro} 
-                        secureTextEntry={true}
-                        
-                    />
 
-                    <TouchableOpacity style={styles.btnX} onPress={login}>
-                        <Text style={styles.textobotao}>Cadastrar</Text>
+                    <TouchableOpacity style={styles.btnX} onPress={home}>
+                        <Text style={styles.textobotao}>Enviar</Text>
                     </TouchableOpacity>
 
                 </View>
@@ -92,4 +89,4 @@ function Cadastro({navigation}) {
 }
 
 
-export default Cadastro;
+export default Contatos;

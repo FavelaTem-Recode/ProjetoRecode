@@ -27,6 +27,10 @@ function Home({ navigation }) {
   function cadastrar() {
     navigation.navigate("FormularioCadastro");
   }
+  function contatos() {   
+    navigation.navigate("FormularioContatos");    
+}
+
   return (
     <ScrollView style={styles.caixa}>
        
@@ -128,6 +132,10 @@ function Home({ navigation }) {
 
           <TouchableOpacity style={styles.btn} onPress={login}>
             <Text style={styles.texto}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.btn} onPress={contatos}>
+            <Text style={styles.texto}>Contato</Text>
           </TouchableOpacity>
 
         </View>       

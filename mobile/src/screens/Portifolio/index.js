@@ -99,9 +99,6 @@ function Portifolio({ navigation }) {
                 <Text style={styles.labels}>Deixe seu Comentário</Text>
                 <TextInput
                     style={styles.textArea}
-                    // underlineColorAndroid="transparent"
-                   
-                    //   placeholderTextColor="black"
                     numberOfLines={20}
                     multiline={true}
                 />

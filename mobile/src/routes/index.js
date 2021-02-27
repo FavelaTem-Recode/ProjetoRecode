@@ -11,6 +11,8 @@ import Servico from '../screens/Servico';
 import Hub from "../screens/Hub"; 
 import Portifolio from "../screens/Portifolio";
 import FormularioCadastro from "../screens/FormularioCadastro";
+import FormularioContatos from  "../screens/FormularioContatos";
+
 
 const Rotas = {
     Home: {
@@ -37,16 +39,15 @@ const Rotas = {
         nome:"Portifolio",
         screen: Portifolio
     },
-    // Cadastro: {
-    //     nome:"Cadastro",
-    //     screen: Cadastro
-    // }
-
-FormularioCadastro: {
+    FormularioCadastro: {
     nome:"FormularioCadastro",
     screen: FormularioCadastro
-},
-}
+   },
+   FormularioContatos: {
+   nome:"FormularioContatos",
+   screen: FormularioContatos
+    },
+   }
 
 // Criar as rotas
 const Navegacao = createSwitchNavigator(Rotas);
