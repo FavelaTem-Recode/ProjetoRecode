@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import { Link, useHistory } from 'react-router-dom'
+import ImagemPlaceholder from '../../assets/imagens/perfil-placeholder.png'
 
 const CardServicos = (props) => {
   const history = useHistory();
@@ -44,7 +45,7 @@ const CardServicos = (props) => {
 
       <div className="cardServicos card">
         <div className="card-header d-flex">
-          <img src={props.imgpessoa} alt="imngteste" className="rounded-circle" />
+          <img src={props.imgpessoa} alt="imngteste" onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} className="rounded-circle" />
           <div className="ml-2">
             <p className="nome">{props.nome}</p>
             <p className="local">{props.local}</p>

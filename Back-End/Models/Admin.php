@@ -61,4 +61,11 @@ class Admin
         );
     }
 
+    public static function selectDadosPublicos()
+    {
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT(SELECT COUNT(*) FROM cadastrolojaprestador WHERE delecao_cadastro IS NULL) AS qntdPrestadores,(SELECT COUNT(*) FROM comentarios) AS qntdComentarios;");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

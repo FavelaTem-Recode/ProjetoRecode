@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 const Loja = () => {
     const history = useHistory();
-    const [dados, setDados] = React.useState([])
+    const [dados, setDados] = React.useState({prestador: []})
     React.useEffect(async () => {
         const url = "http://projetos/ProjetoRecode/Back-End/selectPrestadorByLogin.php";
         const form = new FormData();
@@ -47,7 +47,7 @@ const Loja = () => {
             alert("Algo deu errado, cheque se os dados foram inseridos corretamente")
         }
     }
-    if (dados[0] != null) {
+    if (dados.prestador[0] != null) {
         return (
 
             <div className="updateloja">
@@ -68,40 +68,40 @@ const Loja = () => {
 
                             <form onSubmit={updateLoja} id="updtloja">
                                 <label for="nome">Seu nome ou nome fantasia:</label>
-                                <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="João das Couves" defaultValue={dados[0].nome_fantasia} />
+                                <input type="text" class="form-control" id="nome" name="nomefantasia" placeholder="João das Couves" defaultValue={dados.prestador[0].nome_fantasia} />
 
                                 <div class="form-group">
                                     <label for="telefone">Telefone:</label>
-                                    <input type="text" class="form-control" name="telefone" placeholder="11944445555" defaultValue={dados[0].telefone} />
+                                    <input type="text" class="form-control" name="telefone" placeholder="11944445555" defaultValue={dados.prestador[0].telefone} />
                                 </div>
 
                                 <div className="form-row">
                                     <div class="form-group col-md-9">
                                         <label for="address">Endereço:</label>
-                                        <input type="text" name="rua" class="form-control" id="address" placeholder="Rua do Meio" defaultValue={dados[0].logradouro} />
+                                        <input type="text" name="rua" class="form-control" id="address" placeholder="Rua do Meio" defaultValue={dados.prestador[0].logradouro} />
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="address">Número:</label>
-                                        <input type="text" name="numero" class="form-control" id="address" placeholder="1000" defaultValue={dados[0].numero} />
+                                        <input type="text" name="numero" class="form-control" id="address" placeholder="1000" defaultValue={dados.prestador[0].numero} />
                                     </div>
                                 </div>
 
                                 <div class="form-row">
                                     <div class="form-group col-md-4">
                                         <label for="inputEstado" >Estado</label>
-                                        <select id="inputEstado" name="estado" class="form-control" defaultValue={dados[0].estado}>
+                                        <select id="inputEstado" name="estado" class="form-control" defaultValue={dados.prestador[0].estado}>
                                             <option value="SP" >São Paulo</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="inputCity">Cidade</label>
-                                        <select name="cidade" class="form-control" id="inputCity" defaultValue={dados[0].cidade}>
+                                        <select name="cidade" class="form-control" id="inputCity" defaultValue={dados.prestador[0].cidade}>
                                             <option value="SP" >São Paulo</option>
                                         </select>
                                     </div>
                                     <div class="form-group col-md-4">
                                         <label for="bairro">Bairro</label>
-                                        <select name="bairro" class="form-control" id="bairro" defaultValue={dados[0].bairro} >
+                                        <select name="bairro" class="form-control" id="bairro" defaultValue={dados.prestador[0].bairro} >
                                             <option value="Paraisópolis" >Paraisópolis</option>
                                         </select>
 
@@ -111,12 +111,12 @@ const Loja = () => {
                                 <div className="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="inputCEP">CEP</label>
-                                        <input type="text" name="cep" class="form-control" id="inputCEP" placeholder="00000000" defaultValue={dados[0].cep} />
+                                        <input type="text" name="cep" class="form-control" id="inputCEP" placeholder="00000000" defaultValue={dados.prestador[0].cep} />
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label for="inputIMG">Imagem</label>
-                                        <input type="url" name="imagem" class="form-control" id="inputIMG" placeholder="Link da sua foto" defaultValue={dados[0].imagem} />
+                                        <input type="url" name="imagem" class="form-control" id="inputIMG" placeholder="Link da sua foto" defaultValue={dados.prestador[0].imagem} />
                                     </div>
 
                                 </div>
@@ -124,7 +124,7 @@ const Loja = () => {
 
                                 <div class="form-group">
                                     <label for="textarea">Descreva seu trabalho em geral,públicos que atende, etc:</label>
-                                    <textarea class="form-control" id="textarea" rows="3" name="descricao" defaultValue={dados[0].descricao_loja} ></textarea>
+                                    <textarea class="form-control" id="textarea" rows="3" name="descricao" defaultValue={dados.prestador[0].descricao_loja} ></textarea>
                                 </div>
                             </form>
                         </div>

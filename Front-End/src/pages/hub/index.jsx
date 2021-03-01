@@ -1,17 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import Menu from "../../componentes/Menu";
 import Apoio from "../../componentes/Apoio";
 
 import "./stylehub.css";
 
-
 import $ from 'jquery';
 
+import ImagemPlaceholder from '../../assets/imagens/perfil-placeholder.png'
+
 const Hub = () => {
-  const [dados, setDados] = React.useState([]);
+  const [dados, setDados] = React.useState({prestador: []});
   const [pesquisa, setPesquisa] = React.useState(false);
+  const history = useHistory();
 
   React.useEffect(async () => {
     const url = "http://projetos/ProjetoRecode/Back-End/selectPrestadorByLogin.php";
@@ -25,6 +27,7 @@ const Hub = () => {
     const response = await envio;
     const res = await response.json();
     setDados(res)
+    console.log(res)
   }, [])
 
   React.useEffect(() => {
@@ -86,45 +89,46 @@ const Hub = () => {
     }
   }
 
-  if (dados[0] != null) {
+  if (dados.prestador[0] != null) {
     return (
       <div className="hub">
-        <div className="container-fluid m-0 p-0">
+        <div className="container-fluid">
           <div className="section-1">
             <div className="bloco-1">
               <Menu />
             </div>
           </div>
-          <div className="section-principal">
-            <div className="section-user">
+          <div className="section-principal row">
+            <div className="section-user col-lg-2 col-md-3 mx-0 px-0 w-100">
               <aside className="inf-user">
                 <div className="foto-user">
-                  <img src={dados[0].imagem} className="rounded-circle" alt="foto usuario" />
+                  <img src={dados.prestador[0].imagem} onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} className="rounded-circle" alt="foto usuario" />
                 </div>
                 <div className="name-user text-center">
-                  <p>{dados[0].nome_fantasia}</p>
+                  <p>{dados.prestador[0].nome_fantasia}</p>
                 </div>
                 <div className="pontos">
-                  <p>50</p>
+                  <p>{dados.pontuacao[0].pontuacao}</p>
                   <p>pontos</p>
                 </div>
                 <div className="atividades">
-                  <p>1/3</p>
+                  <p>{dados.perguntas[0].respostasUser}/{dados.perguntas[0].perguntasTotal}</p>
                   <p>atividades</p>
                 </div>
                 <div className="anuncios">
-                  <p>10</p>
+                  <p>{dados.anuncios[0].qntdAnuncios}</p>
                   <p>anúncios</p>
                 </div>
                 <div className="btns">
-                  <Link className="btn" to={`/portifolio?&id=${dados[0].idcadastrolojaprestador}`}>Meu perfil</Link>
+                  <Link className="btn" to={`/portifolio?&id=${dados.prestador[0].idcadastrolojaprestador}`}>Meu perfil</Link>
                   <Link className="btn" to="/cadportifolio">Adicionar Portfólio</Link>
                   <Link className="btn" to="/servico">Criar Anúncio</Link>
                   <Link className="btn" to="/updateloja">Atualizar perfil</Link>
                 </div>
               </aside>
             </div>
-            <div className="conteudo">
+
+            <div className="conteudo col-lg-10 col-md-9 px-0 mx-0">
               <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
@@ -259,8 +263,8 @@ const Hub = () => {
                       if (itemCurso === cursos[0]) {
                         return (
                           <div class="carousel-item active">
-                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." />
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." onClick={()=>{history.push(`/cursos?&id=${itemCurso.idcursos}`)}} />
+                            <div class="carousel-caption">
                               <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
                                 <h5>{itemCurso.nome_curso}</h5>
                               </Link>
@@ -271,8 +275,8 @@ const Hub = () => {
                       } else {
                         return (
                           <div class="carousel-item ">
-                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." />
-                            <div class="carousel-caption d-none d-md-block">
+                            <img src={require('../../assets/imagens/'+itemCurso.imagem_curso).default} className="d-block w-100" alt="..." onClick={()=>{history.push(`/cursos?&id=${itemCurso.idcursos}`)}} />
+                            <div class="carousel-caption">
                               <Link to={`/cursos?&id=${itemCurso.idcursos}`}>
                                 <h5>{itemCurso.nome_curso}</h5>
                               </Link>
@@ -297,11 +301,10 @@ const Hub = () => {
 
               </div>
 
-              <div style={{ margin: 50 }}>
-
-                <h3>Apoio: </h3>
+             
+             
                 <Apoio />
-              </div>
+           
             </div>
           </div>
         </div>

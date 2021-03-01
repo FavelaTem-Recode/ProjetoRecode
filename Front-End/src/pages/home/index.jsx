@@ -9,10 +9,23 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-    const[pesquisa,setPesquisa] = React.useState("")
+    const [pesquisa,setPesquisa] = React.useState("")
+    const [dados,setDados] = React.useState([{qntdPrestadores: 0, qntdComentarios: 0}])
     function onChangeHandler(event){
         setPesquisa(event.target.value)
     }
+
+    React.useEffect(()=>{
+        async function getDados(){
+            const url = "http://projetos/ProjetoRecode/Back-End/selectDadosPublicos.php";
+            const req = fetch(url);
+            const res = await req;
+            const dados = await res.json();
+            setDados(dados);
+        }
+        getDados();
+    },[])
+
     return (
         <div className="home">
             <Menu />
@@ -33,11 +46,11 @@ const Home = () => {
                 </div>
                 <div class="item2">
                     <div id="frase">
-                        <h1>64</h1>
+                        <h1>{dados[0].qntdComentarios}</h1>
                         <h2>Clientes compartilharam suas exeperiências aqui</h2>
                     </div>
                     <div id="frase">
-                        <h1>42</h1>
+                        <h1>{dados[0].qntdPrestadores}</h1>
                         <h2 id="fraseA">profissionais registrados</h2>
                     </div>
                     <div id="fraseB">
@@ -67,7 +80,7 @@ const Home = () => {
             </section>
             <section>
             <div id="comofunciona">
-                    <h2  id="item5">Favela tem é uma plataforma de pubicidade de serviços dos moradores de paraisópolis. <a href name="qs"></a> </h2>
+                    <h2  id="item5">Favela tem é uma plataforma de publicidade de serviços dos moradores de paraisópolis. <a href name="qs"></a> </h2>
                 </div>
             </section>
             <section class="containerflex3">

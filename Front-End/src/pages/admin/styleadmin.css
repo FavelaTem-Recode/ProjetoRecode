@@ -61,7 +61,7 @@
 
 .admin .section-user .inf-user .name-user {
     background-color: #FF4D00;
-    width: 180px;
+    width: 95%;
     height: auto;
     color: white;
     margin: 0px 0px 16px 0px;
@@ -72,56 +72,6 @@
     margin:0;
     font-weight: 900;
 }
-
-.admin .section-user .inf-user .pontos {
-    background-color: white;
-    color: #1CA8C9;
-    width:180px;
-    height: 90px;
-    border-radius: 12px;
-    margin: 8px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.admin .section-user .inf-user .atividades {
-    background-color: white;
-    color: #1CA8C9;
-    width:180px;
-    height: 90px;
-    border-radius: 12px;
-    margin: 8px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 16px;
-    text-transform: uppercase;
-}
-
-.admin .section-user .inf-user .anuncios {
-    background-color: white;
-    color: #1CA8C9;
-    width:180px;
-    height: 90px;
-    border-radius: 12px;
-    margin: 8px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    font-weight: bolder;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
-
 
 .admin .section-user .experiencia  li{
     font-size: large;
@@ -200,4 +150,5 @@
 
 .admin .parentCanvas {
     width: 50%;
+    min-width: 320px;
 }

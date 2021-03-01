@@ -6,6 +6,8 @@ import "./styleadmin.css";
 import Menu from "../../componentes/Menu";
 import { Link } from "react-router-dom";
 
+import ImagemPlaceholder from '../../assets/imagens/perfil-placeholder.png'
+
 const Admin = () => {
     const [dados, setDados] = React.useState({
         churn: [""], proporcao: [""],
@@ -85,10 +87,10 @@ const Admin = () => {
                     </div>
                 </div>
                 <div className="section-principal row">
-                    <div className="section-user col-lg-2 col-md-3">
+                    <div className="section-user col-lg-2 col-md-3 w-100">
                         <aside className="inf-user">
                             <div className="foto-user">
-                                <img src={localStorage.getItem("imagem")} className="rounded-circle" alt="foto usuario" />
+                                <img src={localStorage.getItem("imagem")} onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} className="rounded-circle" alt="foto usuario" />
                             </div>
                             <div className="name-user text-center">
                                 <p>{localStorage.getItem("nome")}</p>

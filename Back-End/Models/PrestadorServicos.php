@@ -123,10 +123,15 @@ class PrestadorServicos
         $stmt4 = $conn->query("SELECT(SELECT count(*) FROM favelatem.respostas_usuarios where fk_usuario = '$this->fk_lojaprestador') as respostasUser, (SELECT count(*) from favelatem.perguntas) as perguntasTotal;");
         $perguntas = $stmt4->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt5 = $conn->query("SELECT count(*) FROM favelatem.servicos WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
+        $stmt5 = $conn->query("SELECT count(*) as qntdAnuncios FROM favelatem.servicos WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
         $anuncios = $stmt5->fetchAll(PDO::FETCH_ASSOC);
 
-        return $dadosPrestador;
+        return array(
+            'prestador' => $dadosPrestador,
+            'pontuacao' => $pontuacao,
+            'perguntas' => $perguntas,
+            'anuncios' => $anuncios
+        );
     }
 
     public function selectCategoriasPrestador()
@@ -168,13 +173,12 @@ class PrestadorServicos
 
         $stmt = $conn->query("SELECT now() > proxima_avaliacao as deveAtualizar FROM respostas_avaliacao WHERE id_prestador = '$this->fk_lojaprestador';");
 
-        foreach($stmt->fetchAll(PDO::FETCH_ASSOC) as $retorno)
-        {
-          if($retorno['deveAtualizar'] == 1){
-            return Array('pesquisa'=> true);
-          }
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $retorno) {
+            if ($retorno['deveAtualizar'] == 1) {
+                return array('pesquisa' => true);
+            }
         }
-        return Array('pesquisa'=> false);
+        return array('pesquisa' => false);
     }
 }
 

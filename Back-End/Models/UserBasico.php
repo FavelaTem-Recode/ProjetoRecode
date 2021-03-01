@@ -15,6 +15,7 @@ class UserBasico
     public function registerUser()
     {
         $conn = Connection::getConnection();
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
         $stmt = $conn->query("INSERT INTO cadastrobasico
         (
             nome,
