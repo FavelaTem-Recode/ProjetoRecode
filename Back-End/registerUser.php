@@ -12,7 +12,7 @@ $usuario->sobrenome = $_POST['sobrenome'];
 $usuario->senha = md5($_POST['senha']);
 
 
-if (strlen($usuario->email) >= 9 && strlen($usuario->nome)>1 && strlen($usuario->sobrenome)>1 && strlen($_POST['senha'])> 5) {
+if (strlen($usuario->email) >= 6 && strlen($usuario->nome)>1 && strlen($usuario->sobrenome)>1 && strlen($_POST['senha'])> 5) {
     $validate = $usuario->registerUser();
     if ($validate == true) {
         print_r(

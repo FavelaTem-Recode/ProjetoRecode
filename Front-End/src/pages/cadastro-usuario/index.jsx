@@ -10,22 +10,24 @@ const Registro = () => {
     const history = useHistory();
     async function cadUser(event) {
         event.preventDefault()
-        console.log(event);
 
-        const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerUser.php";
-        const form = new FormData(event.target);
-        const envio = fetch(url, {
-            method: "POST",
-            body: form
-        })
-        const response = await envio;
-        const res = await response.json();
-        console.log(res);
-        if(res.status == 1){
-            alert("Registro bem sucedido, você será redirecionado ao login.");
+        if (event.target[4].value === event.target[3].value) {
+            const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerUser.php";
+            const form = new FormData(event.target);
+            const envio = fetch(url, {
+                method: "POST",
+                body: form
+            })
+            const response = await envio;
+            const res = await response.json();
+            if (res.status == 1) {
+                alert("Registro bem sucedido, você será redirecionado ao login.");
                 history.push("/login")
+            } else {
+                alert("Algo deu errado, digite um senha com pelo menos 6 caracteres e cheque se as informações estão certas.")
+            }
         } else {
-            alert("Algo deu errado, digite um senha com pelo menos 6 caracteres e cheque se as informações estão certas.")
+            alert("A senha e a confirmação devem ser iguais")
         }
     }
 
@@ -33,7 +35,7 @@ const Registro = () => {
 
         <div className='cadastro'>
             <header className='jumbotron jumbotron-fluid pt-4 h-25 section-1'>
-                <button><img src={Voltar} alt="botão para voltar" onClick={()=>{history.goBack()}}/></button>
+                <button><img src={Voltar} alt="botão para voltar" onClick={() => { history.goBack() }} /></button>
                 <p>Cadastre-se no Favela Tem e encontre um profissional para sua necessidade.</p>
 
             </header>
@@ -78,7 +80,7 @@ const Registro = () => {
 
 
                                 <div class="form-group">
-                                    <input type="checkbox" className="checkbox" name="checkbox" id="checkbox" required/>
+                                    <input type="checkbox" className="checkbox" name="checkbox" id="checkbox" required />
                                     <label for="checkbox" className="form-check-label">Li e concordo com os termos de uso e a Política de Privacidade!</label>
                                 </div>
                             </div>

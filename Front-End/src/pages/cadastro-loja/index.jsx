@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 const Loja = () => {
     const history = useHistory();
     async function cadloja(event) {
+
         event.preventDefault()
-        console.log(event);
 
         const url = "http://localhost/projetos/ProjetoRecode/Back-End/registerPrestador.php";
         const form = new FormData(event.target);
@@ -21,19 +21,18 @@ const Loja = () => {
         })
         const response = await envio;
         const res = await response.json();
-        console.log(res);
-        if (res.status == 1) {
-            alert("Seu cadastro foi bem sucedido, faça login novamente e terá acesso completo");
 
+        alert(res.mensagem);
+
+        if(response.status === 201){
             localStorage.removeItem("login");
             localStorage.removeItem("senha");
             localStorage.removeItem("idprestador");
             localStorage.removeItem("nome");
             history.push("/login")
-        } else {
-            alert("Algo deu errado, cheque se os dados foram inseridos corretamente")
         }
-
+        
+        
     }
     return (
 
