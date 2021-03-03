@@ -10,7 +10,6 @@ import {
 
 import styles from "./styles";
 
-
 function Home({ navigation }) {
   function home() {
     navigation.navigate("Home");
@@ -27,22 +26,28 @@ function Home({ navigation }) {
   function cadastrar() {
     navigation.navigate("FormularioCadastro");
   }
-  function contatos() {   
-    navigation.navigate("FormularioContatos");    
-}
+  function contatos() {
+    navigation.navigate("FormularioContatos");
+  }
 
   return (
     <ScrollView style={styles.caixa}>
-       
-       <TouchableOpacity style={{display:"flex", flexDirection:"row", marginTop:10, marginLeft:10}} onPress={home}>
-        <Image 
-          source={require("../../../assets/logofavelatem.png")} />
-      </TouchableOpacity> 
+      <TouchableOpacity
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          marginTop: 10,
+          marginLeft: 10,
+        }}
+        onPress={home}
+      >
+        <Image source={require("../../../assets/logofavelatem.png")} />
+      </TouchableOpacity>
 
       <View style={styles.abertura}>
         {/* <Text style={styles.titulo}>FAVELA TEM</Text> */}
         <Text style={styles.label}>
-         A Plataforma de publicidade de serviços dos moradores de Paraisópolis
+          A Plataforma de publicidade de serviços dos moradores de Paraisópolis
         </Text>
       </View>
 
@@ -123,9 +128,14 @@ function Home({ navigation }) {
         <View style={styles.container}>
           <Text style={styles.label3}>Tudo isso, totalmente Gratuito!!!</Text>
         </View>
-        
-        <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around"}}>
 
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+          }}
+        >
           <TouchableOpacity style={styles.btn} onPress={cadastrar}>
             <Text style={styles.texto}>Cadastro</Text>
           </TouchableOpacity>
@@ -137,9 +147,7 @@ function Home({ navigation }) {
           <TouchableOpacity style={styles.btn} onPress={contatos}>
             <Text style={styles.texto}>Contato</Text>
           </TouchableOpacity>
-
-        </View>       
-
+        </View>
       </View>
 
       <View style={styles.container_normal}>

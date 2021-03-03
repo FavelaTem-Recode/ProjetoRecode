@@ -49,14 +49,10 @@ function Contatos({navigation}) {
                         
                     />
 
-                    {/* <View style={{backgroundColor: "#e6aa65", marginTop:10, padding: 10}}> */}
 
                     <Text style={styles.labelcadastro}>Deixe sua mensagem:</Text>
                     <TextInput
                         style={styles.textArea}
-                        // underlineColorAndroid="transparent"
-                    
-                        //   placeholderTextColor="black"
                         placeholder="Mensagem..." 
                         numberOfLines={20}  
                         multiline={true}
@@ -68,7 +64,7 @@ function Contatos({navigation}) {
                     </TouchableOpacity>
 
                 </View>
-                 {/* </Card> */}
+        
                  <View>
                 <Text
                     style={{

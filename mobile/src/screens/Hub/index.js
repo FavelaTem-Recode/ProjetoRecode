@@ -18,8 +18,8 @@ function Hub({ navigation }) {
   function cursos() {
     navigation.navigate("Cursos");
   }
-  function hub() {
-    navigation.navigate("Hub");
+  function loja() {
+    navigation.navigate("FormularioLojas");
   }
 
   return (
@@ -34,7 +34,7 @@ function Hub({ navigation }) {
 
       <View style={{display:"flex", alignItems:"center", marginLeft: 5, marginRight: 10, marginTop:25}}>
         <Image style={styles.imagemCurso} source={require("../../../assets/pedreiro.png")} />
-        <Text style={{fontSize:18, fontWeight:"bolder", fontStyle:"italic", color: "#ff8c00"}}>Rafael</Text>
+        <Text style={{fontSize:18, fontWeight:"bold", fontStyle:"italic", color: "#ff8c00"}}>Rafael</Text>
       </View>      
 
      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around", marginTop:20}}>
@@ -106,8 +106,8 @@ function Hub({ navigation }) {
 
      <View style={{display:"flex", flexDirection:"row", justifyContent:"space-around" }}>
         
-        <TouchableOpacity style={styles.btn} onPress={home}>
-          <Text style={styles.texto}>Home</Text>
+        <TouchableOpacity style={styles.btn} onPress={loja}>
+          <Text style={styles.texto}>Criar Loja</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn} onPress={servico}>
