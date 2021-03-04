@@ -21,6 +21,9 @@ function Hub({ navigation }) {
   function loja() {
     navigation.navigate("FormularioLojas");
   }
+  function servicos() {
+    navigation.navigate("FormularioServicos");
+  }
 
   return (
     <ScrollView style={{backgroundColor:"#fff", height:"100%"}} >
@@ -108,6 +111,10 @@ function Hub({ navigation }) {
         
         <TouchableOpacity style={styles.btn} onPress={loja}>
           <Text style={styles.texto}>Criar Loja</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.btn} onPress={servicos}>
+          <Text style={styles.texto}>Criar Serviço</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.btn} onPress={servico}>
