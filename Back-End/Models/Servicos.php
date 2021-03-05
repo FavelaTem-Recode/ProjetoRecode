@@ -72,7 +72,7 @@ class Servicos
     public static function selectServicos()
     {
         $conn = Connection::getConnection();
-        $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador;");
+        $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador inner join subcategorias on fk_subcategoria = idsubcategorias inner join categorias_servico on fk_categoria = idcategorias_servico;");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

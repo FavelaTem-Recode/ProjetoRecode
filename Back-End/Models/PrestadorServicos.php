@@ -120,10 +120,10 @@ class PrestadorServicos
         $stmt3 = $conn->query("SELECT sum(valor_pontos) as pontuacao FROM respostas_usuarios inner join respostas_padrao on resposta_usuario = idrespostas_padrao inner join perguntas on respostas_usuarios.fk_pergunta = idperguntas where fk_usuario = '$this->fk_lojaprestador' and veracidade = 1;");
         $pontuacao = $stmt3->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt4 = $conn->query("SELECT(SELECT count(*) FROM favelatem.respostas_usuarios where fk_usuario = '$this->fk_lojaprestador') as respostasUser, (SELECT count(*) from favelatem.perguntas) as perguntasTotal;");
+        $stmt4 = $conn->query("SELECT(SELECT count(*) FROM respostas_usuarios where fk_usuario = '$this->fk_lojaprestador') as respostasUser, (SELECT count(*) from perguntas) as perguntasTotal;");
         $perguntas = $stmt4->fetchAll(PDO::FETCH_ASSOC);
 
-        $stmt5 = $conn->query("SELECT count(*) as qntdAnuncios FROM favelatem.servicos WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
+        $stmt5 = $conn->query("SELECT count(*) as qntdAnuncios FROM servicos WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
         $anuncios = $stmt5->fetchAll(PDO::FETCH_ASSOC);
 
         return array(

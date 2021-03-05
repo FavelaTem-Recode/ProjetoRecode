@@ -25,7 +25,7 @@ const Servicos = () => {
   const [subcategorias, setSubcategorias] = React.useState([]);
   const [servicos, setServicos] = React.useState([]);
   const [pesquisa, setPesquisa] = React.useState([""]);
-  const [filtro, setFiltro] = React.useState({ subcateg: "Todos" });
+  const [filtro, setFiltro] = React.useState({ subcateg: "Todos", categ: "Todos" });
 
   //Retorna o valor passado na url vindo de home
   function getInfo() {
@@ -51,7 +51,7 @@ const Servicos = () => {
   }
 
   function limparFiltro() {
-    setFiltro({ subcateg: "Todos" });
+    setFiltro({ subcateg: "Todos", categ: "Todos" });
   }
 
   function filtrar(event) {
@@ -86,11 +86,25 @@ const Servicos = () => {
     }
   }, [])
 
+  function updateCategoria(val){
+    let oldState = filtro;
+    let newState = {...oldState}
+    newState.categ = val;
+    newState.subcateg = "Todos";
+    setFiltro(newState);
+  }
+
   //Pega o valor da categ selecionada e passa como parâmetro para retornar as subcategorias relacionadas
   async function updateSubcategorias(event) {
     const id = event.target.value;
     let idForm = new FormData();
     idForm.append("id", id);
+
+    let oldState = filtro;
+    let newState = {...oldState}
+    newState.categ = id;
+    newState.subcateg = "Todos";
+    setFiltro(newState);
 
     const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectSubcategorias.php";
     const busca = fetch(url, {
@@ -123,50 +137,50 @@ const Servicos = () => {
               <ul class="navbar-nav mr-auto mt-2 mt-lg-0 w-100 justify-content-between">
 
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("4")}}>
                     <img src={camera} alt="" />
                     <p>Arte</p>
                   </button>
                 </li>
 
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("5")}}>
                     <img src={assistencia} alt="" />
                     <p>Assistência Técnica</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("6")}}>
                     <img src={beleza} alt="" />
                     <p>Beleza</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("7")}}>
                     <img src={caixa} alt="" />
                     <p>Serviços Gerais</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("8")}}>
                     <img src={alimentacao} alt="" />
                     <p>Alimentação</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("9")}}>
                     <img src={costura} alt="" />
                     <p>Moda</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("10")}}>
                     <img src={saude} alt="" />
                     <p>Saúde e bem-estar</p>
                   </button>
                 </li>
                 <li class="nav-item">
-                  <button>
+                  <button onClick={()=>{updateCategoria("11")}}>
                     <img src={consultoria} alt="" />
                     <p>Outros</p>
                   </button>
@@ -222,7 +236,7 @@ const Servicos = () => {
             </div>
 
             <div className="group-servicos flex-wrap justify-content-center">
-              {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg || filtro.subcateg === "Todos").map((servico) => {
+              {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg ||servico.fk_categoria === filtro.categ && filtro.subcateg === "Todos" || filtro.categ === "Todos" && filtro.subcateg === "Todos").map((servico) => {
                 return (
                   <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} />
                 )

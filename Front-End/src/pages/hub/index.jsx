@@ -61,7 +61,7 @@ const Hub = () => {
     const res = await response.json()
     setCursos(res);
 
-  });
+  }, []);
 
   async function responderPesquisa(event) {
     event.preventDefault();
