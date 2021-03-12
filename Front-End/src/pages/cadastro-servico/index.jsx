@@ -66,8 +66,8 @@ const Servico = () => {
                     <h3>Dados do serviço:</h3>
                     <hr />
                     <form className="form-log" id="cadastroservico" onSubmit={cadServico}>
-                        <div className="form-row" >
-                            <div class="form-group col-md-6 categ">
+                        <div className="form-row">
+                            <div class="form-group col-md-6">
                                 <label for="nome">Categorias:</label>
                                 <select className="form-select-sm mt-2 w-100" onChange={updateSubcategorias}>
                                     <option selected>Categoria</option>
@@ -78,7 +78,7 @@ const Servico = () => {
                                     })};
                                 </select>
                             </div>
-                            <div class="form-grou col-md-6">
+                            <div class="form-group col-md-6">
                                 <label for="nome">Subcategoria:</label>
                                 <select className="form-select-sm mt-2 w-100 sub-cat" name="idsubcategoria">
                                     {subcategorias.map((subcat) => {
@@ -124,6 +124,7 @@ const Servico = () => {
                             </div>
 
                         </div>
+                        
                         <div class="p custom-control">
                             <p>Horário de atendimento:</p>
                             <label htmlFor='inicio'>Das:</label>
@@ -132,6 +133,7 @@ const Servico = () => {
                             <label htmlFor='fim'>Até:</label>
                             <input type="time" class="custom-control" name='fimatendimento' id='fim' />
                         </div>
+
                         <div className="form-row">
                             <div class="form-group mt-2 col-sm-12 custom-control">
                                 <label htmlFor="arquivo">Inserir imagem do serviço: </label>

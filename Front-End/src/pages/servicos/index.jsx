@@ -238,7 +238,7 @@ const Servicos = () => {
             <div className="group-servicos flex-wrap justify-content-center">
               {servicos.filter(servico => servico.fk_subcategoria == filtro.subcateg ||servico.fk_categoria === filtro.categ && filtro.subcateg === "Todos" || filtro.categ === "Todos" && filtro.subcateg === "Todos").map((servico) => {
                 return (
-                  <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} />
+                  <CardServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} start={servico.inicio_atendimento} end={servico.fim_atendimento} />
                 )
               })}
             </div>

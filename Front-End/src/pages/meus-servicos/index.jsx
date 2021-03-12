@@ -1,17 +1,22 @@
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
+
+import Menu from "../../componentes/Menu";
 
 import "./style.css";
 
-import Menu from "../../componentes/Menu";
-import { Link } from "react-router-dom";
-import Apoio from "../../componentes/Apoio";
+import $ from 'jquery';
 
-import Cursos from "../../componentes/Cursos";
+import ImagemPlaceholder from '../../assets/imagens/perfil-placeholder.png';
 
-import ImagemPlaceholder from '../../assets/imagens/perfil-placeholder.png'
+import CardMyServicos from '../../componentes/card-myservicos';
 
-const Hub = () => {
-    const [dados, setDados] = React.useState({ prestador: [] })
+const MyServicos = () => {
+    const [render,setRender] = React.useState(false);
+    const [dados, setDados] = React.useState({ prestador: [] });
+    const [servicos, setServicos] = React.useState([]);
+    const history = useHistory();
+
     React.useEffect(async () => {
         const url = "http://projetos/ProjetoRecode/Back-End/selectPrestadorByLogin.php";
         const form = new FormData();
@@ -25,20 +30,28 @@ const Hub = () => {
         const res = await response.json();
         setDados(res)
         console.log(res)
+    }, [render])
 
-    }, [])
+    React.useEffect(async () => {
+        const url = "http://localhost/projetos/ProjetoRecode/Back-End/selectMyServicos.php";
+        const form = new FormData();
+        form.append('email', localStorage.getItem('login'))
+        form.append('senha', localStorage.getItem('senha'))
 
-    function getInfo() {
-        const queryString = window.location.href;
-        const urlParams = new URLSearchParams(queryString);
-        const id = urlParams.get('id');
-        return id;
-    }
+        const busca = fetch(url,{
+            method: "POST",
+            body: form
+        });
+        const resposta = await busca;
+        const dados = await resposta.json();
+        setServicos(dados);
+    }, [render])
+
 
     if (dados.prestador[0] != null) {
         return (
-            <div className="curso">
-                <div className="container-fluid px-0">
+            <div className="hub">
+                <div className="container-fluid">
                     <div className="section-1">
                         <div className="bloco-1">
                             <Menu />
@@ -48,7 +61,7 @@ const Hub = () => {
                         <div className="section-user col-lg-2 col-md-3 mx-0 px-0 w-100">
                             <aside className="inf-user">
                                 <div className="foto-user">
-                                    <img src={dados.prestador[0].imagem} onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} className="rounded-circle" alt="foto usuario" />
+                                    <img src={dados.prestador[0].imagem} onError={(e) => { e.target.onerror = null; e.target.src = ImagemPlaceholder }} className="rounded-circle" alt="foto usuario" />
                                 </div>
                                 <div className="name-user text-center">
                                     <p>{dados.prestador[0].nome_fantasia}</p>
@@ -74,16 +87,16 @@ const Hub = () => {
                                 </div>
                             </aside>
                         </div>
-                        <div className="conteudo col-lg-10 col-md-9 px-0 mx-0">
-                            <div className="cursos">
-                                <div className="container-fluid d-flex align-items-center">
 
-                                    <Cursos id={getInfo()} />
-
-                                </div>
-
+                        <div className="conteudo col-lg-10 col-md-9 px-0 mx-0 d-flex justify-content-start">
+                            <h2>Meus Anúncios</h2>
+                            <div className="group-servicos flex-wrap d-flex justify-content-center">
+                                {servicos.map((servico) => {
+                                    return (
+                                        <CardMyServicos cartao={servico.pagamento_cartao} dinheiro={servico.pagamento_dinheiro} atenddomicilio={servico.atendimento_domicilio} atendlocal={servico.atendimento_local} imgModal={servico.imagem_servico} local={servico.logradouro + ", " + servico.numero} nome={servico.nome_fantasia} imgpessoa={servico.imagem} imgcard={servico.imagem_servico} descricao={servico.descricao_servico} id={servico.idcadastrolojaprestador} idservico={servico.idservicos} setState={setRender} state={render} categ={servico.idcategorias_servico} subcateg={servico.idsubcategorias} start={servico.inicio_atendimento} end={servico.fim_atendimento} />
+                                    )
+                                })}
                             </div>
-                            <Apoio />
                         </div>
                     </div>
                 </div>
@@ -94,4 +107,4 @@ const Hub = () => {
     };
 };
 
-export default Hub;
+export default MyServicos;

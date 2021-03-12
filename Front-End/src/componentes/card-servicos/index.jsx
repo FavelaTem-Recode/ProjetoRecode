@@ -21,17 +21,18 @@ const CardServicos = (props) => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
-              <img src={props.imgModal} alt="imgModal" className="img-fluid" />
-              <div className="container d-flex">
+            <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+              <img src={props.imgModal} alt="Serviço sem imagem" className="img-fluid" />
+              <div className="container d-flex align-items-center justify-content-center">
                 <ul>
-                  {props.cartao ==1?<li>Aceita cartão</li>:<li>Não aceita cartão</li>}
-                  {props.dinheiro ==1?<li>Aceita dinheiro</li>:<li>Não aceita dinheiro</li>}
-                  
+                  {props.cartao == 1 ? <li>Aceita cartão</li> : <li>Não aceita cartão</li>}
+                  {props.dinheiro == 1 ? <li>Aceita dinheiro</li> : <li>Não aceita dinheiro</li>}
+                  <li>Abre as {props.start}</li>
                 </ul>
                 <ul>
-                {props.atendlocal ==1?<li>Atende no local</li>:<li>Não atende no local</li>}
-                {props.atenddomicilio ==1?<li>Atende em domicílio</li>:<li>Não atende em domicílio</li>}
+                  {props.atendlocal == 1 ? <li>Atende no local</li> : <li>Não atende no local</li>}
+                  {props.atenddomicilio == 1 ? <li>Atende em domicílio</li> : <li>Não atende em domicílio</li>}
+                  <li>Fecha as {props.end}</li>
                 </ul>
               </div>
             </div>
@@ -45,7 +46,7 @@ const CardServicos = (props) => {
 
       <div className="cardServicos card">
         <div className="card-header d-flex">
-          <img src={props.imgpessoa} alt="imngteste" onError={(e)=>{e.target.onerror = null; e.target.src=ImagemPlaceholder}} className="rounded-circle" />
+          <img src={props.imgpessoa} alt="imngteste" onError={(e) => { e.target.onerror = null; e.target.src = ImagemPlaceholder }} className="rounded-circle" />
           <div className="ml-2">
             <p className="nome">{props.nome}</p>
             <p className="local">{props.local}</p>

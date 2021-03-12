@@ -23,7 +23,9 @@ const Adminlogin = () => {
             localStorage.setItem("nome", res.body[0].nome)
             localStorage.setItem("imagem", res.body[0].imagem)
             history.push("/admin")
-        }else {alert("Não foi possível logar")}
+        }else {
+            alert("Não foi possível logar")
+        }
     }
 
     return (

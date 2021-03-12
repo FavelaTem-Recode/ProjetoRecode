@@ -3,6 +3,7 @@ import "./style.css";
 import carrosselVazio from '../../assets/imagens/portfolio-vazio.jpg';
 import Menu from '../../componentes/Menu';
 import ImagemPlaceholder from '../../assets/imagens/image-placeholder.png';
+import PerfilPlaceholder from '../../assets/imagens/perfil-placeholder.png';
 
 
 const Portifolio = () => {
@@ -95,7 +96,7 @@ const Portifolio = () => {
                 <section class="section1 container-fluid">
 
                     <div class="tesoura">
-                        <img src={dados[0].imagem} className="img-fluid rounded-circle" alt="logo" />
+                        <img src={dados[0].imagem} className="img-fluid rounded-circle" alt="logo" onError={(e) => { e.target.onerror = null; e.target.src = PerfilPlaceholder }} />
                     </div>
                     <div className="container">
                         <div className="row">

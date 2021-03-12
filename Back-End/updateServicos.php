@@ -9,32 +9,55 @@ $servicos = new Servicos;
 
 $servicos->id = $_POST['idservico'];
 $servicos->descricao_servico = $_POST['descricaoservico'];
-$servicos->atendimento_domicilio = $_POST['atendimentodomicilio'];
-$servicos->atendimento_local = $_POST['atendimentolocal'];
-$servicos->pagamento_dinheiro = $_POST['pagamentodinheiro'];
-$servicos->pagamento_cartao = $_POST['pagamentocartao'];
 $servicos->inicio_atendimento = $_POST['inicioatendimento'];
 $servicos->fim_atendimento = $_POST['fimatendimento'];
 $servicos->imagem_servico = $_POST['imagemservico'];
+$servicos->fk_subcategoria = $_POST['idsubcategoria'];
 $servicos->senha = md5($_POST['senha']);
 $servicos->email = $_POST['email'];
 
+if (isset($_POST['atendimentodomicilio'])) {
+    $servicos->atendimento_domicilio = 1;
+} else {
+    $servicos->atendimento_domicilio = 0;
+}
+
+if (isset($_POST['atendimentolocal'])) {
+    $servicos->atendimento_local = 1;
+} else {
+    $servicos->atendimento_local = 0;
+}
+
+if (isset($_POST['pagamentodinheiro'])) {
+    $servicos->pagamento_dinheiro = 1;
+} else {
+    $servicos->pagamento_dinheiro = 0;
+}
+
+if (isset($_POST['pagamentocartao'])) {
+    $servicos->pagamento_cartao = 1;
+} else {
+    $servicos->pagamento_cartao = 0;
+}
+
+
 $validate = $servicos->updateServicos();
-if ($validate == true) {
+
+if ($validate > 0) {
+    http_response_code(200);
     print_r(
         json_encode(
             array(
-                'status' => 'sucesso',
-                'mensagem' => 'Dados atualizados com sucesso'
+                "mensagem" => "Dados alterados com sucesso"
             )
         )
     );
 } else {
+    http_response_code(200);
     print_r(
         json_encode(
             array(
-                'status' => 'falha',
-                'mensagem' => 'Não foi possível atualizar estes dados'
+                "mensagem" => "Dados não foram alterados"
             )
         )
     );

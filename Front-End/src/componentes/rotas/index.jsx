@@ -14,6 +14,7 @@ import Cadportifolio from '../../pages/cadastro-portifolio';
 import Admin from '../../pages/admin';
 import Curso from '../../pages/cursos/curso-individual';
 import Adminlogin from '../../pages/adminlogin';
+import MyServicos from '../../pages/meus-servicos'
 
 function Rotas () {
     return(
@@ -33,6 +34,7 @@ function Rotas () {
             <Route exact path='/admin' component={Admin}/>
             <Route exact path='/curso' component={Curso}/>
             <Route exact path='/adminlogin' component={Adminlogin}/>
+            <Route exact path='/meus-servicos' component={MyServicos}/>
             
         </Switch>
     )

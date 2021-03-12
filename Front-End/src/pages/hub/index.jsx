@@ -27,7 +27,6 @@ const Hub = () => {
     const response = await envio;
     const res = await response.json();
     setDados(res)
-    console.log(res)
   }, [])
 
   React.useEffect(() => {
@@ -77,8 +76,6 @@ const Hub = () => {
     const response = await envio;
     const res = await response.json();
 
-    console.log(res)
-
     const resultado = res.every((e) => e === 1);
 
     if (resultado) {
@@ -108,7 +105,7 @@ const Hub = () => {
                   <p>{dados.prestador[0].nome_fantasia}</p>
                 </div>
                 <div className="pontos">
-                  <p>{dados.pontuacao[0].pontuacao}</p>
+                  <p>{dados.pontuacao[0].pontuacao === null ? 0 : dados.pontuacao[0].pontuacao}</p>
                   <p>pontos</p>
                 </div>
                 <div className="atividades">
@@ -123,6 +120,7 @@ const Hub = () => {
                   <Link className="btn" to={`/portifolio?&id=${dados.prestador[0].idcadastrolojaprestador}`}>Meu perfil</Link>
                   <Link className="btn" to="/cadportifolio">Adicionar Portfólio</Link>
                   <Link className="btn" to="/servico">Criar Anúncio</Link>
+                  <Link className="btn" to="/meus-servicos">Meus Anúncios</Link>
                   <Link className="btn" to="/updateloja">Atualizar perfil</Link>
                 </div>
               </aside>

@@ -113,9 +113,20 @@ class Servicos
     pagamento_cartao = '$this->pagamento_cartao',
     inicio_atendimento = '$this->inicio_atendimento',
     fim_atendimento =  '$this->fim_atendimento',
-    imagem_servico = '$this->imagem_servico'  
-    WHERE idservicos = $this->id 
+    imagem_servico = '$this->imagem_servico',
+    fk_subcategoria = '$this->fk_subcategoria'
+    WHERE idservicos = '$this->id'
     AND fk_lojaprestador = '$this->fk_lojaprestador'");
-        return $stmt;
+        return $stmt->rowCount();
+    }
+
+    public function selectMyServicos(){
+        $conn = Connection::getConnection();
+        $stmt = $conn->query("SELECT iduser,idcadastrolojaprestador from cadastrobasico inner join cadastrolojaprestador on iduser = fk_cadastro WHERE email = '$this->email' and senha = '$this->senha';");
+        $this->fk_lojaprestador = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        isset($this->fk_lojaprestador['0']['idcadastrolojaprestador']) ? $this->fk_lojaprestador = $this->fk_lojaprestador['0']['idcadastrolojaprestador'] : $this->fk_lojaprestador = null;
+
+        $stmt = $conn->query("SELECT * FROM servicos INNER JOIN cadastrolojaprestador ON fk_lojaprestador = idcadastrolojaprestador inner join subcategorias on fk_subcategoria = idsubcategorias inner join categorias_servico on fk_categoria = idcategorias_servico WHERE fk_lojaprestador = '$this->fk_lojaprestador'");
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
