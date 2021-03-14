@@ -1,22 +1,28 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
+import mocabrx from '../../assets/imagens/mocaboloroxom.jpg';
+import costura from '../../assets/imagens/costura.jpg';
 import logo from "../../assets/imagens/logofavelatem.png";
 import financas from "../../assets/imagens/financas.png";
 import marketing from "../../assets/imagens/mktdigital.png";
 import empreendedorismo from "../../assets/imagens/empreendedorismo2.png";
-import "./style.css";
+// import "./style.css";
+import './stylo.css';
+
 import Menu from "../../componentes/Menu";
-import { Link } from 'react-router-dom';
+
 
 
 const Home = () => {
-    const [pesquisa,setPesquisa] = React.useState("")
-    const [dados,setDados] = React.useState([{qntdPrestadores: 0, qntdComentarios: 0}])
-    function onChangeHandler(event){
+    const [pesquisa, setPesquisa] = React.useState("")
+    const [dados, setDados] = React.useState([{ qntdPrestadores: 0, qntdComentarios: 0 }])
+    function onChangeHandler(event) {
         setPesquisa(event.target.value)
     }
 
-    React.useEffect(()=>{
-        async function getDados(){
+    React.useEffect(() => {
+        async function getDados() {
             const url = "http://projetos/ProjetoRecode/Back-End/selectDadosPublicos.php";
             const req = fetch(url);
             const res = await req;
@@ -24,10 +30,126 @@ const Home = () => {
             setDados(dados);
         }
         getDados();
-    },[])
+    }, [])
 
     return (
-        <div className="home">
+        <main className="principal">
+            <Menu />
+            <section className="container-fluid col p-0 secao1" >
+                <div>
+                    <h1>o que você procura?</h1>
+                    <div className="col-lg-6 pesquisar">
+                        <input className="pesquisa" type='text' placeholder='Ex. Informática' name='buscar' value={pesquisa} onChange={onChangeHandler} />
+                        <Link className='btn-buscar' type='button' to={{
+                            pathname: "serviços",
+                            search: "?&pesquisar=" + pesquisa
+                            }}>Buscar
+                        </Link>
+                    </div>
+                </div>             
+            </section>
+
+            <section className="container-fluid col-lg-6 secao2">
+                
+                <div className=' img-sec2'>
+                    <img src={mocabrx} alt="mulher com bolo" />
+                </div>
+
+                <div className=' col-lg-6 dados-sec2' >
+                    <div className='row  '>
+                        <h1>{dados[0].qntdComentarios}</h1>
+                        <p>clientes compartilharam<br /> suas experiências aqui</p>
+                    </div>
+                    <div className='row'>
+                        <h1>{dados[0].qntdPrestadores}</h1>
+                        <p>profissionais registrados</p>
+                    </div>
+                    <div className='row'>
+                        <p>dezenas <br />
+                        de possibilidades</p>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section className='container-fluid row secao3'>
+                
+                <div className='col-lg-6 sec3-cont1'>
+                    <h1>+ Negócios</h1>
+                    <p>traga seu anúncio e comece <br/>a conquistar clientes também pela internet</p>
+                    <input type="button" value="ANÚNCIAR" />
+                </div>
+
+                <div className='img-sec3 '>
+                    <img class="img-fluid" src={costura} alt="Oficina de costura" />
+                </div>  
+                
+            </section>
+
+            <section className='container-fluid secao4'>
+                <p>favela tem é uma plataforma de publicidade de serviços dos moradores de paraisópolis.</p>
+            </section>
+
+            <section className="container-fluid secao5">
+                
+                <div className="row img-sec5 ">
+                    <img style={{margin: 10}} className='img-fluid cursos' src={financas} alt="Curso de finanças" />
+                    <img style={{margin: 10}} className='img-fluid cursos' src={marketing} alt="Curso de marketing digital" />
+                    <img style={{margin: 10}} className='img-fluid cursos' src={empreendedorismo} alt="Curso empreendedorismo" />
+                </div>
+
+                <div className='text-sec5'>
+                    <p>Ao fazer o cadastro você passará por uma trilha
+                    rápida de aprendizado que te ensinará não só a
+                    usar a plataforma, mas também como fazer o
+                    melhor anúncio!</p>
+                </div>
+               
+            </section>
+            
+            <section className="container-fluid secao6">
+                
+                <p className='text1-sec6'>tudo isso, totalmente gratuito!!</p>
+
+            </section>
+
+            <section className='container-fluid  bg-btn-sec7'>    
+                
+                <div className='btn-registro'>
+                    <Link class="button" to="/registro" type="button">Cadastrar-se agora</Link>
+                </div>
+                
+            </section>
+
+            <section className="container-fluid row secao7 ">    
+                <div>
+                    <img calssName="img-fluid" src={logo} alt="logotipo" />
+                </div>
+                
+                <div ClassName="container-fluid text-sec7">
+                    <p> O Favela Tem foi desenvolvido por um grupo de jovens,
+                    com o propósito de divulgar os serviços de moradores de paraisópolis 
+                    que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet.
+                    Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gamificação.
+                    </p>
+                </div>                
+                
+
+                <div className="contato">
+                    <p >Contato</p>
+
+                    <p>Av. Hebe Camargo n°128b - Paraisópolis</p>
+                </div>
+            </section>
+
+        </main>
+    )
+}
+
+export default Home;
+
+/*
+<div className="home">
             <Menu />
             <main>
                 <h1>o que você procura?</h1>
@@ -104,7 +226,7 @@ const Home = () => {
                 <section class="contanerflex4">
                     <div id="logo">
                         <img src={logo} alt=""/>
-                    </div> 
+                    </div>
                     <p id="fraseC">
                     o Favela Tem foi desenvolvido por um grupo de jovens, com o propósito de divulgar os serviços de moradores de paraisópolis que não possuem ponto comercial, para que aumentem suas carteiras de clientes através da internet. Além de empoderar esses trabalhadores com um conteúdo educacional em forma de gamificação.
                     </p>
@@ -118,4 +240,5 @@ const Home = () => {
             </div>
     )
 }
-export default Home;
+
+*/
